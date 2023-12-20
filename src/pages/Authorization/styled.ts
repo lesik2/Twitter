@@ -1,0 +1,146 @@
+import styled, { css } from 'styled-components';
+
+
+export const SectionAuth = styled.section`
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    background-color: ${theme.colors.primary};
+  `};
+`
+export const Main  = styled.main`
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  gap: 41px;
+  width: 100%;
+`
+export const AuthWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 42%;
+`
+export const IconTwitter = styled.img`
+  width: 50px;
+  height: 41px;
+`
+export const IconGoogle = styled.img`
+  width: 31px;
+  height: 32px;
+`
+export const AuthTitle = styled.h1`
+  ${({ theme }) => css`
+    margin: 57px 0px 46px 0px;
+    color: ${theme.colors.third};
+    font-size: 84px;
+    font-style: normal;
+    font-weight: ${theme.fontWeight.large};
+    line-height: normal;
+  `};
+`
+export const AuthSubTitle = styled.h2`
+  ${({ theme }) => css`
+    color: ${theme.colors.third};
+    font-size: 42px;
+    font-style: normal;
+    font-weight: ${theme.fontWeight.large};
+    line-height: normal;
+    margin: 0px 0px 31px 0px;
+  `};
+`
+
+export const RegisterWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  margin-bottom: 31px;
+`
+export const RegisterLink = styled.button`
+  ${({ theme }) => css`
+    display: flex;
+    width: 403px;
+    gap: 3px;
+    height: 62px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid ${theme.colors.border};
+    border-radius: 42px;
+    background-color: ${theme.colors.primary};
+    transition: background-color 0.3s;
+    &:hover{
+      background-color: ${theme.colors.border}
+    }
+  `};
+`
+export const RegisterText = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.third};
+    font-size: 20px;
+    font-style: normal;
+    font-weight: ${theme.fontWeight.medium};
+    line-height: normal;
+  `};
+`
+export const WrapperImage = styled.div`
+  width: 58%;
+  height: 93vh;
+`
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+`
+export const AuthText = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.third};
+    font-size: 14px;
+    font-style: normal;
+    font-weight: ${theme.fontWeight.normal};
+    line-height: 20px;
+    margin-bottom: 21px;
+    width: 373px;
+  `};
+`;
+export const AuthMarkText = styled.a`
+  ${({ theme }) => css`
+    color: ${theme.colors.secondary};
+  `};
+`
+export const LoginText = styled.p`
+  ${({ theme }) => css`
+    color: ${theme.colors.third};
+    font-size: 16px;
+    font-style: normal;
+    font-weight: ${theme.fontWeight.normal}
+    line-height: normal;
+  `};
+`
+export const AuthMarkLogin = styled.span`
+  ${({ theme }) => css`
+    color: ${theme.colors.secondary};
+    transition: color 0.1s;
+    &:hover{
+      color:${theme.colors.hover};
+    }
+  `};
+`
+export const Footer = styled.footer`
+  padding: 18px 0px 18px 0px;
+  width: 100%;
+  display: flex;
+  gap: 19px;
+  align-items: flex-start;
+  justify-content: center;
+`;
+export const FooterLink = styled.a`
+  ${({ theme }) => css`
+    color: ${theme.colors.third};
+    font-size: 13px;
+    font-style: normal;
+    font-weight: ${theme.fontWeight.normal};
+    line-height: normal;
+  `};
+`
