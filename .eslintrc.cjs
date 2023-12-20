@@ -3,12 +3,14 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: [
     'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
+    "plugin:@typescript-eslint/recommended-type-checked",
     'plugin:react-hooks/recommended',
     "airbnb", 
     "airbnb-typescript",
     "airbnb/hooks", 
-    "prettier"
+    "prettier",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime"
   ],
   globals: {
     "JSX": true
