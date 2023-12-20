@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { Footer, FooterLink, Main, SectionAuth, WrapperImage, Image, AuthWrapper, IconTwitter, AuthTitle, AuthSubTitle, RegisterWrapper, RegisterLink, RegisterText, IconGoogle, AuthText, AuthMarkText, LoginText, AuthMarkLogin } from "./styled"
 
 export function Authorization() {
-  
+
   return (
     <SectionAuth>
       <Main>
@@ -48,7 +48,6 @@ export function Authorization() {
               <NavLink to={ROUTES.LOG_IN}>
                 <AuthMarkLogin > {CONSTANTS.AUTH_LOG_IN} </AuthMarkLogin>
               </NavLink>
-
             </LoginText>
         </AuthWrapper>
       </Main>
@@ -64,4 +63,5 @@ export function Authorization() {
       </Footer>
     </SectionAuth>
   )
+  
 }

@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
-// eslint-disable-next-line import/no-extraneous-dependencies
+
 import "@fontsource/roboto";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@fontsource/roboto-serif";
 
 const GlobalStyle = createGlobalStyle`
     *, *::before,*::after {
