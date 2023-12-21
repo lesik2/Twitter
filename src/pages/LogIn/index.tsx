@@ -1,10 +1,29 @@
 import twitter from '@assets/icons/twitter.svg';
 import { ROUTES } from '@constants/index';
-import { CONSTANTS } from '@constants/auth';
+import { CONSTANTS, LOG_IN_INPUTS } from '@constants/auth';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { useForm, SubmitHandler } from "react-hook-form"
+import { TSignUpInputs } from '@customTypes/auth';
+import { InputWrapper } from '@components/ui/auth';
 
 import { Form, Icon, LogInInput, LogInWrapper, LogInBtn, SectionLogIn, SignUpLink, Title } from "./styled";
 
 export function LogIn() {
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+    reset,
+  } = useForm<TSignUpInputs>({
+      mode: 'onChange'
+  })
+
+  const onSubmit: SubmitHandler<TSignUpInputs> = (data) => {
+    reset();
+    alert(data);
+  }
+
   return (
     <SectionLogIn>
       <LogInWrapper>
@@ -12,10 +31,16 @@ export function LogIn() {
         <Title>
           {CONSTANTS.LOG_IN_TITLE}
         </Title>
-        <Form>
-          <LogInInput placeholder='Phone number, email address'/>
-          <LogInInput placeholder='Password'/>
-          <LogInBtn>
+        <Form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+          {LOG_IN_INPUTS.map((input)=>(
+              <InputWrapper key={input.name}>
+                <LogInInput type={input.type}  $error={errors[input.name]} placeholder={input.placeholder} 
+                {...register(input.name,
+                  { required: true, }
+                )}/>
+            </InputWrapper>
+            ))}
+          <LogInBtn type='submit' disabled={!isValid}>
             {CONSTANTS.LOG_IN_BTN}
           </LogInBtn>
         </Form>

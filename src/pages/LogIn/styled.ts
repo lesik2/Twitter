@@ -38,6 +38,7 @@ export const LogInInput = styled(Input)`
   width: 450px;
 
 `
+
 export const LogInBtn = styled(Button)`
   width: 450px;
   margin-top: 38px;

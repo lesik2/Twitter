@@ -9,7 +9,6 @@ export const SectionSignUp = styled.section`
 `
 export const RegisterWrapper = styled.div`
     width: 750px;
-    height: 870px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -39,17 +38,18 @@ export const Title = styled.h1`
 `
 export const Form  = styled.form`
 `
-export const InputWrapper = styled.div`
+export const WrapperInputs = styled.div`
   display: flex;
   flex-direction: column;
   gap: 25px;
   margin-bottom: 26px;
 `
 export const SignUpInput = styled(Input)`
-    width: 670px;
+  width: 670px;
 `
+
 export const AuthLink = styled(Link)`
-  margin: 26px 0px 16px 0px;
+  margin: 26px 0px 17px 0px;
 `
 export const SubTitle = styled.h3`
   ${({ theme }) => css`
@@ -59,7 +59,6 @@ export const SubTitle = styled.h3`
     font-style: normal;
     font-weight: ${theme.fontWeight.bold};
     line-height: normal;
-    margin: 26px 0px 16px 0px;
     margin-bottom: 32px;
   `};
 `

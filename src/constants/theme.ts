@@ -6,6 +6,7 @@ export const theme = {
     border: '#E4EAED',
     hover: '#23527C',
     option: '#00000099',
+    error: '#ff0000'
 
   },
   

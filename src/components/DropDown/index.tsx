@@ -44,7 +44,7 @@ export function DropDown({type, date, setDate, values}: IDropDown) {
 
   return (
     <Wrapper ref={wrapperRef} $type={type}>
-      <SelectedValue  onClick={handleClick}>
+      <SelectedValue type='button'  onClick={handleClick}>
         {value}
         <Icon alt="arrow" src={arrowIcon} />
       </SelectedValue>
