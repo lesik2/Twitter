@@ -1,4 +1,5 @@
-import { CONSTANTS, FOOTER_AUTH,ROUTES  } from "@constants/index"
+import { CONSTANTS, FOOTER_AUTH } from "@constants/auth"
+import { ROUTES } from "@constants/index";
 import backTwitter from '@assets/images/backTwitter.jpg';
 import twitter from '@assets/icons/twitter.svg';
 import google from '@assets/icons/google.svg';

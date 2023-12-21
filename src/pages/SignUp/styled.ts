@@ -31,6 +31,10 @@ export const RegisterBtn = styled.button`
     margin-top: 38px;
     outline: none;
     border: none;
+    transition: background-color 0.3s;
+    &:hover{
+      background-color:${theme.colors.hover};
+    }
   `};
 `
 export const Icon = styled.img`
@@ -81,6 +85,10 @@ export const AuthLinkText = styled.p`
     font-weight: ${theme.fontWeight.normal};
     line-height: normal;
     margin: 26px 0px 16px 0px;
+    transition: color 0.1s;
+    &:hover{
+      color:${theme.colors.hover};
+    }
   `};
 `
 export const SubTitle = styled.h3`

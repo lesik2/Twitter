@@ -1,37 +1,43 @@
 /* eslint-disable max-len */
 import twitter from '@assets/icons/twitter.svg';
+import DateChoose from "@components/DateChoose";
+import { CONSTANTS } from '@constants/auth';
+import { NavLink } from 'react-router-dom';
+import { ROUTES } from '@constants/index';
 
 import { AuthLinkText, Form, Icon, Input, InputWrapper, RegisterBtn, RegisterWrapper, SectionSignUp, SubTitle, TextDate, Title } from "./styled";
 
-import DateChoose from "@//components/DateChoose";
 
 
 export function SignUp() {
+
   return (
     <SectionSignUp>
       <RegisterWrapper>
         <Icon alt='twitter' src={twitter}/>
         <Form>
           <Title>
-          Create an account
+            {CONSTANTS.SIGN_UP_TITLE}
           </Title>
           <InputWrapper>
             <Input placeholder="Name"/>
             <Input placeholder="Phone number"/>
             <Input placeholder="Email"/>
           </InputWrapper>
-          <AuthLinkText>
-            User email
-          </AuthLinkText>
+          <NavLink to={ROUTES.AUTHORIZATION}>
+            <AuthLinkText>
+              {CONSTANTS.SIGN_UP_EMAIL_LINK}
+            </AuthLinkText>
+          </NavLink>
           <SubTitle>
-            Date of birth
+            {CONSTANTS.SIGN_UP_SUBTITLE}
           </SubTitle>
-          <TextDate>
-            Facilisi sem pulvinar velit nunc, gravida scelerisque amet nibh sit. Quis bibendum ante phasellus metus, magna lacinia sed augue. Odio enim nascetur leo mauris vel eget. Pretium id ullamcorper blandit viverra dignissim eget tellus. Nibh mi massa in molestie a sit. Elit congue.
-          </TextDate>
+            <TextDate>
+              {CONSTANTS.SIGN_UP_TEXT_DATE}
+            </TextDate>
           <DateChoose />
           <RegisterBtn>
-            Next
+            {CONSTANTS.SIGN_UP_BTN}
           </RegisterBtn>
         </Form>
       </RegisterWrapper>
