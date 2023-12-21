@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import arrowIcon from '@assets/icons/arrow.svg';
 import { IDropDown } from '@customTypes/index';
 
 import {
   Icon, ItemList, List, SelectedValue, Wrapper,
 } from './styled';
-import { getMonthName } from './helpers';
+import { getMonthName, validateDayForMonth } from './helpers';
 
 
 export function DropDown({type, date, setDate, values}: IDropDown) {
@@ -17,11 +17,18 @@ export function DropDown({type, date, setDate, values}: IDropDown) {
   }
 
   const handleSelect = (select: number) => {
-
       setValue(type === 'month'?getMonthName(select):select);
-      setDate({...date, [type]:select})
+      const newDate = {...date, [type]:select};
+      setDate(newDate)
       setActive(!active);
+      validateDayForMonth(newDate, setDate)
   };
+
+  useEffect(()=>{
+    if(type === 'day'){
+      setValue(date[type]??type)
+    }
+  },[date, type])
 
   return (
     <Wrapper $type={type}>
