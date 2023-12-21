@@ -14,11 +14,12 @@ export function DropDown({type, date, setDate, values}: IDropDown) {
   const [active, setActive] = useState(false);
   const [value, setValue] = useState<number|string>(date[type]??type);
 
-
-
   useEffect(() => {
-    if (type === 'day') {
-      setValue(date[type] ?? type)
+    const defaultValue = date[type];
+    if(defaultValue){
+      setValue(type === 'month'?getMonthName(defaultValue):defaultValue)
+    }else{
+      setValue(type);
     }
   }, [date, type])
 
@@ -32,7 +33,6 @@ export function DropDown({type, date, setDate, values}: IDropDown) {
   },[])
 
   const handleSelect = (select: number) => {
-      setValue(type === 'month'?getMonthName(select):select);
       const newDate = {...date, [type]:select};
       setDate(newDate)
       handleCloseList();

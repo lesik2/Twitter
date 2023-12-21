@@ -29,7 +29,9 @@ export function SignUp() {
 
   const onSubmit: SubmitHandler<TSignUpInputs> = (data) => {
     reset();
-    alert(data);
+    setDate({});
+    alert(JSON.stringify(data));
+    alert(JSON.stringify(date));
   }
 
   return (

@@ -21,7 +21,7 @@ export function LogIn() {
 
   const onSubmit: SubmitHandler<TSignUpInputs> = (data) => {
     reset();
-    alert(data);
+    alert(JSON.stringify(data));
   }
 
   return (
