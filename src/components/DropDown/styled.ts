@@ -49,12 +49,12 @@ export const List = styled.div<{ $active?: boolean }>`
     width: 100%;
     position: absolute;
     background-color: ${theme.colors.primary};
-    max-height: ${$active ? '120px' : '0px'};
+    max-height: ${$active ? '180px' : '0px'};
     transition: height 0.1s;
     overflow-y: scroll;
     scrollbar-width: none;
     left: 0;
-    top: 70px;
+    bottom: 70px;
     border: ${$active ? '1px' : '0px'} solid ${theme.colors.border};
     border-radius: 6px;
     &::-webkit-scrollbar {

@@ -21,7 +21,6 @@ export const Icon = styled.img`
 export const Title = styled.h1`
   ${({ theme }) => css`
     color: ${theme.colors.third};
-    font-family: ${theme.fontFamily.font};
     font-size: 43px;
     font-style: normal;
     font-weight: ${theme.fontWeight.bold};
