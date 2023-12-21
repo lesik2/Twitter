@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-
+import {Link} from '@components/ui/auth'
 
 export const SectionAuth = styled.section`
   ${({ theme }) => css`
@@ -24,34 +24,12 @@ export const AuthWrapper = styled.div`
   justify-content: center;
   width: 42%;
 `
-export const IconTwitter = styled.img`
-  width: 50px;
-  height: 41px;
-`
+
 export const IconGoogle = styled.img`
   width: 31px;
   height: 32px;
 `
-export const AuthTitle = styled.h1`
-  ${({ theme }) => css`
-    margin: 57px 0px 46px 0px;
-    color: ${theme.colors.third};
-    font-size: 84px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.large};
-    line-height: normal;
-  `};
-`
-export const AuthSubTitle = styled.h2`
-  ${({ theme }) => css`
-    color: ${theme.colors.third};
-    font-size: 42px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.large};
-    line-height: normal;
-    margin: 0px 0px 31px 0px;
-  `};
-`
+
 
 export const RegisterWrapper = styled.div`
   display: flex;
@@ -59,7 +37,7 @@ export const RegisterWrapper = styled.div`
   gap: 21px;
   margin-bottom: 31px;
 `
-export const RegisterLink = styled.button`
+export const RegisterBtn = styled.button`
   ${({ theme }) => css`
     display: flex;
     width: 403px;
@@ -118,29 +96,6 @@ export const LoginText = styled.p`
     line-height: normal;
   `};
 `
-export const AuthMarkLogin = styled.span`
-  ${({ theme }) => css`
-    color: ${theme.colors.secondary};
-    transition: color 0.1s;
-    &:hover{
-      color:${theme.colors.hover};
-    }
-  `};
-`
-export const Footer = styled.footer`
-  padding: 18px 0px 18px 0px;
-  width: 100%;
-  display: flex;
-  gap: 19px;
-  align-items: flex-start;
-  justify-content: center;
-`;
-export const FooterLink = styled.a`
-  ${({ theme }) => css`
-    color: ${theme.colors.third};
-    font-size: 13px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.normal};
-    line-height: normal;
-  `};
+export const LinkToLogin = styled(Link)`
+  font-size: 16px;
 `

@@ -1,11 +1,12 @@
-import { CONSTANTS, FOOTER_AUTH } from "@constants/auth"
+import { CONSTANTS } from "@constants/auth"
 import { ROUTES } from "@constants/index";
 import backTwitter from '@assets/images/backTwitter.jpg';
-import twitter from '@assets/icons/twitter.svg';
 import google from '@assets/icons/google.svg';
 import { NavLink } from 'react-router-dom';
 
-import { Footer, FooterLink, Main, SectionAuth, WrapperImage, Image, AuthWrapper, IconTwitter, AuthTitle, AuthSubTitle, RegisterWrapper, RegisterLink, RegisterText, IconGoogle, AuthText, AuthMarkText, LoginText, AuthMarkLogin } from "./styled"
+import {Main, SectionAuth, WrapperImage, Image, AuthWrapper, RegisterWrapper, RegisterBtn, RegisterText, IconGoogle, AuthText, AuthMarkText, LoginText, LinkToLogin } from "./styled"
+import { FooterComponent } from "./components/Footer";
+import { HeaderComponent } from "./components/Header";
 
 export function Authorization() {
 
@@ -16,26 +17,20 @@ export function Authorization() {
           <Image  src={backTwitter} alt='Twitter'/>
         </WrapperImage>
         <AuthWrapper>
-          <IconTwitter alt="Twitter" src={twitter}/>
-          <AuthTitle>
-            {CONSTANTS.AUTH_TITLE}
-          </AuthTitle>
-          <AuthSubTitle>
-            {CONSTANTS.AUTH_SUBTITLE}
-          </AuthSubTitle>
+          <HeaderComponent />
           <RegisterWrapper>
-            <RegisterLink>
+            <RegisterBtn>
               <IconGoogle alt="google" src={google}/>
               <RegisterText>
                 {CONSTANTS.AUTH_GOOGLE}
               </RegisterText>
-            </RegisterLink>
+            </RegisterBtn>
             <NavLink to={ROUTES.SIGN_UP}>
-              <RegisterLink>
+              <RegisterBtn>
                 <RegisterText>
                   {CONSTANTS.AUTH_EMAIL}
                 </RegisterText>
-              </RegisterLink>
+              </RegisterBtn>
             </NavLink>
           </RegisterWrapper>
           <AuthText>
@@ -46,22 +41,13 @@ export function Authorization() {
           </AuthText>
             <LoginText>
               {CONSTANTS.AUTH_LOGIN_TEXT}
-              <NavLink to={ROUTES.LOG_IN}>
-                <AuthMarkLogin > {CONSTANTS.AUTH_LOG_IN} </AuthMarkLogin>
-              </NavLink>
+                <LinkToLogin to={ROUTES.LOG_IN}>
+                  {CONSTANTS.AUTH_LOG_IN} 
+                </LinkToLogin>
             </LoginText>
         </AuthWrapper>
       </Main>
-      <Footer>
-        {
-        FOOTER_AUTH.map((item, index)=>(
-          // eslint-disable-next-line react/no-array-index-key
-          <FooterLink key={index}>
-            {item}
-          </FooterLink>
-        ))
-        }
-      </Footer>
+      <FooterComponent />
     </SectionAuth>
   )
   

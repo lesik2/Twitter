@@ -1,7 +1,8 @@
 import twitter from '@assets/icons/twitter.svg';
 import { ROUTES } from '@constants/index';
+import { CONSTANTS } from '@constants/auth';
 
-import { Form, Icon, Input, LogInWrapper, RegisterBtn, SectionLogIn, SignUpLinkText, Title } from "./styled";
+import { Form, Icon, LogInInput, LogInWrapper, LogInBtn, SectionLogIn, SignUpLink, Title } from "./styled";
 
 export function LogIn() {
   return (
@@ -9,18 +10,18 @@ export function LogIn() {
       <LogInWrapper>
         <Icon alt='twitter' src={twitter}/>
         <Title>
-          Log in to Twitter
+          {CONSTANTS.LOG_IN_TITLE}
         </Title>
         <Form>
-          <Input placeholder='Phone number, email address'/>
-          <Input placeholder='Password'/>
-          <RegisterBtn>
-            Log in
-          </RegisterBtn>
+          <LogInInput placeholder='Phone number, email address'/>
+          <LogInInput placeholder='Password'/>
+          <LogInBtn>
+            {CONSTANTS.LOG_IN_BTN}
+          </LogInBtn>
         </Form>
-          <SignUpLinkText to={ROUTES.SIGN_UP}>
-            Sign up to Twitter
-          </SignUpLinkText>
+          <SignUpLink to={ROUTES.SIGN_UP}>
+            {CONSTANTS.LOGIN_IN_SIGN_UP_LINK}
+          </SignUpLink>
       </LogInWrapper>
     </SectionLogIn>
   )

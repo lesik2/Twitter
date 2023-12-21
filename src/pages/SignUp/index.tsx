@@ -2,10 +2,9 @@
 import twitter from '@assets/icons/twitter.svg';
 import DateChoose from "@components/DateChoose";
 import { CONSTANTS } from '@constants/auth';
-import { NavLink } from 'react-router-dom';
 import { ROUTES } from '@constants/index';
 
-import { AuthLinkText, Form, Icon, Input, InputWrapper, RegisterBtn, RegisterWrapper, SectionSignUp, SubTitle, TextDate, Title } from "./styled";
+import { AuthLink, Form, Icon, SignUpInput,InputWrapper, RegisterBtn, RegisterWrapper, SectionSignUp, SubTitle, TextDate, Title } from "./styled";
 
 
 
@@ -20,15 +19,13 @@ export function SignUp() {
             {CONSTANTS.SIGN_UP_TITLE}
           </Title>
           <InputWrapper>
-            <Input placeholder="Name"/>
-            <Input placeholder="Phone number"/>
-            <Input placeholder="Email"/>
+            <SignUpInput placeholder="Name"/>
+            <SignUpInput placeholder="Phone number"/>
+            <SignUpInput placeholder="Email"/>
           </InputWrapper>
-          <NavLink to={ROUTES.AUTHORIZATION}>
-            <AuthLinkText>
+            <AuthLink to={ROUTES.AUTHORIZATION}>
               {CONSTANTS.SIGN_UP_EMAIL_LINK}
-            </AuthLinkText>
-          </NavLink>
+            </AuthLink>
           <SubTitle>
             {CONSTANTS.SIGN_UP_SUBTITLE}
           </SubTitle>
