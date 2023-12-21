@@ -1,6 +1,7 @@
 import { TDate } from '@customTypes/index';
 import styled, { css } from 'styled-components';
 
+
 export const Wrapper = styled.div<{$type: TDate}>`
   ${({  $type }) => css`
     display: flex;
@@ -37,14 +38,14 @@ export const SelectedValue = styled.button`
     width: 100%;
     cursor: pointer;
     &:focus{
-      border-width: 2px;
+      border: 2px solid ${theme.colors.third};
     }
   `};
   
 
 `;
 
-export const List = styled.div<{ $active?: boolean }>`
+export const List = styled.ul<{ $active?: boolean }>`
   ${({ theme, $active }) => css`
     width: 100%;
     position: absolute;
@@ -54,6 +55,8 @@ export const List = styled.div<{ $active?: boolean }>`
     overflow-y: scroll;
     scrollbar-width: none;
     left: 0;
+    padding: 0;
+    margin: 0;
     bottom: 70px;
     border: ${$active ? '1px' : '0px'} solid ${theme.colors.border};
     border-radius: 6px;
@@ -64,7 +67,7 @@ export const List = styled.div<{ $active?: boolean }>`
   `};
  
 `;
-export const ItemList = styled.p`
+export const ItemList = styled.li`
   ${({ theme }) => css`
     font-size: 18px;
     color: ${theme.colors.option};

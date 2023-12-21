@@ -10,7 +10,7 @@ import { DropDown } from "../DropDown";
 export default function DateChoose({date, setDate}: IDateChoose) {
   const currentDate = new Date();
   const days = getDays(date)
-  const years = getArrayOfNumbers(currentDate.getFullYear()-100,currentDate.getFullYear());
+  const years = getArrayOfNumbers(currentDate.getFullYear()-100,currentDate.getFullYear()).reverse();
   const month = getArrayOfNumbers(0,11);
 
   return (
