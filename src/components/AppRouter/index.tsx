@@ -1,12 +1,18 @@
-import {Route, Routes, BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import {privateRoutes, publicRoutes} from "@constants/routes";
-import { useState } from 'react';
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { firebaseConfig } from '@constants/firebase';
+import {useAuthState} from "react-firebase-hooks/auth";
 
 
+const app = initializeApp(firebaseConfig);
 
+const auth = getAuth(app);
 
 export const AppRouter = () => {
-    const [user] = useState(false);
+    const [user] = useAuthState(auth)
+ 
 
     return (
       <BrowserRouter>

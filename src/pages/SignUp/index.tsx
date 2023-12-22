@@ -4,10 +4,11 @@ import { CONSTANTS, SIGN_UP_INPUTS } from '@constants/auth';
 import { ROUTES } from '@constants/index';
 import { useState } from 'react';
 import { IDate } from '@customTypes/index';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm, SubmitHandler } from "react-hook-form"
 import { ErrorMessage, InputWrapper } from '@components/ui/auth';
 import { TSignUpInputs } from '@customTypes/auth';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 import { AuthLink, Form, Icon, SignUpInput, RegisterBtn, RegisterWrapper, SectionSignUp, SubTitle, TextDate, Title, WrapperInputs} from "./styled";
 import { isValidDate } from './helpers';
@@ -16,7 +17,7 @@ import { isValidDate } from './helpers';
 
 export function SignUp() {
   const [date, setDate] = useState<IDate>({})
-
+  const navigate = useNavigate();
 
   const {
     register,
@@ -27,12 +28,13 @@ export function SignUp() {
       mode: 'onChange'
   })
 
-  const onSubmit: SubmitHandler<TSignUpInputs> = (data) => {
+  const onSubmit: SubmitHandler<TSignUpInputs> = async (data) => {
+    const {email, password}  = data;
     reset();
-    setDate({});
-    alert(JSON.stringify(data));
-    alert(JSON.stringify(date));
+    await createUserWithEmailAndPassword(getAuth(), email, password)
+    navigate(ROUTES.PROFILE)
   }
+  
 
   return (
     <SectionSignUp>

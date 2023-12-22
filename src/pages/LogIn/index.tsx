@@ -1,15 +1,17 @@
 import twitter from '@assets/icons/twitter.svg';
 import { ROUTES } from '@constants/index';
 import { CONSTANTS, LOG_IN_INPUTS } from '@constants/auth';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm, SubmitHandler } from "react-hook-form"
 import { TSignUpInputs } from '@customTypes/auth';
 import { InputWrapper } from '@components/ui/auth';
+import { useNavigate } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth/cordova';
+import { getAuth } from 'firebase/auth';
 
 import { Form, Icon, LogInInput, LogInWrapper, LogInBtn, SectionLogIn, SignUpLink, Title } from "./styled";
 
 export function LogIn() {
-
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -19,9 +21,11 @@ export function LogIn() {
       mode: 'onChange'
   })
 
-  const onSubmit: SubmitHandler<TSignUpInputs> = (data) => {
+  const onSubmit: SubmitHandler<TSignUpInputs> = async(data) => {
+    const {email, password} = data;
     reset();
-    alert(JSON.stringify(data));
+    await signInWithEmailAndPassword(getAuth(), email, password);
+    navigate(ROUTES.PROFILE)
   }
 
   return (

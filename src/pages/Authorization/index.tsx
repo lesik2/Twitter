@@ -2,13 +2,32 @@ import { CONSTANTS } from "@constants/auth"
 import { ROUTES } from "@constants/index";
 import backTwitter from '@assets/images/backTwitter.jpg';
 import google from '@assets/icons/google.svg';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate} from 'react-router-dom';
+import { GoogleAuthProvider, getAuth, signInWithPopup} from "firebase/auth";
 
 import {Main, SectionAuth, WrapperImage, Image, AuthWrapper, RegisterWrapper, RegisterBtn, RegisterText, IconGoogle, AuthText, AuthMarkText, LoginText, LinkToLogin } from "./styled"
 import { FooterComponent } from "./components/Footer";
 import { HeaderComponent } from "./components/Header";
 
+
+
 export function Authorization() {
+  const navigate = useNavigate();
+  const login = async () => {
+      try{
+        const provider = new GoogleAuthProvider();
+        const {user} = await signInWithPopup(getAuth(),provider)
+        navigate(ROUTES.PROFILE)
+        // eslint-disable-next-line no-console
+        console.log(user)
+      }catch(error: unknown){
+        if(error instanceof Error){
+          console.error(error)
+        }
+
+      }
+    
+  }
 
   return (
     <SectionAuth>
@@ -19,7 +38,7 @@ export function Authorization() {
         <AuthWrapper>
           <HeaderComponent />
           <RegisterWrapper>
-            <RegisterBtn>
+            <RegisterBtn onClick={login}>
               <IconGoogle alt="google" src={google}/>
               <RegisterText>
                 {CONSTANTS.AUTH_GOOGLE}
