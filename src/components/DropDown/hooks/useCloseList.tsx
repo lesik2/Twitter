@@ -1,13 +1,11 @@
-
 import { RefObject, useEffect, useRef } from 'react';
 
 export function useCloseList(
-  handleCloseList: () => void
-): [RefObject<HTMLDivElement>, RefObject<HTMLUListElement>]{
-
+  handleCloseList: () => void,
+): [RefObject<HTMLDivElement>, RefObject<HTMLUListElement>] {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLUListElement>(null);
-  
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -25,7 +23,7 @@ export function useCloseList(
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [wrapperRef,listRef, handleCloseList]);
+  }, [wrapperRef, listRef, handleCloseList]);
 
-  return [wrapperRef, listRef]
+  return [wrapperRef, listRef];
 }

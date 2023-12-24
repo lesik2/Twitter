@@ -1,17 +1,17 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
-import firebaseReducer from './reducers/fireBaseSlice';
+import userReducer from './reducers/userSlice';
 
 const rootReducer = combineReducers({
-  firebaseReducer,
+  userReducer,
 });
 
 export const store = configureStore({
   reducer: rootReducer,
   // eslint-disable-next-line arrow-body-style
   middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat( );
+    return getDefaultMiddleware().concat();
   },
 });
 setupListeners(store.dispatch);

@@ -16,14 +16,14 @@
 
     "target": "ESNext",
     "module": "ESNext",
-    "lib": ["DOM", "ESNext","DOM.Iterable"],
+    "lib": ["DOM", "ESNext", "DOM.Iterable"],
     "types": [],
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true ,
+    "forceConsistentCasingInFileNames": true,
     "allowJs": true,
-    "checkJs": true ,
+    "checkJs": true,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "declarationDir": "types",
@@ -41,10 +41,10 @@
       "@utils/*": ["src/utils/*"],
       "@app/*": ["src/app/*"],
       "@containers/*": ["src/containers/*"],
-      "@pages/*": ["src/pages/*"],
-    },
+      "@pages/*": ["src/pages/*"]
+    }
   },
-  "exclude": ["node_modules", "dist", "build", ".vscode","vite.config.ts"],
+  "exclude": ["node_modules", "dist", "build", ".vscode", "vite.config.ts"],
 
   "include": ["typings/*.d.ts", "**/*.ts", "**/*.tsx"],
 

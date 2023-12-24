@@ -3,8 +3,8 @@ export type TSignUpInputs = {
   phoneNumber: string;
   email: string;
   password: string;
-}
-export interface IInput{
+};
+export interface IInput {
   name: keyof TSignUpInputs;
   placeholder: string;
   pattern: RegExp;

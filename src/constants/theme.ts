@@ -6,10 +6,9 @@ export const theme = {
     border: '#E4EAED',
     hover: '#23527C',
     option: '#00000099',
-    error: '#ff0000'
-
+    error: '#ff0000',
   },
-  
+
   fontFamily: {
     font: 'Roboto Serif',
   },
@@ -19,9 +18,6 @@ export const theme = {
     bold: '700',
     large: '900',
   },
-  zIndex: {
-
-  },
-  breakPoints: {
-  },
+  zIndex: {},
+  breakPoints: {},
 };

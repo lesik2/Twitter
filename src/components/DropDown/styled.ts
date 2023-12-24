@@ -1,24 +1,20 @@
 import { TDate } from '@customTypes/index';
 import styled, { css } from 'styled-components';
 
-
-export const Wrapper = styled.div<{$type: TDate}>`
-  ${({  $type }) => css`
+export const Wrapper = styled.div<{ $type: TDate }>`
+  ${({ $type }) => css`
     display: flex;
     flex-direction: column;
     align-items: center;
     width: ${() => {
-      
-      if($type === 'day'||$type==='year'){
+      if ($type === 'day' || $type === 'year') {
         return '159px';
       }
-      
+
       return '312px';
-      
     }};
     position: relative;
   `};
-
 `;
 export const SelectedValue = styled.button`
   ${({ theme }) => css`
@@ -37,12 +33,10 @@ export const SelectedValue = styled.button`
     height: 70px;
     width: 100%;
     cursor: pointer;
-    &:focus{
+    &:focus {
       border: 2px solid ${theme.colors.third};
     }
   `};
-  
-
 `;
 
 export const List = styled.ul<{ $active?: boolean }>`
@@ -65,7 +59,6 @@ export const List = styled.ul<{ $active?: boolean }>`
       height: 0px;
     }
   `};
- 
 `;
 export const ItemList = styled.li`
   ${({ theme }) => css`
@@ -77,11 +70,7 @@ export const ItemList = styled.li`
     transition: background-color 0.1s;
     &:hover {
       background-color: ${(props) => props.theme.colors.border};
-      
     }
   `};
-
 `;
-export const Icon = styled.img`
-  
-`;
+export const Icon = styled.img``;

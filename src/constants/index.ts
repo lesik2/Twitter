@@ -5,4 +5,3 @@ export const ROUTES = {
   PROFILE: '/profile',
   HOME: '/home',
 } as const;
-

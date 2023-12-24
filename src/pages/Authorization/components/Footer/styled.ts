@@ -16,4 +16,4 @@ export const FooterLink = styled.a`
     font-weight: ${theme.fontWeight.normal};
     line-height: normal;
   `};
-`
+`;
