@@ -5,12 +5,13 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { TSignUpInputs } from '@customTypes/auth';
 import { InputWrapper } from '@components/ui/auth';
 import { useNavigate } from 'react-router-dom';
-import { getAuth } from 'firebase/auth';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { InfinityLoader } from '@components/InfinityLoader';
 import { SnackBar } from '@components/SnackBar';
 
 import { Form, Icon, LogInInput, LogInWrapper, LogInBtn, SectionLogIn, SignUpLink, Title } from './styled';
+
+import { auth } from '@//firebase';
 
 export function LogIn() {
   const navigate = useNavigate();
@@ -23,14 +24,20 @@ export function LogIn() {
     mode: 'onChange',
   });
 
-  const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(getAuth());
-
+  const [signInWithEmailAndPassword, , loading, error] = useSignInWithEmailAndPassword(auth);
   const onSubmit: SubmitHandler<TSignUpInputs> = async (data) => {
     const { email, password } = data;
     reset();
-    await signInWithEmailAndPassword(email, password);
-    if (user) {
-      navigate(ROUTES.PROFILE);
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(email, password);
+      if (userCredential) {
+        navigate(ROUTES.PROFILE);
+      }
+    } catch (errorObj: unknown) {
+      if (errorObj instanceof Error) {
+        console.error(errorObj);
+      }
     }
   };
 

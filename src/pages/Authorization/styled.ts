@@ -35,6 +35,7 @@ export const RegisterWrapper = styled.div`
   flex-direction: column;
   gap: 21px;
   margin-bottom: 31px;
+  position: relative;
 `;
 export const RegisterBtn = styled.button`
   ${({ theme }) => css`

@@ -6,3 +6,6 @@ export const firebaseConfig = {
   messagingSenderId: import.meta.env.VITE_APP_MESSAGING_SENDER_ID as string,
   appId: import.meta.env.VITE_APP_ID as string,
 };
+export const COLLECTIONS = {
+  USERS: 'users',
+};

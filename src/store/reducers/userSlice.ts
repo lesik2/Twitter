@@ -4,7 +4,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 export interface UserState {
   displayName: string | null;
   phoneNumber: string | null;
-  dateOfBirth: Date | null;
+  dateOfBirth: string | null;
   uid: string | null;
   photoURL: string | null;
 }

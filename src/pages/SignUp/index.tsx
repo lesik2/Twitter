@@ -7,9 +7,12 @@ import { IDate } from '@customTypes/index';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { ErrorMessage, InputWrapper } from '@components/ui/auth';
 import { TSignUpInputs } from '@customTypes/auth';
-import { getAuth } from 'firebase/auth';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import { InfinityLoader } from '@components/InfinityLoader';
+import { SnackBar } from '@components/SnackBar';
+import { doc, setDoc } from 'firebase/firestore';
+import { COLLECTIONS } from '@constants/firebase';
 
 import {
   AuthLink,
@@ -26,13 +29,12 @@ import {
 } from './styled';
 import { isValidDate } from './helpers';
 
-import { InfinityLoader } from '@//components/InfinityLoader';
-import { SnackBar } from '@//components/SnackBar';
+import { auth, db } from '@//firebase';
 
 export function SignUp() {
   const [date, setDate] = useState<IDate>({});
   const navigate = useNavigate();
-  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(getAuth());
+  const [createUserWithEmailAndPassword, , loading, error] = useCreateUserWithEmailAndPassword(auth);
 
   const {
     register,
@@ -44,12 +46,30 @@ export function SignUp() {
   });
 
   const onSubmit: SubmitHandler<TSignUpInputs> = async (data) => {
-    const { email, password } = data;
+    const { email, password, name, phoneNumber } = data;
+    const { year, month, day } = date;
     reset();
     setDate({});
-    await createUserWithEmailAndPassword(email, password);
-    if (user) {
-      navigate(ROUTES.PROFILE);
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(email, password);
+      if (userCredential && year && month && day) {
+        const { uid, photoURL } = userCredential.user;
+        const userDoc = {
+          displayName: name,
+          phoneNumber,
+          uid,
+          photoURL,
+          dateOfBirth: new Date(year, month, day).toLocaleDateString(),
+        };
+
+        await setDoc(doc(db, COLLECTIONS.USERS, uid), userDoc);
+        navigate(ROUTES.PROFILE);
+      }
+    } catch (errorObj: unknown) {
+      if (errorObj instanceof Error) {
+        console.error(errorObj);
+      }
     }
   };
 
