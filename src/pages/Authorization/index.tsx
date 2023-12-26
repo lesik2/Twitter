@@ -6,12 +6,13 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { SnackBar } from '@components/SnackBar';
 import { doc, setDoc } from 'firebase/firestore';
+import { COLLECTIONS } from '@constants/firebase';
+import { ImageApp } from '@components/ui';
 
 import {
   Main,
   SectionAuth,
   WrapperImage,
-  Image,
   AuthWrapper,
   RegisterWrapper,
   RegisterBtn,
@@ -26,7 +27,6 @@ import { FooterComponent } from './components/Footer';
 import { HeaderComponent } from './components/Header';
 
 import { auth, db } from '@//firebase';
-import { COLLECTIONS } from '@//constants/firebase';
 
 export function Authorization() {
   const [signInWithGoogle, , , error] = useSignInWithGoogle(auth);
@@ -62,7 +62,7 @@ export function Authorization() {
     <SectionAuth>
       <Main>
         <WrapperImage>
-          <Image src={backTwitter} alt='Twitter' />
+          <ImageApp src={backTwitter} alt='Twitter' />
         </WrapperImage>
         <AuthWrapper>
           <HeaderComponent />

@@ -1,10 +1,27 @@
 import defaultUser from '@assets/images/defaultUser.png';
 import backProfile from '@assets/images/backProfile.png';
-import { useAppSelector} from '@hooks/redux';
-import { UserEmail } from '@components/SideBar/styled';
+import { useAppSelector } from '@hooks/redux';
+import { UserInfo, UserSubtitle, UserTitle } from '@components/ui/profile';
+import { ImageApp } from '@components/ui';
+import { CONSTANTS } from '@constants/index';
 
-import { EditBtn, FollowAmount, FollowText, FollowWrapper, HeaderSection, ImageBack, ImageUser, MarkText, TweetsWrapper, UserDescription, UserInfo, UserInfoProfile, UserName, UserNameProfile, UserProfileWrapper, UserTweets, UserWrapper, UserWrapperImage, WrapperImage } from './styled';
-
+import {
+  EditBtn,
+  FollowAmount,
+  FollowText,
+  FollowWrapper,
+  HeaderSection,
+  ImageUser,
+  MarkText,
+  TweetsWrapper,
+  UserDescription,
+  UserInfoProfile,
+  UserNameProfile,
+  UserProfileWrapper,
+  UserWrapper,
+  UserWrapperImage,
+  WrapperImage,
+} from './styled';
 
 export function Header() {
   const user = useAppSelector((state) => state.userReducer);
@@ -12,34 +29,24 @@ export function Header() {
   return (
     <HeaderSection>
       <TweetsWrapper>
-        <UserInfo>
-          <UserName>
-            {user.displayName}
-          </UserName>
-          <UserTweets>
-            1,070 Tweets
-          </UserTweets>
-        </UserInfo>
+        <UserInfoProfile>
+          <UserTitle>{user.displayName}</UserTitle>
+          <UserSubtitle>1,070 Tweets</UserSubtitle>
+        </UserInfoProfile>
       </TweetsWrapper>
       <WrapperImage>
-        <ImageBack src={backProfile}/>
+        <ImageApp src={backProfile} />
       </WrapperImage>
       <UserWrapper>
         <UserWrapperImage>
-          <ImageUser alt='image of user' src={user.photoURL??defaultUser}/>
+          <ImageUser alt='image of user' src={user.photoURL ?? defaultUser} />
         </UserWrapperImage>
-        <EditBtn>
-          Edit profile
-        </EditBtn>
+        <EditBtn>{CONSTANTS.PROFILE_BTN}</EditBtn>
         <UserProfileWrapper>
-          <UserInfoProfile>
-            <UserNameProfile>
-              {user.displayName}
-            </UserNameProfile>
-            <UserEmail>
-              {user.email}
-            </UserEmail>
-          </UserInfoProfile>
+          <UserInfo>
+            <UserNameProfile>{user.displayName}</UserNameProfile>
+            <UserSubtitle>{user.email}</UserSubtitle>
+          </UserInfo>
           <UserDescription>
             UX&UI designer at <MarkText>@abutechuz</MarkText>
           </UserDescription>
@@ -56,5 +63,5 @@ export function Header() {
         </UserProfileWrapper>
       </UserWrapper>
     </HeaderSection>
-  )
+  );
 }

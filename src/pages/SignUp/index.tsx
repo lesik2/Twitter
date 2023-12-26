@@ -62,7 +62,7 @@ export function SignUp() {
           email,
           dateOfBirth: new Date(year, month, day).toLocaleDateString(),
         };
-        
+
         await setDoc(doc(db, COLLECTIONS.USERS, uid), userDoc);
         navigate(ROUTES.PROFILE);
       }

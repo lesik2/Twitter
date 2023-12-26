@@ -67,10 +67,7 @@ export const WrapperImage = styled.div`
   width: 58%;
   height: 93vh;
 `;
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
-`;
+
 export const AuthText = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.third};

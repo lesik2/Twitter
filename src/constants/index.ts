@@ -15,4 +15,5 @@ export const ROUTES = {
 export const CONSTANTS = {
   ASIDE_TWEET: 'Tweet',
   ASIDE_LOG_OUT: 'Log out',
+  PROFILE_BTN: 'Edit profile',
 };

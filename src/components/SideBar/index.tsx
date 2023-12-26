@@ -16,8 +16,6 @@ import {
   LogOutBtn,
   Navigation,
   TweetBtn,
-  UserEmail,
-  UserInfo,
   UserName,
   UserWrapper,
   Wrapper,
@@ -25,6 +23,7 @@ import {
 } from './styled';
 
 import { IconTwitter } from '../ui';
+import { UserInfo, UserSubtitle } from '../ui/profile';
 
 export function SideBar() {
   const user = useAppSelector((state) => state.userReducer);
@@ -69,7 +68,7 @@ export function SideBar() {
         </ImageWrapper>
         <UserInfo>
           <UserName>{user.displayName}</UserName>
-          <UserEmail>{user.email}</UserEmail>
+          <UserSubtitle>{user.email}</UserSubtitle>
         </UserInfo>
       </UserWrapper>
       <LogOutBtn onClick={handleSignOut}>{CONSTANTS.ASIDE_LOG_OUT}</LogOutBtn>

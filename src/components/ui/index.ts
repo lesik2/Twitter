@@ -79,3 +79,8 @@ export const IconTwitter = styled.img`
   height: 33px;
   filter: invert(48%) sepia(89%) saturate(1415%) hue-rotate(179deg) brightness(94%) contrast(101%);
 `;
+
+export const ImageApp = styled.img`
+  width: 100%;
+  height: 100%;
+`;

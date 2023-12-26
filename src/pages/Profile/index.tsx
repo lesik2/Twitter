@@ -9,5 +9,5 @@ export function Profile() {
       </ProfileSection>
       <SearchSection>Search</SearchSection>
     </>
-  ) 
+  );
 }

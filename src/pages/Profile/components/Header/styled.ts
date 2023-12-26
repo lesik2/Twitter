@@ -1,5 +1,7 @@
-import { Button } from '@components/ui';
+import { Button, ImageApp } from '@components/ui';
 import styled, { css } from 'styled-components';
+
+import { UserTitle, UserInfo } from '@//components/ui/profile';
 
 export const HeaderSection = styled.header`
   display: flex;
@@ -15,48 +17,19 @@ export const TweetsWrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    padding-left: 15px;
   `};
-`;
-export const UserInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  justify-content: center;
-  margin-left: 15px;
 `;
 export const UserInfoProfile = styled(UserInfo)`
-  margin: 0;
+  gap: 6px;
 `;
-export const UserName = styled.h3`
-  ${({ theme }) => css`
-    color: ${theme.colors.third};
-    font-size: 20px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.bold};
-    line-height: normal;
-    margin: 0px;
-  `};
-`;
-export const UserNameProfile = styled(UserName)`
+
+export const UserNameProfile = styled(UserTitle)`
   font-size: 24px;
 `;
-export const UserTweets = styled.h3`
-  ${({ theme }) => css`
-    color: ${theme.colors.option};
-    font-size: 16px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.normal};
-    line-height: normal;
-    margin: 0px;
-  `};
-`;
+
 export const WrapperImage = styled.div`
   width: 100%;
-`;
-export const ImageBack = styled.img`
-  width: 100%;
-  height: 100%;
 `;
 
 export const UserWrapper = styled.div`
@@ -95,12 +68,10 @@ export const UserWrapperImage = styled.div`
   width: 150px;
   height: 150px;
   position: absolute;
-  top: -65px;
-  left: 5px;
+  top: -67px;
+  left: 7px;
 `;
-export const ImageUser = styled.img`
-  width: 100%;
-  height: 100%;
+export const ImageUser = styled(ImageApp)`
   border-radius: 100%;
 `;
 export const FollowWrapper = styled.div`

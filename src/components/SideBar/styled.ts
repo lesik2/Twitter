@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 import { Button } from '../ui';
+import { UserTitle } from '../ui/profile';
 
 export const Aside = styled.aside`
   ${({ theme }) => css`
@@ -82,33 +83,11 @@ export const UserWrapper = styled.div`
   margin: 0px 0px 16px 0px;
   height: 97px;
 `;
-export const UserInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 3px;
-  justify-content: center;
+
+export const UserName = styled(UserTitle)`
+  font-size: 16px;
 `;
-export const UserName = styled.h3`
-  ${({ theme }) => css`
-    color: ${theme.colors.third};
-    font-size: 16px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.meduimL};
-    line-height: normal;
-    margin: 0px;
-  `};
-`;
-export const UserEmail = styled.h3`
-  ${({ theme }) => css`
-    color: ${theme.colors.option};
-    font-size: 16px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.normal};
-    line-height: normal;
-    margin: 0px;
-  `};
-`;
+
 export const ImageWrapper = styled.div`
   width: 49px;
 `;
