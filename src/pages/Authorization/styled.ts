@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Link } from '@components/ui/auth';
+import { AuthLink } from '@components/ui';
 
 export const SectionAuth = styled.section`
   ${({ theme }) => css`
@@ -95,6 +95,6 @@ export const LoginText = styled.p`
     line-height: normal;
   `};
 `;
-export const LinkToLogin = styled(Link)`
+export const LinkToLogin = styled(AuthLink)`
   font-size: 16px;
 `;

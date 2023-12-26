@@ -5,7 +5,6 @@ import { ROUTES } from '@constants/index';
 import { useState } from 'react';
 import { IDate } from '@customTypes/index';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { ErrorMessage, InputWrapper } from '@components/ui/auth';
 import { TSignUpInputs } from '@customTypes/auth';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
@@ -13,11 +12,11 @@ import { InfinityLoader } from '@components/InfinityLoader';
 import { SnackBar } from '@components/SnackBar';
 import { doc, setDoc } from 'firebase/firestore';
 import { COLLECTIONS } from '@constants/firebase';
+import { ErrorMessage, IconTwitter, InputWrapper } from '@components/ui';
 
 import {
-  AuthLink,
+  Link,
   Form,
-  Icon,
   SignUpInput,
   RegisterBtn,
   RegisterWrapper,
@@ -60,6 +59,7 @@ export function SignUp() {
           phoneNumber,
           uid,
           photoURL,
+          email,
           dateOfBirth: new Date(year, month, day).toLocaleDateString(),
         };
 
@@ -76,30 +76,34 @@ export function SignUp() {
   return (
     <SectionSignUp>
       <RegisterWrapper>
-        <Icon alt='twitter' src={twitter} />
+        <IconTwitter alt='twitter' src={twitter} />
         <Form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
           <Title>{CONSTANTS.SIGN_UP_TITLE}</Title>
           <WrapperInputs>
-            {SIGN_UP_INPUTS.map((input) => (
-              <InputWrapper key={input.name}>
+            {SIGN_UP_INPUTS.map((input) => {
+              const {name, type, pattern, errorMessage, lengthError, placeholder} = input;
+
+              return (
+              <InputWrapper key={name}>
                 <SignUpInput
-                  type={input.type}
-                  $error={errors[input.name]}
-                  placeholder={input.placeholder}
-                  {...register(input.name, {
+                  type={type}
+                  $error={errors[name]}
+                  placeholder={placeholder}
+                  {...register(name, {
                     required: true,
-                    pattern: { value: input.pattern, message: input.errorMessage },
+                    pattern: { value: pattern, message: errorMessage },
                     minLength: {
-                      value: input.name === 'password' ? 8 : 1,
-                      message: input.lengthError ?? '',
+                      value: name === 'password' ? 8 : 1,
+                      message: lengthError ?? '',
                     },
                   })}
                 />
-                {errors[input.name] && <ErrorMessage>{errors[input.name]?.message}</ErrorMessage>}
+                {errors[name] && <ErrorMessage>{errors[name]?.message}</ErrorMessage>}
               </InputWrapper>
-            ))}
+              )
+              })}
           </WrapperInputs>
-          <AuthLink to={ROUTES.AUTHORIZATION}>{CONSTANTS.SIGN_UP_EMAIL_LINK}</AuthLink>
+          <Link to={ROUTES.AUTHORIZATION}>{CONSTANTS.SIGN_UP_EMAIL_LINK}</Link>
           <SubTitle>{CONSTANTS.SIGN_UP_SUBTITLE}</SubTitle>
           <TextDate>{CONSTANTS.SIGN_UP_TEXT_DATE}</TextDate>
           <DateChoose date={date} setDate={setDate} />

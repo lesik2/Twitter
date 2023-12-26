@@ -7,6 +7,7 @@ export interface UserState {
   dateOfBirth: string | null;
   uid: string | null;
   photoURL: string | null;
+  email: string | null;
 }
 
 const initialState: UserState = {
@@ -15,6 +16,7 @@ const initialState: UserState = {
   dateOfBirth: null,
   uid: null,
   photoURL: null,
+  email: null,
 };
 
 export const userSlice = createSlice({

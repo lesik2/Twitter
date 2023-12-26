@@ -36,7 +36,7 @@ export function Authorization() {
     try {
       const userCredential = await signInWithGoogle();
       if (userCredential) {
-        const { uid, photoURL, displayName, phoneNumber } = userCredential.user;
+        const { uid, photoURL, displayName, phoneNumber, email } = userCredential.user;
 
         const userDoc = {
           displayName,
@@ -44,6 +44,7 @@ export function Authorization() {
           uid,
           photoURL,
           dateOfBirth: null,
+          email,
         };
 
         navigate(ROUTES.PROFILE);

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Button, Input, Link } from '@components/ui/auth';
+import { Button, Input, AuthLink, IconTwitter } from '@components/ui';
 
 export const SectionLogIn = styled.section`
   display: flex;
@@ -13,10 +13,9 @@ export const LogInWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
 `;
-export const Icon = styled.img`
+export const Icon = styled(IconTwitter)`
   width: 50px;
   height: 41px;
-  filter: invert(48%) sepia(89%) saturate(1415%) hue-rotate(179deg) brightness(94%) contrast(101%);
 `;
 export const Title = styled.h1`
   ${({ theme }) => css`
@@ -43,6 +42,6 @@ export const LogInBtn = styled(Button)`
   width: 450px;
   margin-top: 38px;
 `;
-export const SignUpLink = styled(Link)`
+export const SignUpLink = styled(AuthLink)`
   align-self: flex-end;
 `;

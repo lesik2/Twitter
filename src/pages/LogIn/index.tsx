@@ -3,7 +3,7 @@ import { ROUTES } from '@constants/index';
 import { CONSTANTS, ERRORS_MESSAGE, LOG_IN_INPUTS } from '@constants/auth';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { TSignUpInputs } from '@customTypes/auth';
-import { InputWrapper } from '@components/ui/auth';
+import { InputWrapper } from '@//components/ui';
 import { useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { InfinityLoader } from '@components/InfinityLoader';
@@ -47,16 +47,22 @@ export function LogIn() {
         <Icon alt='twitter' src={twitter} />
         <Title>{CONSTANTS.LOG_IN_TITLE}</Title>
         <Form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
-          {LOG_IN_INPUTS.map((input) => (
-            <InputWrapper key={input.name}>
+          {LOG_IN_INPUTS.map((input) => {
+            const {name, type, placeholder} = input;
+
+            return (
+            <InputWrapper key={name}>
               <LogInInput
-                type={input.type}
-                $error={errors[input.name]}
-                placeholder={input.placeholder}
-                {...register(input.name, { required: true })}
+                type={type}
+                $error={errors[name]}
+                placeholder={placeholder}
+                {...register(name, { required: true })}
               />
             </InputWrapper>
-          ))}
+
+            )
+            
+          })}
           {loading && <InfinityLoader />}
           <LogInBtn type='submit' disabled={!isValid}>
             {CONSTANTS.LOG_IN_BTN}

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Button, Input, Link } from '@components/ui/auth';
+import { Button, Input, AuthLink } from '@components/ui';
 
 export const SectionSignUp = styled.section`
   display: flex;
@@ -19,16 +19,11 @@ export const RegisterBtn = styled(Button)`
   width: 670px;
   margin-top: 18px;
 `;
-export const Icon = styled.img`
-  width: 40px;
-  height: 33px;
-  align-self: center;
-  filter: invert(48%) sepia(89%) saturate(1415%) hue-rotate(179deg) brightness(94%) contrast(101%);
-`;
+
 export const Title = styled.h1`
   ${({ theme }) => css`
     color: ${theme.colors.third};
-    font-family: ${theme.fontFamily.font};
+    font-family: ${theme.fontFamily.serif};
     font-size: 30px;
     font-style: normal;
     font-weight: ${theme.fontWeight.bold};
@@ -52,14 +47,14 @@ export const SignUpInput = styled(Input)`
   width: 670px;
 `;
 
-export const AuthLink = styled(Link)`
+export const Link = styled(AuthLink)`
   margin: 26px 0px 17px 0px;
 `;
 export const SubTitle = styled.h3`
   ${({ theme }) => css`
     color: ${theme.colors.third};
     font-size: 18px;
-    font-family: ${theme.fontFamily.font};
+    font-family: ${theme.fontFamily.serif};
     font-style: normal;
     font-weight: ${theme.fontWeight.bold};
     line-height: normal;
