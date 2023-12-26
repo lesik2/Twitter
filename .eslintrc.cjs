@@ -133,5 +133,11 @@ module.exports = {
     "no-alert": "off",
     "no-underscore-dangle": "off",
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
+    "@typescript-eslint/no-misused-promises": [2, {
+      "checksVoidReturn": {
+        "attributes": false
+      }
+    }],
+    "import/no-extraneous-dependencies": 'off',
   },
 }
