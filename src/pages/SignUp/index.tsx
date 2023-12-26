@@ -62,7 +62,7 @@ export function SignUp() {
           email,
           dateOfBirth: new Date(year, month, day).toLocaleDateString(),
         };
-
+        
         await setDoc(doc(db, COLLECTIONS.USERS, uid), userDoc);
         navigate(ROUTES.PROFILE);
       }
@@ -81,27 +81,27 @@ export function SignUp() {
           <Title>{CONSTANTS.SIGN_UP_TITLE}</Title>
           <WrapperInputs>
             {SIGN_UP_INPUTS.map((input) => {
-              const {name, type, pattern, errorMessage, lengthError, placeholder} = input;
+              const { name, type, pattern, errorMessage, lengthError, placeholder } = input;
 
               return (
-              <InputWrapper key={name}>
-                <SignUpInput
-                  type={type}
-                  $error={errors[name]}
-                  placeholder={placeholder}
-                  {...register(name, {
-                    required: true,
-                    pattern: { value: pattern, message: errorMessage },
-                    minLength: {
-                      value: name === 'password' ? 8 : 1,
-                      message: lengthError ?? '',
-                    },
-                  })}
-                />
-                {errors[name] && <ErrorMessage>{errors[name]?.message}</ErrorMessage>}
-              </InputWrapper>
-              )
-              })}
+                <InputWrapper key={name}>
+                  <SignUpInput
+                    type={type}
+                    $error={errors[name]}
+                    placeholder={placeholder}
+                    {...register(name, {
+                      required: true,
+                      pattern: { value: pattern, message: errorMessage },
+                      minLength: {
+                        value: name === 'password' ? 8 : 1,
+                        message: lengthError ?? '',
+                      },
+                    })}
+                  />
+                  {errors[name] && <ErrorMessage>{errors[name]?.message}</ErrorMessage>}
+                </InputWrapper>
+              );
+            })}
           </WrapperInputs>
           <Link to={ROUTES.AUTHORIZATION}>{CONSTANTS.SIGN_UP_EMAIL_LINK}</Link>
           <SubTitle>{CONSTANTS.SIGN_UP_SUBTITLE}</SubTitle>

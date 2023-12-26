@@ -48,20 +48,18 @@ export function LogIn() {
         <Title>{CONSTANTS.LOG_IN_TITLE}</Title>
         <Form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
           {LOG_IN_INPUTS.map((input) => {
-            const {name, type, placeholder} = input;
+            const { name, type, placeholder } = input;
 
             return (
-            <InputWrapper key={name}>
-              <LogInInput
-                type={type}
-                $error={errors[name]}
-                placeholder={placeholder}
-                {...register(name, { required: true })}
-              />
-            </InputWrapper>
-
-            )
-            
+              <InputWrapper key={name}>
+                <LogInInput
+                  type={type}
+                  $error={errors[name]}
+                  placeholder={placeholder}
+                  {...register(name, { required: true })}
+                />
+              </InputWrapper>
+            );
           })}
           {loading && <InfinityLoader />}
           <LogInBtn type='submit' disabled={!isValid}>

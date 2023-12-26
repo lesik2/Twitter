@@ -1,5 +1,5 @@
-import { MainProfile } from "./styled";
+import { MainProfile } from './styled';
 
 export function Home() {
-  return <MainProfile>Home</MainProfile>
+  return <MainProfile>Home</MainProfile>;
 }

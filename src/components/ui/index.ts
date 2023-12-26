@@ -41,8 +41,8 @@ export const Button = styled.button`
       background-color: ${theme.colors.hover};
     }
     &:disabled {
-      opacity: 0.5;
-      background-color: ${theme.colors.third};
+      opacity: 0.4;
+      background-color: ${theme.colors.secondary};
     }
   `};
 `;

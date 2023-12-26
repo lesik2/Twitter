@@ -1,15 +1,13 @@
-
-
-
-import { MainProfile } from './styled';
-
+import { Header } from './components/Header';
+import { ProfileSection, SearchSection } from './styled';
 
 export function Profile() {
-
-
   return (
-    <MainProfile>
-      Profile
-    </MainProfile>
-  );
+    <>
+      <ProfileSection>
+        <Header />
+      </ProfileSection>
+      <SearchSection>Search</SearchSection>
+    </>
+  ) 
 }

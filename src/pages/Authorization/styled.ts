@@ -65,6 +65,7 @@ export const RegisterText = styled.p`
 `;
 export const WrapperImage = styled.div`
   width: 58%;
+  height: 93vh;
 `;
 export const Image = styled.img`
   width: 100%;
