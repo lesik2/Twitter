@@ -4,6 +4,8 @@ import { useAppSelector } from '@hooks/redux';
 import { UserInfo, UserSubtitle, UserTitle } from '@components/ui/profile';
 import { ImageApp } from '@components/ui';
 import { CONSTANTS } from '@constants/index';
+import { useState } from 'react';
+import { Modal } from '@components/Modal';
 
 import {
   EditBtn,
@@ -23,8 +25,18 @@ import {
   WrapperImage,
 } from './styled';
 
+import { ProfileEdit } from '../ProfileEdit';
+
 export function Header() {
   const user = useAppSelector((state) => state.userReducer);
+  const [isOpen, setIsOpen] =  useState(false);
+  const handleOpen = ()=>{
+    setIsOpen(true);
+  }
+
+  const handleClose = ()=>{
+    setIsOpen(false);
+  }
 
   return (
     <HeaderSection>
@@ -41,7 +53,7 @@ export function Header() {
         <UserWrapperImage>
           <ImageUser alt='image of user' src={defaultUser} />
         </UserWrapperImage>
-        <EditBtn>{CONSTANTS.PROFILE_BTN}</EditBtn>
+        <EditBtn onClick={handleOpen}>{CONSTANTS.PROFILE_BTN}</EditBtn>
         <UserProfileWrapper>
           <UserInfo>
             <UserNameProfile>{user.displayName}</UserNameProfile>
@@ -62,6 +74,12 @@ export function Header() {
           </FollowWrapper>
         </UserProfileWrapper>
       </UserWrapper>
+      {isOpen && 
+      <Modal onClose={handleClose}>
+        <ProfileEdit />
+      </Modal>
+      }
     </HeaderSection>
+      
   );
 }

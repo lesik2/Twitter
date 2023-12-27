@@ -16,4 +16,6 @@ export const CONSTANTS = {
   ASIDE_TWEET: 'Tweet',
   ASIDE_LOG_OUT: 'Log out',
   PROFILE_BTN: 'Edit profile',
+  EDIT_BTN: 'Save',
+  EDIT_TITLE: 'Edit profile',
 };

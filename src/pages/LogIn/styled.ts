@@ -40,7 +40,7 @@ export const LogInInput = styled(Input)`
 
 export const LogInBtn = styled(Button)`
   width: 450px;
-  margin-top: 38px;
+  margin-top: 13px;
 `;
 export const SignUpLink = styled(AuthLink)`
   align-self: flex-end;

@@ -5,13 +5,10 @@ import { Button } from '../ui';
 import { UserTitle } from '../ui/profile';
 
 export const Aside = styled.aside`
-  ${({ theme }) => css`
-    display: flex;
-    flex-direction: column;
-    width: 22%;
-    align-items: flex-end;
-    border-right: 1px solid ${theme.colors.border};
-  `};
+  display: flex;
+  flex-direction: column;
+  width: 22%;
+  align-items: flex-end;
 `;
 export const Wrapper = styled.div`
   display: flex;
@@ -69,6 +66,7 @@ export const LogOutBtn = styled(Button)`
     border-radius: 27px;
     background-color: ${theme.colors.disabled};
     margin-right: 51px;
+    margin-bottom: 20px;
     &:hover {
       background-color: ${theme.colors.option};
     }

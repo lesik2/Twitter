@@ -7,6 +7,7 @@ export const ProfileSection = styled.section`
     flex-direction: column;
     align-items: center;
     border-right: 1px solid ${theme.colors.border};
+    border-left: 1px solid ${theme.colors.border};
   `};
 `;
 export const SearchSection = styled.section`

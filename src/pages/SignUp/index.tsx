@@ -10,9 +10,10 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { InfinityLoader } from '@components/InfinityLoader';
 import { SnackBar } from '@components/SnackBar';
-import { doc, setDoc } from 'firebase/firestore';
+import { Timestamp, doc, setDoc } from 'firebase/firestore';
 import { COLLECTIONS } from '@constants/firebase';
 import { ErrorMessage, IconTwitter, InputWrapper } from '@components/ui';
+
 
 import {
   Link,
@@ -59,7 +60,7 @@ export function SignUp() {
           phoneNumber,
           uid,
           email,
-          dateOfBirth: new Date(year, month, day).toLocaleDateString(),
+          dateOfBirth: Timestamp.fromDate(new Date(year, month, day)).toMillis(),
         };
 
         await setDoc(doc(db, COLLECTIONS.USERS, uid), userDoc);
@@ -80,7 +81,7 @@ export function SignUp() {
           <Title>{CONSTANTS.SIGN_UP_TITLE}</Title>
           <WrapperInputs>
             {SIGN_UP_INPUTS.map((input) => {
-              const { name, type, pattern, errorMessage, lengthError, placeholder } = input;
+              const { name, type, pattern, errorMessage, lengthError, placeholder, minLength } = input;
 
               return (
                 <InputWrapper key={name}>
@@ -92,8 +93,8 @@ export function SignUp() {
                       required: true,
                       pattern: { value: pattern, message: errorMessage },
                       minLength: {
-                        value: name === 'password' ? 8 : 1,
-                        message: lengthError ?? '',
+                        value: minLength,
+                        message: lengthError ?? errorMessage,
                       },
                     })}
                   />

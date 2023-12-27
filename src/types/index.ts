@@ -22,4 +22,5 @@ export interface IRouter {
 }
 export interface ISnackbar {
   message: string;
+  error?: Error;
 }

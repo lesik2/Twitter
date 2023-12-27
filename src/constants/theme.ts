@@ -8,6 +8,7 @@ export const theme = {
     option: '#00000099',
     error: '#ff0000',
     disabled: ' #B3B8BB',
+    modalWrapper: 'rgba(0, 0, 0, 0.7)',
   },
 
   fontFamily: {
@@ -21,6 +22,8 @@ export const theme = {
     bold: '700',
     large: '900',
   },
-  zIndex: {},
+  zIndex: {
+    modal: 1000,
+  },
   breakPoints: {},
 };

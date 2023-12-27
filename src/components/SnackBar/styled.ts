@@ -12,7 +12,7 @@ export const Wrapper = styled.div<{ $isOpen?: boolean }>`
     font-size: 17px;
     color: ${theme.colors.primary};
     position: absolute;
-    bottom: -20px;
+    bottom: -50px;
     left: 50%;
     transform: translateX(-50%);
     opacity: ${$isOpen ? '1' : '0'};
