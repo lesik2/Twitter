@@ -68,8 +68,8 @@ export const UserWrapperImage = styled.div`
   width: 150px;
   height: 150px;
   position: absolute;
-  top: -67px;
-  left: 7px;
+  top: -60px;
+  left: 0px;
 `;
 export const ImageUser = styled(ImageApp)`
   border-radius: 100%;

@@ -6,7 +6,6 @@ export interface UserState {
   phoneNumber: string | null;
   dateOfBirth: string | null;
   uid: string | null;
-  photoURL: string | null;
   email: string | null;
 }
 
@@ -15,7 +14,6 @@ const initialState: UserState = {
   phoneNumber: null,
   dateOfBirth: null,
   uid: null,
-  photoURL: null,
   email: null,
 };
 

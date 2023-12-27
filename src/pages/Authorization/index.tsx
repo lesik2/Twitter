@@ -36,13 +36,12 @@ export function Authorization() {
     try {
       const userCredential = await signInWithGoogle();
       if (userCredential) {
-        const { uid, photoURL, displayName, phoneNumber, email } = userCredential.user;
+        const { uid, displayName, phoneNumber, email } = userCredential.user;
 
         const userDoc = {
           displayName,
           phoneNumber,
           uid,
-          photoURL,
           dateOfBirth: null,
           email,
         };

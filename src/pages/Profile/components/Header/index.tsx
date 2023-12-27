@@ -39,7 +39,7 @@ export function Header() {
       </WrapperImage>
       <UserWrapper>
         <UserWrapperImage>
-          <ImageUser alt='image of user' src={user.photoURL ?? defaultUser} />
+          <ImageUser alt='image of user' src={defaultUser} />
         </UserWrapperImage>
         <EditBtn>{CONSTANTS.PROFILE_BTN}</EditBtn>
         <UserProfileWrapper>

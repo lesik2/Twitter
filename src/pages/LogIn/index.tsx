@@ -3,7 +3,7 @@ import { ROUTES } from '@constants/index';
 import { CONSTANTS, ERRORS_MESSAGE, LOG_IN_INPUTS } from '@constants/auth';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { TSignUpInputs } from '@customTypes/auth';
-import { InputWrapper } from '@//components/ui';
+import { InputWrapper } from '@components/ui';
 import { useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { InfinityLoader } from '@components/InfinityLoader';

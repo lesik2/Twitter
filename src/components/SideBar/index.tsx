@@ -64,7 +64,7 @@ export function SideBar() {
       </Wrapper>
       <UserWrapper>
         <ImageWrapper>
-          <ImageUser alt='user icon' src={user.photoURL ?? defaultUser} />
+          <ImageUser alt='user icon' src={defaultUser} />
         </ImageWrapper>
         <UserInfo>
           <UserName>{user.displayName}</UserName>

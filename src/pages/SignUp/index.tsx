@@ -53,12 +53,11 @@ export function SignUp() {
     try {
       const userCredential = await createUserWithEmailAndPassword(email, password);
       if (userCredential && year && month && day) {
-        const { uid, photoURL } = userCredential.user;
+        const { uid } = userCredential.user;
         const userDoc = {
           displayName: name,
           phoneNumber,
           uid,
-          photoURL,
           email,
           dateOfBirth: new Date(year, month, day).toLocaleDateString(),
         };
