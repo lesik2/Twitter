@@ -29,14 +29,14 @@ import { ProfileEdit } from '../ProfileEdit';
 
 export function Header() {
   const user = useAppSelector((state) => state.userReducer);
-  const [isOpen, setIsOpen] =  useState(false);
-  const handleOpen = ()=>{
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpen = () => {
     setIsOpen(true);
-  }
+  };
 
-  const handleClose = ()=>{
+  const handleClose = () => {
     setIsOpen(false);
-  }
+  };
 
   return (
     <HeaderSection>
@@ -74,12 +74,11 @@ export function Header() {
           </FollowWrapper>
         </UserProfileWrapper>
       </UserWrapper>
-      {isOpen && 
-      <Modal onClose={handleClose}>
-        <ProfileEdit />
-      </Modal>
-      }
+      {isOpen && (
+        <Modal onClose={handleClose}>
+          <ProfileEdit handleClose={handleClose}/>
+        </Modal>
+      )}
     </HeaderSection>
-      
   );
 }

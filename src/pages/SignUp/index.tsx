@@ -14,7 +14,6 @@ import { Timestamp, doc, setDoc } from 'firebase/firestore';
 import { COLLECTIONS } from '@constants/firebase';
 import { ErrorMessage, IconTwitter, InputWrapper } from '@components/ui';
 
-
 import {
   Link,
   Form,

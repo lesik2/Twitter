@@ -1,22 +1,28 @@
 import { Dispatch } from 'react';
-import { reauthenticateWithCredential, EmailAuthProvider, updatePassword } from 'firebase/auth';
+import { doc, updateDoc } from 'firebase/firestore';
 
-import { auth } from '@//firebase';
+import { auth, db } from '@//firebase';
 
-export async function updateUserPassword(
+export async function updateUserInfo(
   setLoading: Dispatch<React.SetStateAction<boolean>>,
   setError: React.Dispatch<React.SetStateAction<Error | null>>,
-  password: string,
-  newPassword: string,
+  name: string,
+  phoneNumber: string,
+  dateOfBirth: number,
 ): Promise<void> {
   setLoading(true);
   const user = auth.currentUser;
+  const id = user?.uid;
   const email = user?.email;
-  if (user && email) {
+  if (user && id && email) {
     try {
-      const credential = EmailAuthProvider.credential(email, password);
-      await reauthenticateWithCredential(user, credential);
-      await updatePassword(user, newPassword);
+      const userDoc = doc(db, 'users', id);
+
+      await updateDoc(userDoc, {
+        displayName: name,
+        phoneNumber,
+        dateOfBirth,
+      });
       setLoading(false);
     } catch (error: unknown) {
       if (error instanceof Error) {

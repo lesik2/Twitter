@@ -13,7 +13,6 @@ import { Form, Icon, LogInInput, LogInWrapper, LogInBtn, SectionLogIn, SignUpLin
 
 import { auth } from '@//firebase';
 
-
 export function LogIn() {
   const navigate = useNavigate();
   const {
@@ -67,10 +66,7 @@ export function LogIn() {
           <LogInBtn type='submit' disabled={!isValid}>
             {CONSTANTS.LOG_IN_BTN}
           </LogInBtn>
-          {error && 
-          <SnackBar 
-            message={ERRORS_MESSAGE[error.message] ?? error.message} 
-          />}
+          {error && <SnackBar message={ERRORS_MESSAGE[error.message] ?? error.message} />}
         </Form>
         <SignUpLink to={ROUTES.SIGN_UP}>{CONSTANTS.LOGIN_IN_SIGN_UP_LINK}</SignUpLink>
       </LogInWrapper>

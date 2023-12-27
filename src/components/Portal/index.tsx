@@ -2,7 +2,6 @@ import { IPortal } from '@customTypes/modal';
 import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-
 export const Portal = ({ children }: IPortal) => {
   const [modalContainer] = useState(document.createElement('div'));
   useEffect(() => {
@@ -15,7 +14,6 @@ export const Portal = ({ children }: IPortal) => {
     }
 
     modalRoot.appendChild(modalContainer);
-
   }, [modalContainer]);
 
   return ReactDOM.createPortal(children, modalContainer);

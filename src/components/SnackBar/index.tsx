@@ -6,11 +6,11 @@ import { useShowSnackBar } from './hooks/useShowSnackBar';
 
 export function SnackBar({ message, error }: ISnackbar) {
   const [isOpen, setIsOpen] = useState(true);
-  useEffect(()=>{
-    if(error){
+  useEffect(() => {
+    if (error) {
       setIsOpen(true);
     }
-  },[error])
+  }, [error]);
   useShowSnackBar(isOpen, setIsOpen);
 
   return <Wrapper $isOpen={isOpen}>{message}</Wrapper>;
