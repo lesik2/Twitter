@@ -33,11 +33,13 @@ export const TwittText = styled.textarea`
     resize: none;
     font-weight: ${theme.fontWeight.meduimL};
     line-height: normal;
+    color: ${theme.colors.third};
     border: none;
     outline: none;
     min-height: 50px;
     max-height: 250px;
     overflow-y: auto;
+    background-color: ${theme.colors.primary};
     &::placeholder {
       color: ${theme.colors.disabled};
     }
@@ -63,6 +65,7 @@ export const ImageWrapper = styled.div`
   width: 679px;
   height: 453px;
   margin-top: 15px;
+  position: relative;
 `;
 export const ImageTwitter = styled(ImageApp)`
   border-radius: 20px;
@@ -70,7 +73,7 @@ export const ImageTwitter = styled(ImageApp)`
 export const TwittInput = styled.input`
   display: none;
 `;
-export const LabelTwitt = styled.label`
+export const LabelTweet = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,4 +85,28 @@ export const LabelTwitt = styled.label`
   &:hover {
     transform: scale(1.1);
   }
+`;
+export const Close = styled.div`
+  ${({ theme }) => css`
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: ${theme.colors.border};
+    &:hover {
+      background-color: ${theme.colors.option};
+    }
+  `};
+`;
+export const ImageClose = styled.img`
+  transition: filter 0.2s;
+  width: 28px;
+  height: 28px;
 `;
