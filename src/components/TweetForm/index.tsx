@@ -15,6 +15,7 @@ import {
   ImageUser,
   ImageWrapper,
   LabelTweet,
+  LoaderStatus,
   TweetFormSection,
   TwittInput,
   TwittText,
@@ -26,23 +27,23 @@ import { ImageApp } from '../ui';
 
 import { db } from '@//firebase';
 
-export interface ITweet{
+export interface ITweet {
   text: string;
   imageUrl?: string;
   timestamp: number;
 }
 
 export function TweetForm() {
-  const user = useAppSelector((state)=>state.userReducer);
+  const user = useAppSelector((state) => state.userReducer);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [image, setImage] = useState<File | null>(null);
   const [text, setText] = useState('');
-
-
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const {uid}  = user;
+    setLoading(true);
+    const { uid } = user;
 
     try {
       const tweetData: ITweet = {
@@ -50,19 +51,20 @@ export function TweetForm() {
         timestamp: Timestamp.fromDate(new Date()).toMillis(),
       };
 
-      if(image){
+      if (image) {
         const imageUrl = await uploadImageToStorage(image);
         tweetData.imageUrl = imageUrl;
       }
 
-      if(uid){
+      if (uid) {
         const userRef = doc(db, 'users', uid);
 
         const tweetsCollectionRef = collection(userRef, 'tweets');
-  
+
         await addDoc(tweetsCollectionRef, tweetData);
       }
-      
+
+      setLoading(false);
       setImage(null);
       setText('');
     } catch (errorObj: unknown) {
@@ -74,10 +76,9 @@ export function TweetForm() {
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files?.[0];
-    if(selectedFile){
+    if (selectedFile) {
       setImage(selectedFile);
     }
- 
   };
 
   useEffect(() => {
@@ -95,16 +96,16 @@ export function TweetForm() {
     setText(event.target.value);
   };
 
-  const handleDeleteImage = ()=>{
+  const handleDeleteImage = () => {
     setImage(null);
-  }
+  };
 
   return (
     <TweetFormSection>
       <UserWrapperImage>
         <ImageUser alt='user icon' src={defaultUser} />
       </UserWrapperImage>
-      <Form onSubmit={handleSubmit} autoComplete='off'  noValidate>
+      <Form onSubmit={handleSubmit} autoComplete='off' noValidate>
         <TwittText
           onChange={handleInputChange}
           value={text}
@@ -112,20 +113,25 @@ export function TweetForm() {
           ref={textareaRef}
           placeholder="What's happening"
         />
-        {image && <ImageWrapper>
-          <ImageTwitter alt='gallery' src={URL.createObjectURL(image)} />
-          <Close onClick={handleDeleteImage}>
-            <ImageClose src={closeIcon} alt='cross' />
-          </Close>
-        </ImageWrapper>}
+        {image && (
+          <ImageWrapper>
+            <ImageTwitter alt='gallery' src={URL.createObjectURL(image)} />
+            <Close onClick={handleDeleteImage}>
+              <ImageClose src={closeIcon} alt='cross' />
+            </Close>
+          </ImageWrapper>
+        )}
         <ButtonsWrapper>
           <LabelTweet htmlFor='galleryInput'>
             <ImageApp alt='gallery' src={gallery} />
             <TwittInput onChange={handleImageChange} accept='image/*' type='file' id='galleryInput' />
           </LabelTweet>
-          <BtnTweet disabled={text===''} type='submit'>Tweet</BtnTweet>
+          <BtnTweet disabled={text === ''} type='submit'>
+            Tweet
+          </BtnTweet>
         </ButtonsWrapper>
       </Form>
+      {loading && <LoaderStatus/>}
     </TweetFormSection>
   );
 }

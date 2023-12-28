@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 import { Button, ImageApp } from '../ui';
 
@@ -10,6 +10,7 @@ export const TweetFormSection = styled.section`
     padding: 19px 17px 13px 27px;
     border-bottom: 1px solid ${theme.colors.border};
     gap: 27px;
+    position: relative;
   `};
 `;
 export const UserWrapperImage = styled.div`
@@ -109,4 +110,26 @@ export const ImageClose = styled.img`
   transition: filter 0.2s;
   width: 28px;
   height: 28px;
+`;
+
+const loader = keyframes`
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+`;
+
+export const LoaderStatus = styled.div`
+  ${({ theme }) => css`
+    animation: ${loader} 4s linear infinite;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 3px;
+    background-color: ${theme.colors.secondary};
+  `};
 `;
