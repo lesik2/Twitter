@@ -23,7 +23,11 @@ export const userSlice = createSlice({
   reducers: {
     setUser: (_state, action: PayloadAction<UserState>) => action.payload,
     removeUser: (_state) => initialState,
+    updateUserProfile: (state, action: PayloadAction<Omit<UserState, 'uid' | 'email'>>) => ({
+      ...state,
+      ...action.payload,
+    }),
   },
 });
-export const { setUser, removeUser } = userSlice.actions;
+export const { setUser, removeUser, updateUserProfile } = userSlice.actions;
 export default userSlice.reducer;

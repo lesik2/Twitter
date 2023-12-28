@@ -64,7 +64,7 @@ export const SIGN_UP_INPUTS: IInput[] = [
   {
     name: 'password',
     placeholder: 'Password',
-    editPlaceholder: 'Current password (needs for changing email)',
+    editPlaceholder: 'Current password',
     pattern: /^(?=.*[A-Z])(?=.*[!@#$%^&*])/,
     errorMessage: 'Password should contains at least one uppercase letter and one special symbol. ',
     lengthError: 'Password should contains at least 8 symbols',

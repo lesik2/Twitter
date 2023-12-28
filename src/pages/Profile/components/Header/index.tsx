@@ -76,7 +76,7 @@ export function Header() {
       </UserWrapper>
       {isOpen && (
         <Modal onClose={handleClose}>
-          <ProfileEdit handleClose={handleClose}/>
+          <ProfileEdit handleClose={handleClose} />
         </Modal>
       )}
     </HeaderSection>

@@ -11,16 +11,16 @@ import { CONSTANTS } from '@constants/index';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import { SnackBar } from '@components/SnackBar';
 import { InfinityLoader } from '@components/InfinityLoader';
-import { setUser } from '@store/reducers/userSlice';
+import { updateUserProfile } from '@store/reducers/userSlice';
 
 import { EditInput, Form, ProfileEditSection, EditBtn, Title, WrapperInputs } from './styled';
 import { updateUserPassword } from './helpers/updateUserPassword';
 import { updateUserInfo } from './helpers/updateUserInfo';
 
-export interface IProfileEdit{
+export interface IProfileEdit {
   handleClose: () => void;
 }
-export function ProfileEdit({handleClose}: IProfileEdit) {
+export function ProfileEdit({ handleClose }: IProfileEdit) {
   const user = useAppSelector((state) => state.userReducer);
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);
@@ -51,31 +51,48 @@ export function ProfileEdit({handleClose}: IProfileEdit) {
   });
 
   const onSubmit: SubmitHandler<TEditInputs> = async (data) => {
-    try {
+    try{
       const { password, newPassword, name, phoneNumber } = data;
-      const {year,day, month} = date;
-      if ( password !==''&&newPassword === '') {
-        setError(new Error('Input new Password'));
-      } else if(password && newPassword) {
-        await updateUserPassword(setLoading, setError, password, newPassword);
+      const { year, day, month } = date;
+      let time: number = user.dateOfBirth!;
+      if(year && day && month ){
+        time = new Date(year, month, day).getTime();
       }
 
-      if(year && day && month){
-        await updateUserInfo(setLoading, setError,name, phoneNumber, new Date(year,month, day).getTime());
-        dispatch(setUser({
-          displayName: name, 
-          phoneNumber, email: 
-          user.email, uid: user.uid, 
-          dateOfBirth:new Date(year,month, day).getTime() 
-        }));
+      if ((password !== '' && newPassword === '') || (password === '' && newPassword !== '')) {
+        setError(new Error('Both fields with passwords should be filled'));
+
+        return ;
       }
 
-      handleClose();
-    } catch (errorObj: unknown) {
+      if (password && newPassword) {
+        setLoading(true);
+        await updateUserPassword(password, newPassword);
+        setLoading(false);
+      }
+
+      if (user.displayName!==name || user.phoneNumber!==phoneNumber || user.dateOfBirth!==time) {
+        setLoading(true);
+        await updateUserInfo(name, phoneNumber, time);
+        setLoading(false);
+        dispatch(
+          updateUserProfile({
+            displayName: name,
+            phoneNumber,
+            dateOfBirth: time,
+          }),
+        );
+      }
+
+        handleClose();
+    }catch (errorObj: unknown) {
       if (errorObj instanceof Error) {
         console.error(errorObj);
+        setError(errorObj);
+        setLoading(false);
       }
     }
+      
   };
 
   return (
