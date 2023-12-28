@@ -18,12 +18,11 @@ export const Router = ({ user }: IRouter) => (
         </Routes>
       </>
     ) : (
-        <Routes>
-            {publicRoutes.map((route) => (
-              <Route key={route.path} {...route} />
-            ))}
-          </Routes>
-
+      <Routes>
+        {publicRoutes.map((route) => (
+          <Route key={route.path} {...route} />
+        ))}
+      </Routes>
     )}
   </Wrapper>
 );
