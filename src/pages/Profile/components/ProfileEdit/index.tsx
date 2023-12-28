@@ -92,7 +92,6 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
         setLoading(false);
       }
     }
-    
   };
 
   return (

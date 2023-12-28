@@ -1,6 +1,8 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { LoadingPage } from '@pages/LoadingPage';
 import { useUser } from '@hooks/useUser';
+import { useTheme } from '@hooks/useTheme';
+import { ThemeProvider } from 'styled-components';
 
 import { Router } from '../Router';
 
@@ -9,6 +11,7 @@ import { auth } from '@//firebase';
 export const App = () => {
   const [user, loading] = useAuthState(auth);
   useUser(user);
+  const theme = useTheme();
 
-  return <>{loading ? <LoadingPage /> : <Router user={user} />}</>;
+  return <ThemeProvider theme={theme}>{loading ? <LoadingPage /> : <Router user={user} />}</ThemeProvider>;
 };

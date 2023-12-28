@@ -18,4 +18,5 @@ export const CONSTANTS = {
   PROFILE_BTN: 'Edit profile',
   EDIT_BTN: 'Save',
   EDIT_TITLE: 'Edit profile',
+  HOME_TITLE: 'Home',
 };

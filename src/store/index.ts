@@ -2,9 +2,11 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
 import userReducer from './reducers/userSlice';
+import themeReducer from './reducers/themeSlice';
 
 const rootReducer = combineReducers({
   userReducer,
+  themeReducer,
 });
 
 export const store = configureStore({

@@ -4,6 +4,7 @@ import { AuthLink } from '@components/ui';
 export const SectionAuth = styled.section`
   ${({ theme }) => css`
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -65,7 +66,7 @@ export const RegisterText = styled.p`
 `;
 export const WrapperImage = styled.div`
   width: 58%;
-  height: 93vh;
+  height: 93.5vh;
 `;
 
 export const AuthText = styled.p`

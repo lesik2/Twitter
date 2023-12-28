@@ -7,22 +7,23 @@ import { Wrapper } from './styled';
 import { SideBar } from '../SideBar';
 
 export const Router = ({ user }: IRouter) => (
-  <>
+  <Wrapper>
     {user ? (
-      <Wrapper>
+      <>
         <SideBar />
         <Routes>
           {privateRoutes.map((route) => (
             <Route key={route.path} {...route} />
           ))}
         </Routes>
-      </Wrapper>
+      </>
     ) : (
-      <Routes>
-        {publicRoutes.map((route) => (
-          <Route key={route.path} {...route} />
-        ))}
-      </Routes>
+        <Routes>
+            {publicRoutes.map((route) => (
+              <Route key={route.path} {...route} />
+            ))}
+          </Routes>
+
     )}
-  </>
+  </Wrapper>
 );

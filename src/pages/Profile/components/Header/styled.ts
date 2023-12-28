@@ -10,15 +10,12 @@ export const HeaderSection = styled.header`
   justify-content: center;
 `;
 export const TweetsWrapper = styled.div`
-  ${({ theme }) => css`
-    width: 100%;
-    height: 87px;
-    background-color: ${theme.colors.primary};
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 15px;
-  `};
+  width: 100%;
+  height: 87px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 15px;
 `;
 export const UserInfoProfile = styled(UserInfo)`
   gap: 6px;

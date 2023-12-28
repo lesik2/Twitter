@@ -4,7 +4,8 @@ import { Button, Input, AuthLink, IconTwitter } from '@components/ui';
 export const SectionLogIn = styled.section`
   display: flex;
   width: 100%;
-  align-items: center;
+  height: 100vh;
+  align-items: flex-start;
   justify-content: center;
   padding-top: 60px;
 `;

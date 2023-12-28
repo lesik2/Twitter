@@ -1,5 +1,12 @@
-import { MainProfile } from './styled';
+import { Header } from './components/Header';
+import { HomeSection, SearchSection } from './styled';
 
 export function Home() {
-  return <MainProfile>Home</MainProfile>;
+  return <>
+    <HomeSection>
+      <Header />
+    </HomeSection>
+
+    <SearchSection />
+  </>
 }
