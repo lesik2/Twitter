@@ -1,8 +1,19 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const MainProfile = styled.section`
+export const HomeSection = styled.section`
+  ${({ theme }) => css`
+    width: 51%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid ${theme.colors.border};
+    border-left: 1px solid ${theme.colors.border};
+  `};
+`;
+export const SearchSection = styled.section`
+  width: 27%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 78%;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 10px 10px 28px;
 `;
