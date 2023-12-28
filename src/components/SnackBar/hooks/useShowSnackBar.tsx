@@ -4,7 +4,7 @@ export function useShowSnackBar(isOpen: boolean, setIsOpen: Dispatch<React.SetSt
   useEffect(() => {
     if (!isOpen) return () => {};
 
-    const idTimer = setTimeout(() => setIsOpen(false), 4500);
+    const idTimer = setTimeout(() => setIsOpen(false), 4000);
 
     return () => {
       clearTimeout(idTimer);

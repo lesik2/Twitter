@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { FieldError } from 'react-hook-form';
 
 export const Input = styled.input<{ $error?: FieldError }>`
@@ -30,24 +29,24 @@ export const Button = styled.button`
     border-radius: 76px;
     background-color: ${theme.colors.secondary};
     color: ${theme.colors.primary};
-    font-family: ${theme.fontFamily.font};
+    font-family: ${theme.fontFamily.serif};
     font-size: 18px;
     font-style: normal;
     font-weight: ${theme.fontWeight.bold};
     line-height: normal;
     outline: none;
     border: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.2s;
     &:hover {
       background-color: ${theme.colors.hover};
     }
     &:disabled {
-      opacity: 0.5;
-      background-color: ${theme.colors.third};
+      opacity: 0.4;
+      background-color: ${theme.colors.secondary};
     }
   `};
 `;
-export const Link = styled(NavLink)`
+export const AuthLink = styled(NavLink)`
   ${({ theme }) => css`
     color: ${theme.colors.secondary};
     font-size: 18px;
@@ -74,4 +73,14 @@ export const ErrorMessage = styled.p`
 `;
 export const InputWrapper = styled.div`
   position: relative;
+`;
+export const IconTwitter = styled.img`
+  width: 40px;
+  height: 33px;
+  filter: invert(48%) sepia(89%) saturate(1415%) hue-rotate(179deg) brightness(94%) contrast(101%);
+`;
+
+export const ImageApp = styled.img`
+  width: 100%;
+  height: 100%;
 `;

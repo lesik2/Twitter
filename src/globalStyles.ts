@@ -34,12 +34,18 @@ const GlobalStyle = createGlobalStyle`
     }
     a:active{
       text-decoration: none;
+      color: inherit;
     }
     a:hover{
       text-decoration: none;
+      color: inherit;
     }
     a:visited{
       text-decoration: none;
+    }
+    a:focus{
+      text-decoration: none;
+      color: inherit;
     }
 `;
 

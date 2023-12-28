@@ -7,17 +7,23 @@ export const theme = {
     hover: '#23527C',
     option: '#00000099',
     error: '#ff0000',
+    disabled: ' #B3B8BB',
+    modalWrapper: 'rgba(0, 0, 0, 0.7)',
   },
 
   fontFamily: {
-    font: 'Roboto Serif',
+    serif: 'Roboto Serif',
+    roboto: 'Roboto',
   },
   fontWeight: {
     normal: '400',
     medium: '500',
+    meduimL: '600',
     bold: '700',
     large: '900',
   },
-  zIndex: {},
+  zIndex: {
+    modal: 1000,
+  },
   breakPoints: {},
 };

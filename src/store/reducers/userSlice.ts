@@ -4,9 +4,9 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 export interface UserState {
   displayName: string | null;
   phoneNumber: string | null;
-  dateOfBirth: string | null;
+  dateOfBirth: number | null;
   uid: string | null;
-  photoURL: string | null;
+  email: string | null;
 }
 
 const initialState: UserState = {
@@ -14,7 +14,7 @@ const initialState: UserState = {
   phoneNumber: null,
   dateOfBirth: null,
   uid: null,
-  photoURL: null,
+  email: null,
 };
 
 export const userSlice = createSlice({
@@ -23,7 +23,11 @@ export const userSlice = createSlice({
   reducers: {
     setUser: (_state, action: PayloadAction<UserState>) => action.payload,
     removeUser: (_state) => initialState,
+    updateUserProfile: (state, action: PayloadAction<Omit<UserState, 'uid' | 'email'>>) => ({
+      ...state,
+      ...action.payload,
+    }),
   },
 });
-export const { setUser, removeUser } = userSlice.actions;
+export const { setUser, removeUser, updateUserProfile } = userSlice.actions;
 export default userSlice.reducer;

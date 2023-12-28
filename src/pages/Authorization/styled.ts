@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { Link } from '@components/ui/auth';
+import { AuthLink } from '@components/ui';
 
 export const SectionAuth = styled.section`
   ${({ theme }) => css`
@@ -65,11 +65,9 @@ export const RegisterText = styled.p`
 `;
 export const WrapperImage = styled.div`
   width: 58%;
+  height: 93vh;
 `;
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
-`;
+
 export const AuthText = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.third};
@@ -95,6 +93,6 @@ export const LoginText = styled.p`
     line-height: normal;
   `};
 `;
-export const LinkToLogin = styled(Link)`
+export const LinkToLogin = styled(AuthLink)`
   font-size: 16px;
 `;
