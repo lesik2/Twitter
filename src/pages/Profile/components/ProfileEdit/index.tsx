@@ -51,18 +51,18 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
   });
 
   const onSubmit: SubmitHandler<TEditInputs> = async (data) => {
-    try{
+    try {
       const { password, newPassword, name, phoneNumber } = data;
       const { year, day, month } = date;
       let time: number = user.dateOfBirth!;
-      if(year && day && month ){
+      if (year && day && month) {
         time = new Date(year, month, day).getTime();
       }
 
       if ((password !== '' && newPassword === '') || (password === '' && newPassword !== '')) {
         setError(new Error('Both fields with passwords should be filled'));
 
-        return ;
+        return;
       }
 
       if (password && newPassword) {
@@ -71,7 +71,7 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
         setLoading(false);
       }
 
-      if (user.displayName!==name || user.phoneNumber!==phoneNumber || user.dateOfBirth!==time) {
+      if (user.displayName !== name || user.phoneNumber !== phoneNumber || user.dateOfBirth !== time) {
         setLoading(true);
         await updateUserInfo(name, phoneNumber, time);
         setLoading(false);
@@ -84,15 +84,15 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
         );
       }
 
-        handleClose();
-    }catch (errorObj: unknown) {
+      handleClose();
+    } catch (errorObj: unknown) {
       if (errorObj instanceof Error) {
         console.error(errorObj);
         setError(errorObj);
         setLoading(false);
       }
     }
-      
+    
   };
 
   return (
