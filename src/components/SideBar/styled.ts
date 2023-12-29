@@ -9,20 +9,25 @@ export const Aside = styled.aside`
   flex-direction: column;
   width: 22%;
   align-items: flex-end;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding-bottom: 10px;
 `;
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 31px 51px 76px 10px;
+  margin: 25px 51px 30px 10px;
 `;
 export const Navigation = styled.nav`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin: 49px 0px 30px 0px;
-  gap: 10px;
+  margin: 25px 0px 30px 0px;
+  gap: 7px;
 `;
 export const TweetBtn = styled(Button)`
   width: 230px;
@@ -66,7 +71,6 @@ export const LogOutBtn = styled(Button)`
     border-radius: 27px;
     background-color: ${theme.colors.disabled};
     margin-right: 51px;
-    margin-bottom: 20px;
     &:hover {
       background-color: ${theme.colors.option};
     }
@@ -78,7 +82,7 @@ export const UserWrapper = styled.div`
   gap: 37px;
   align-items: center;
   justify-content: center;
-  margin: 0px 0px 16px 0px;
+  margin: 0px 0px 15px 0px;
   height: 97px;
 `;
 
@@ -87,7 +91,7 @@ export const UserName = styled(UserTitle)`
 `;
 
 export const ImageWrapper = styled.div`
-  width: 49px;
+  width: 50px;
 `;
 export const ImageUser = styled.img`
   width: 100%;

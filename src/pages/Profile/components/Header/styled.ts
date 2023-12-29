@@ -8,6 +8,7 @@ export const HeaderSection = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 `;
 export const TweetsWrapper = styled.div`
   width: 100%;

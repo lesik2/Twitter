@@ -24,3 +24,10 @@ export interface ISnackbar {
   message: string;
   error?: Error;
 }
+
+export interface ITweet {
+  id: string;
+  text: string;
+  imageUrl?: string;
+  timestamp: number;
+}

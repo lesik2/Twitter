@@ -2,8 +2,10 @@ import defaultUser from '@assets/images/defaultUser.png';
 import gallery from '@assets/icons/gallery.svg';
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import closeIcon from '@assets/icons/close.svg';
-import { Timestamp, addDoc, collection, doc } from 'firebase/firestore';
-import { useAppSelector } from '@hooks/redux';
+import { Timestamp, addDoc, collection, doc, updateDoc } from 'firebase/firestore';
+import { useAppSelector, useAppDispatch } from '@hooks/redux';
+import { ITweet } from '@customTypes/index';
+import {  setTweets } from '@store/reducers/userSlice';
 
 import {
   BtnTweet,
@@ -27,11 +29,7 @@ import { ImageApp } from '../ui';
 
 import { db } from '@//firebase';
 
-export interface ITweet {
-  text: string;
-  imageUrl?: string;
-  timestamp: number;
-}
+
 
 export function TweetForm() {
   const user = useAppSelector((state) => state.userReducer);
@@ -39,7 +37,7 @@ export function TweetForm() {
   const [image, setImage] = useState<File | null>(null);
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
-
+  const dispatch = useAppDispatch();
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
@@ -47,6 +45,7 @@ export function TweetForm() {
 
     try {
       const tweetData: ITweet = {
+        id: '',
         text,
         timestamp: Timestamp.fromDate(new Date()).toMillis(),
       };
@@ -61,7 +60,13 @@ export function TweetForm() {
 
         const tweetsCollectionRef = collection(userRef, 'tweets');
 
-        await addDoc(tweetsCollectionRef, tweetData);
+        const docRef = await addDoc(tweetsCollectionRef, tweetData);
+        const tweetId = docRef.id;
+        await updateDoc(doc(tweetsCollectionRef, tweetId), {
+          id: tweetId,
+        });
+        tweetData.id= tweetId; 
+        dispatch(setTweets([tweetData]));
       }
 
       setLoading(false);
@@ -131,7 +136,7 @@ export function TweetForm() {
           </BtnTweet>
         </ButtonsWrapper>
       </Form>
-      {loading && <LoaderStatus/>}
+      {loading && <LoaderStatus />}
     </TweetFormSection>
   );
 }

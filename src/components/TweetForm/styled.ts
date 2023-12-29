@@ -63,8 +63,8 @@ export const BtnTweet = styled(Button)`
   height: 50px;
 `;
 export const ImageWrapper = styled.div`
-  width: 679px;
-  height: 453px;
+  width: 90%;
+  height: 100%;
   margin-top: 15px;
   position: relative;
 `;
