@@ -30,4 +30,6 @@ export interface ITweet {
   text: string;
   imageUrl?: string;
   timestamp: number;
+  amountOfLikes: number;
+  usersLikes: Array<string>;
 }

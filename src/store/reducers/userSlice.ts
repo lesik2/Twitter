@@ -42,7 +42,31 @@ export const userSlice = createSlice({
 
       return state;
     },
+    updateTweet: (
+      state,
+      action: PayloadAction<{ id: string; userId: string | null; activeLike: boolean }>,
+    ) => {
+      const { activeLike, id, userId } = action.payload;
+      if (userId) {
+        state.tweets = state.tweets.map((tweet) => {
+          if (tweet.id === id) {
+            return {
+              ...tweet,
+              amountOfLikes: activeLike ? tweet.amountOfLikes - 1 : tweet.amountOfLikes + 1,
+              usersLikes: activeLike
+                ? tweet.usersLikes.filter((user) => user !== userId)
+                : [...tweet.usersLikes, userId],
+            };
+          }
+
+          return tweet;
+        });
+      }
+
+      return state;
+    },
   },
 });
-export const { setUser, removeUser, updateUserProfile, setTweets, deleteTweet } = userSlice.actions;
+export const { setUser, removeUser, updateUserProfile, setTweets, deleteTweet, updateTweet } =
+  userSlice.actions;
 export default userSlice.reducer;

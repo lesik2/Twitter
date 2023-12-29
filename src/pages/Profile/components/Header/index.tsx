@@ -43,7 +43,7 @@ export function Header() {
       <TweetsWrapper>
         <UserInfoProfile>
           <UserTitle>{user.displayName}</UserTitle>
-          <UserSubtitle>1,070 Tweets</UserSubtitle>
+          <UserSubtitle>{`${user.tweets.length} Tweets`}</UserSubtitle>
         </UserInfoProfile>
       </TweetsWrapper>
       <WrapperImage>

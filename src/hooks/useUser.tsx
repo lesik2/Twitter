@@ -6,7 +6,6 @@ import { COLLECTIONS } from '@constants/firebase';
 
 import { useAppDispatch } from './redux';
 
-
 import { ITweet } from '../types';
 import { db } from '../firebase';
 
@@ -25,8 +24,8 @@ export function useUser(user: User | undefined | null): void {
         .catch((error) => {
           console.error(error);
         });
-        const tweetsCollectionRef = collection(docRef, COLLECTIONS.TWEETS);
-        getDocs(tweetsCollectionRef)
+      const tweetsCollectionRef = collection(docRef, COLLECTIONS.TWEETS);
+      getDocs(tweetsCollectionRef)
         .then((querySnapshot) => {
           const tweetsData = querySnapshot.docs.map((tweetDoc) => tweetDoc.data());
           dispatch(setTweets(tweetsData as ITweet[]));

@@ -114,9 +114,15 @@ export const LikesWrapper = styled.div`
   gap: 10px;
   margin-top: 22px;
 `;
-export const LikeImageWrapper = styled.div`
-  width: 24px;
-  height: 24px;
+export const LikeImageWrapper = styled.button`
+  ${({ theme }) => css`
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: none;
+    outline: none;
+    background-color: ${theme.colors.primary};
+  `};
 `;
 export const LikeText = styled.p`
   ${({ theme }) => css`

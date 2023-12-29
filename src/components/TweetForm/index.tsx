@@ -5,7 +5,7 @@ import closeIcon from '@assets/icons/close.svg';
 import { Timestamp, addDoc, collection, doc, updateDoc } from 'firebase/firestore';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import { ITweet } from '@customTypes/index';
-import {  setTweets } from '@store/reducers/userSlice';
+import { setTweets } from '@store/reducers/userSlice';
 
 import {
   BtnTweet,
@@ -29,8 +29,6 @@ import { ImageApp } from '../ui';
 
 import { db } from '@//firebase';
 
-
-
 export function TweetForm() {
   const user = useAppSelector((state) => state.userReducer);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -48,6 +46,8 @@ export function TweetForm() {
         id: '',
         text,
         timestamp: Timestamp.fromDate(new Date()).toMillis(),
+        amountOfLikes: 0,
+        usersLikes: [],
       };
 
       if (image) {
@@ -65,7 +65,7 @@ export function TweetForm() {
         await updateDoc(doc(tweetsCollectionRef, tweetId), {
           id: tweetId,
         });
-        tweetData.id= tweetId; 
+        tweetData.id = tweetId;
         dispatch(setTweets([tweetData]));
       }
 
