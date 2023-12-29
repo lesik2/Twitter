@@ -3,17 +3,23 @@ import { useAppSelector } from '@hooks/redux';
 import { Tweet } from '@components/Tweet';
 
 import { Header } from './components/Header';
-import { ProfileSection, SearchSection, TweetsTitle, TweetsWrapper } from './styled';
+import { ProfileSection,  TweetsTitle, TweetsWrapper } from './styled';
 
 export function Profile() {
   const user = useAppSelector((state) => state.userReducer);
-  const getFormatDate = (timestamp: number) => {
+  const getFormatDate = (timestamp: number): string => {
     const date = new Date(timestamp);
-    const month = date.toLocaleString('en-US', { month: 'short' });
-    const day = date.getDate();
-    const year = date.getFullYear();
-
-    return ` ${day} ${month}, ${year}`;
+  
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    };
+  
+    return date.toLocaleString('en-US', options);
   };
 
   return (
@@ -40,7 +46,6 @@ export function Profile() {
             ))}
         </TweetsWrapper>
       </ProfileSection>
-      <SearchSection>Search</SearchSection>
     </>
   );
 }

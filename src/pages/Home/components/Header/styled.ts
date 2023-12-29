@@ -2,13 +2,13 @@ import styled, { css } from 'styled-components';
 
 export const HeaderSection = styled.header`
   ${({ theme }) => css`
-    width: 50%;
+    width: 51%;
     height: 87px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0px 34px 0px 25px;
-    border-bottom: 1px solid ${theme.colors.border};
+    border: 1px solid ${theme.colors.border};
     position: fixed;
     top: 0;
     left: 50%;

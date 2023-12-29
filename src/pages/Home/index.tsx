@@ -6,7 +6,7 @@ import { collection, getDocs, onSnapshot } from 'firebase/firestore';
 import { ITweet } from '@customTypes/index';
 
 import { Header } from './components/Header';
-import { HomeSection, SearchSection } from './styled';
+import { HomeSection} from './styled';
 
 import { TweetsWrapper } from '../Profile/styled';
 
@@ -15,13 +15,19 @@ import { UserState } from '@//store/reducers/userSlice';
 
 export function Home() {
   const user = useAppSelector((state) => state.userReducer);
-  const getFormatDate = (timestamp: number) => {
+  const getFormatDate = (timestamp: number): string => {
     const date = new Date(timestamp);
-    const month = date.toLocaleString('en-US', { month: 'short' });
-    const day = date.getDate();
-    const year = date.getFullYear();
-
-    return ` ${day} ${month}, ${year}`;
+  
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true
+    };
+  
+    return date.toLocaleString('en-US', options);
   };
 
   const [usersData, setUsersData] = useState<UserState[]>([]);
@@ -39,7 +45,7 @@ export function Home() {
           const tweetsData: ITweet[] = tweetsSnapshot.docs.map((doc) => doc.data() as ITweet);
           userData.tweets = tweetsData;
 
-          // Слушатель для отслеживания изменений в коллекции "tweets" для каждого пользователя
+
           onSnapshot(tweetsCollectionRef, (snapshot) => {
             const updatedTweetsData: ITweet[] = snapshot.docs.map((doc) => doc.data() as ITweet);
             userData.tweets = updatedTweetsData;
@@ -60,7 +66,9 @@ export function Home() {
         });
 
         const allTweetsData: UserState[] = await Promise.all(userPromises);
-
+        allTweetsData.forEach((userData) => {
+          userData.tweets.sort((a, b) => b.timestamp - a.timestamp);
+        });
         setUsersData(allTweetsData);
       } catch (errorObj: unknown) {
         if (errorObj instanceof Error) {
@@ -104,7 +112,6 @@ export function Home() {
         </TweetsWrapper>
       </HomeSection>
 
-      <SearchSection>Search</SearchSection>
     </>
   );
 }

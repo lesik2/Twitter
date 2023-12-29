@@ -45,7 +45,6 @@ export function SideBar() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  
   const handleSignOut = async () => {
     try {
       await getAuth().signOut();
@@ -89,7 +88,7 @@ export function SideBar() {
       {isOpen && (
         <Modal onClose={handleClose}>
           <TweetWrapper>
-            <TweetForm onClose={handleClose}/>
+            <TweetForm onClose={handleClose} />
           </TweetWrapper>
         </Modal>
       )}

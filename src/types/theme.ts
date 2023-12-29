@@ -25,5 +25,6 @@ export interface ITheme {
     error: string;
     disabled: string;
     modalWrapper: string;
+    lightBorder: string;
   };
 }

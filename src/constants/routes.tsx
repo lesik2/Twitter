@@ -5,6 +5,8 @@ import { Profile } from '@pages/Profile/index';
 import { SignUp } from '@pages/SignUp/index';
 import { IRoute } from '@customTypes/routes';
 
+import { User } from '../pages/User';
+
 import { ROUTES } from './index';
 
 export const publicRoutes: Readonly<IRoute[]> = [
@@ -41,5 +43,9 @@ export const privateRoutes: Readonly<IRoute[]> = [
   {
     path: '*',
     element: <Profile />,
+  },
+  {
+    path: `users/:id`,
+    element: <User />,
   },
 ] as const;

@@ -11,17 +11,7 @@ export const ProfileSection = styled.section`
     overflow-y: auto;
   `};
 `;
-export const SearchSection = styled.section`
-  width: 27%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 20px 10px 10px 28px;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-`;
+
 export const TweetsTitle = styled.div`
   ${({ theme }) => css`
     display: flex;
