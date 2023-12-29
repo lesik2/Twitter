@@ -29,7 +29,10 @@ import { ImageApp } from '../ui';
 
 import { db } from '@//firebase';
 
-export function TweetForm() {
+export interface ITweetForm{
+  onClose?: () => void;
+}
+export function TweetForm({onClose}: ITweetForm) {
   const user = useAppSelector((state) => state.userReducer);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [image, setImage] = useState<File | null>(null);
@@ -72,6 +75,9 @@ export function TweetForm() {
       setLoading(false);
       setImage(null);
       setText('');
+      if(onClose){
+        onClose();
+      }
     } catch (errorObj: unknown) {
       if (errorObj instanceof Error) {
         console.error(errorObj);

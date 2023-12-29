@@ -27,7 +27,7 @@ export function Profile() {
             user.tweets.map((tweet) => (
               <Tweet
                 amountOfLikes={tweet.amountOfLikes}
-                isLiked={tweet.usersLikes.includes(user.uid??'')}
+                isLiked={tweet.usersLikes.includes(user.uid ?? '')}
                 authorId={user.uid ?? ''}
                 id={tweet.id}
                 key={tweet.id}

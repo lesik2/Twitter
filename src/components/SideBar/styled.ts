@@ -98,3 +98,15 @@ export const ImageUser = styled.img`
   height: 100%;
   border-radius: 100%;
 `;
+export const TweetWrapper = styled.div`
+  ${({ theme }) => css`
+    padding: 20px 20px 25px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: ${theme.colors.primary};
+    border-radius: 20px;
+    width: 750px;
+  `};
+`;

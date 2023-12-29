@@ -26,20 +26,19 @@ export function Home() {
 
   const [usersData, setUsersData] = useState<UserState[]>([]);
 
-
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const usersCollectionRef = collection(db, 'users');
         const usersSnapshot = await getDocs(usersCollectionRef);
-  
+
         const userPromises = usersSnapshot.docs.map(async (userDoc) => {
-          const userData: UserState = {...userDoc.data() as UserState}; 
+          const userData: UserState = { ...(userDoc.data() as UserState) };
           const tweetsCollectionRef = collection(userDoc.ref, 'tweets');
           const tweetsSnapshot = await getDocs(tweetsCollectionRef);
           const tweetsData: ITweet[] = tweetsSnapshot.docs.map((doc) => doc.data() as ITweet);
           userData.tweets = tweetsData;
-  
+
           // Слушатель для отслеживания изменений в коллекции "tweets" для каждого пользователя
           onSnapshot(tweetsCollectionRef, (snapshot) => {
             const updatedTweetsData: ITweet[] = snapshot.docs.map((doc) => doc.data() as ITweet);
@@ -56,12 +55,12 @@ export function Home() {
               return updatedUsersData;
             });
           });
-  
+
           return userData;
         });
-  
+
         const allTweetsData: UserState[] = await Promise.all(userPromises);
-  
+
         setUsersData(allTweetsData);
       } catch (errorObj: unknown) {
         if (errorObj instanceof Error) {
@@ -69,14 +68,14 @@ export function Home() {
         }
       }
     };
-  
+
     fetchUsers().catch((error) => {
       if (error instanceof Error) {
         console.error(error);
       }
     });
   }, []);
-  
+
   return (
     <>
       <HomeSection>
@@ -85,30 +84,27 @@ export function Home() {
         <TweetsWrapper>
           {usersData.length > 0 &&
             usersData.map((userItem) => {
-              const {email, tweets, displayName,uid} = userItem;
+              const { email, tweets, displayName, uid } = userItem;
 
-              return tweets.map((tweet)=>(
+              return tweets.map((tweet) => (
                 <Tweet
-                amountOfLikes={tweet.amountOfLikes}
-                isLiked={tweet.usersLikes.includes(user.uid??'')}
-                authorId={uid ?? ''}
-                id={tweet.id}
-                key={tweet.id}
-                nameUser={displayName ?? 'user'}
-                text={tweet.text}
-                image={tweet.imageUrl}
-                email={email ?? 'user@gmail.com'}
-                date={getFormatDate(tweet.timestamp)}
-              />
-              ))
-              
+                  amountOfLikes={tweet.amountOfLikes}
+                  isLiked={tweet.usersLikes.includes(user.uid ?? '')}
+                  authorId={uid ?? ''}
+                  id={tweet.id}
+                  key={tweet.id}
+                  nameUser={displayName ?? 'user'}
+                  text={tweet.text}
+                  image={tweet.imageUrl}
+                  email={email ?? 'user@gmail.com'}
+                  date={getFormatDate(tweet.timestamp)}
+                />
+              ));
             })}
         </TweetsWrapper>
       </HomeSection>
 
-      <SearchSection>
-        Search
-      </SearchSection>
+      <SearchSection>Search</SearchSection>
     </>
   );
 }
