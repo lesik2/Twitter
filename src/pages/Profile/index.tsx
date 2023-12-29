@@ -23,20 +23,21 @@ export function Profile() {
         <TweetForm />
         <TweetsTitle>Tweets</TweetsTitle>
         <TweetsWrapper>
-          {user.tweets.length >0 && user.tweets.map((tweet) => (
-            <Tweet
-              amountOfLikes={tweet.amountOfLikes}
-              isLiked={tweet.usersLikes.includes(user.uid!)}
-              authorId={user.uid ?? ''}
-              id={tweet.id}
-              key={tweet.id}
-              nameUser={user.displayName ?? 'user'}
-              text={tweet.text}
-              image={tweet.imageUrl}
-              email={user.email ?? 'user@gmail.com'}
-              date={getFormatDate(tweet.timestamp)}
-            />
-          ))}
+          {user.tweets.length > 0 &&
+            user.tweets.map((tweet) => (
+              <Tweet
+                amountOfLikes={tweet.amountOfLikes}
+                isLiked={tweet.usersLikes.includes(user.uid??'')}
+                authorId={user.uid ?? ''}
+                id={tweet.id}
+                key={tweet.id}
+                nameUser={user.displayName ?? 'user'}
+                text={tweet.text}
+                image={tweet.imageUrl}
+                email={user.email ?? 'user@gmail.com'}
+                date={getFormatDate(tweet.timestamp)}
+              />
+            ))}
         </TweetsWrapper>
       </ProfileSection>
       <SearchSection>Search</SearchSection>

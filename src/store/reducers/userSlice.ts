@@ -27,7 +27,10 @@ export const userSlice = createSlice({
   reducers: {
     setUser: (state, action: PayloadAction<UserState>) => ({ ...state, ...action.payload }),
     removeUser: (_state) => initialState,
-    updateUserProfile: (state, action: PayloadAction<Omit<UserState, 'uid' | 'email'>>) => ({
+    updateUserProfile: (
+      state,
+      action: PayloadAction<{ displayName: string; phoneNumber: string; dateOfBirth: number }>,
+    ) => ({
       ...state,
       ...action.payload,
     }),

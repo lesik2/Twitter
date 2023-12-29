@@ -4,7 +4,15 @@ import likeFilled from '@assets/icons/fill/like.svg';
 import option from '@assets/icons/option.svg';
 import { useCallback, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
-import { collection, deleteDoc, doc, updateDoc, increment,  arrayUnion, arrayRemove } from 'firebase/firestore';
+import {
+  collection,
+  deleteDoc,
+  doc,
+  updateDoc,
+  increment,
+  arrayUnion,
+  arrayRemove,
+} from 'firebase/firestore';
 import { deleteTweet, updateTweet } from '@store/reducers/userSlice';
 
 import {
@@ -45,10 +53,18 @@ export interface ITweetComponent {
   isLiked: boolean;
 }
 export function Tweet({
-   nameUser, date, email, text, image, id, authorId, amountOfLikes,isLiked 
-  }: ITweetComponent) {
+  nameUser,
+  date,
+  email,
+  text,
+  image,
+  id,
+  authorId,
+  amountOfLikes,
+  isLiked,
+}: ITweetComponent) {
   const [likesAmount, setLikesAmount] = useState(amountOfLikes);
-  const [activeLike, setActiveLike] = useState(isLiked)
+  const [activeLike, setActiveLike] = useState(isLiked);
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.userReducer);
   const [isOpen, setIsOpen] = useState(false);
@@ -77,23 +93,23 @@ export function Tweet({
     }
   };
 
-  const handleLike = async() =>{
+  const handleLike = async () => {
     try {
       const userRef = doc(db, 'users', authorId);
       const tweetsCollectionRef = collection(userRef, 'tweets');
-      const gap = activeLike? -1: 1;
-      await updateDoc(doc(tweetsCollectionRef, id),{
+      const gap = activeLike ? -1 : 1;
+      await updateDoc(doc(tweetsCollectionRef, id), {
         amountOfLikes: increment(gap),
-        usersLikes: activeLike?arrayRemove(user.uid): arrayUnion(user.uid),
+        usersLikes: activeLike ? arrayRemove(user.uid) : arrayUnion(user.uid),
       });
       setActiveLike(!activeLike);
-      setLikesAmount(likesAmount+gap);
+      setLikesAmount(likesAmount + gap);
 
-      dispatch(updateTweet({id, userId:user.uid,activeLike}));
+      dispatch(updateTweet({ id, userId: user.uid, activeLike }));
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   return (
     <TweetArticle id={id}>
@@ -113,7 +129,7 @@ export function Tweet({
         )}
         <LikesWrapper>
           <LikeImageWrapper onClick={handleLike}>
-            <ImageApp alt='like' src={activeLike?likeFilled:likeOutline} />
+            <ImageApp alt='like' src={activeLike ? likeFilled : likeOutline} />
           </LikeImageWrapper>
           <LikeText>{likesAmount}</LikeText>
         </LikesWrapper>
