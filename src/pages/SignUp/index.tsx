@@ -29,7 +29,6 @@ import { isValidDate } from './helpers';
 
 import { setUser } from '@//firebase/user';
 
-
 export function SignUp() {
   const [date, setDate] = useState<IDate>({});
   const navigate = useNavigate();
@@ -50,21 +49,20 @@ export function SignUp() {
     reset();
     setDate({});
 
-      const userCredential = await createUserWithEmailAndPassword(email, password);
-      if (userCredential && year && month && day) {
-        const { uid } = userCredential.user;
-        const userDoc: UserState = {
-          displayName: name,
-          phoneNumber,
-          uid,
-          email,
-          dateOfBirth: new Date(year, month, day).getTime(),
-        };
+    const userCredential = await createUserWithEmailAndPassword(email, password);
+    if (userCredential && year && month && day) {
+      const { uid } = userCredential.user;
+      const userDoc: UserState = {
+        displayName: name,
+        phoneNumber,
+        uid,
+        email,
+        dateOfBirth: new Date(year, month, day).getTime(),
+      };
 
-        await setUser(userDoc)
-        navigate(ROUTES.PROFILE);
-      }
-    
+      await setUser(userDoc);
+      navigate(ROUTES.PROFILE);
+    }
   };
 
   return (

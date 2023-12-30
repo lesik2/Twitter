@@ -7,7 +7,6 @@ import { auth } from '@db/index';
 
 import { Router } from '../Router';
 
-
 export const App = () => {
   const [user, loading] = useAuthState(auth);
   useUser(user);

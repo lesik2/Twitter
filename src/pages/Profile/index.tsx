@@ -32,24 +32,23 @@ export function Profile() {
         <TweetsWrapper>
           {tweetState.tweets.length > 0 &&
             tweetState.tweets.map((tweet) => {
-              const {text, imageUrl,timestamp, amountOfLikes, usersLikes, id} = tweet;
+              const { text, imageUrl, timestamp, amountOfLikes, usersLikes, id } = tweet;
 
               return (
-              <Tweet
-                amountOfLikes={amountOfLikes}
-                isLiked={usersLikes.includes(user.uid ?? '')}
-                authorId={user.uid ?? ''}
-                id={id}
-                key={id}
-                nameUser={user.displayName ?? 'user'}
-                text={text}
-                image={imageUrl}
-                email={user.email ?? 'user@gmail.com'}
-                date={getFormatDate(timestamp)}
-              />
-              )
-              
-          })}
+                <Tweet
+                  amountOfLikes={amountOfLikes}
+                  isLiked={usersLikes.includes(user.uid ?? '')}
+                  authorId={user.uid ?? ''}
+                  id={id}
+                  key={id}
+                  nameUser={user.displayName ?? 'user'}
+                  text={text}
+                  image={imageUrl}
+                  email={user.email ?? 'user@gmail.com'}
+                  date={getFormatDate(timestamp)}
+                />
+              );
+            })}
         </TweetsWrapper>
       </ProfileSection>
     </>

@@ -12,16 +12,20 @@ export function useUser(user: User | undefined | null): void {
   useEffect(() => {
     if (user) {
       const { uid } = user;
-       getUserById(uid).then((userById)=>{
-        if(userById){
-          dispatch(setUser(userById))
-        }
-       }).catch((error: Error)=>console.error(error))
-       getTweetsByUSerId(uid).then((tweets)=>{
-        if(tweets.length>0){
-          dispatch(setTweets(tweets))
-        }
-       }).catch((error: Error)=>console.error(error))
+      getUserById(uid)
+        .then((userById) => {
+          if (userById) {
+            dispatch(setUser(userById));
+          }
+        })
+        .catch((error: Error) => console.error(error));
+      getTweetsByUSerId(uid)
+        .then((tweets) => {
+          if (tweets.length > 0) {
+            dispatch(setTweets(tweets));
+          }
+        })
+        .catch((error: Error) => console.error(error));
     }
   }, [user, dispatch]);
 }

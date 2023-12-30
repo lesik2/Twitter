@@ -16,7 +16,6 @@ import { updateUserInfo, updateUserPassword } from '@db/user';
 
 import { EditInput, Form, ProfileEditSection, EditBtn, Title, WrapperInputs } from './styled';
 
-
 export interface IProfileEdit {
   handleClose: () => void;
 }

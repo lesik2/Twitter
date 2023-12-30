@@ -31,8 +31,6 @@ import { ImageApp } from '../ui';
 import { UserTitle } from '../ui/profile';
 import { useCloseList } from '../DropDown/hooks/useCloseList';
 
-
-
 export interface ITweetComponent {
   id: string;
   nameUser: string;
@@ -63,7 +61,7 @@ export function Tweet({
   const handleOpen = () => {
     setIsOpen(!isOpen);
   };
-  
+
   const handleClose = useCallback(() => {
     setIsOpen(false);
   }, []);
@@ -72,23 +70,21 @@ export function Tweet({
   const handleDeleteTweet = async () => {
     handleClose();
     if (user.uid === authorId) {
-        await deleteTweetFromFirebase(id)
-        dispatch(deleteTweet(id));
-      
+      await deleteTweetFromFirebase(id);
+      dispatch(deleteTweet(id));
     }
   };
 
   const handleLike = async () => {
-    const {uid} = user;
-    if(uid){
+    const { uid } = user;
+    if (uid) {
       const gap = activeLike ? -1 : 1;
-      await likeTweetFromFirebase(id, uid,gap);
       setActiveLike(!activeLike);
       setLikesAmount(likesAmount + gap);
+      await likeTweetFromFirebase(id, uid, gap);
 
       dispatch(updateTweet({ id, userId: uid, gap }));
     }
-
   };
 
   return (

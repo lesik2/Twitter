@@ -28,6 +28,7 @@ export const getTweetsByUSerId = async (uid: string) => {
     where(searchQueryUserId, '==', uid),
     orderBy(searchQueryTimestamp, 'desc'),
   );
+
   const querySnapshot = await getDocs(queryTweets);
   querySnapshot.forEach((docTweet) => {
     tweets.push(docTweet.data() as ITweet);

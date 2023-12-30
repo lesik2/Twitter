@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { SnackBar } from '@components/SnackBar';
 import { ImageApp } from '@components/ui';
-import { auth,  } from '@db/index';
+import { auth } from '@db/index';
 import { UserState } from '@customTypes/models';
 import { setUser } from '@db/user';
 
@@ -26,7 +26,6 @@ import {
 } from './styled';
 import { FooterComponent } from './components/Footer';
 import { HeaderComponent } from './components/Header';
-
 
 export function Authorization() {
   const [signInWithGoogle, , , error] = useSignInWithGoogle(auth);
@@ -48,8 +47,6 @@ export function Authorization() {
 
         await setUser(userDoc);
         navigate(ROUTES.PROFILE);
-        
-
       }
     } catch (errorObj: unknown) {
       if (errorObj instanceof Error) {

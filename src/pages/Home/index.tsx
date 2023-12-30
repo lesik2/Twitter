@@ -10,22 +10,20 @@ import { TweetsWrapper } from '../Profile/styled';
 
 import { useAppSelector } from '@//hooks/redux';
 
-
-
-
 export function Home() {
-  const user = useAppSelector((state)=>state.userReducer);
-  const tweets = useAppSelector((state)=>state.tweetsReducer.tweets)
+  const user = useAppSelector((state) => state.userReducer);
+  const tweets = useAppSelector((state) => state.tweetsReducer.tweets);
   const [tweetsData, setTweetsData] = useState<ITweetComponent[]>([]);
 
   useEffect(() => {
-    const {uid} = user;
-    if(uid){
-      getTweetsWithForAllUsers(uid).then((allTweets)=>{
-        setTweetsData(allTweets);
-      }).catch((error)=>console.error(error))
+    const { uid } = user;
+    if (uid) {
+      getTweetsWithForAllUsers(uid)
+        .then((allTweets) => {
+          setTweetsData(allTweets);
+        })
+        .catch((error) => console.error(error));
     }
-    
   }, [tweets, user]);
 
   return (
@@ -34,13 +32,7 @@ export function Home() {
         <Header />
         <TweetForm />
         <TweetsWrapper>
-          {tweetsData.length > 0 &&
-            tweetsData.map((tweet) => (
-                <Tweet
-                  key={tweet.id}
-                  {...tweet}
-                />
-              ))}
+          {tweetsData.length > 0 && tweetsData.map((tweet) => <Tweet key={tweet.id} {...tweet} />)}
         </TweetsWrapper>
       </HomeSection>
     </>

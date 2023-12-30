@@ -2,7 +2,7 @@ import defaultUser from '@assets/images/defaultUser.png';
 import gallery from '@assets/icons/gallery.svg';
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import closeIcon from '@assets/icons/close.svg';
-import { Timestamp} from 'firebase/firestore';
+import { Timestamp } from 'firebase/firestore';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import { ITweet } from '@customTypes/models';
 import { setTweets } from '@store/reducers/tweetsSlice';
@@ -27,8 +27,6 @@ import {
 
 import { ImageApp } from '../ui';
 
-
-
 export interface ITweetForm {
   onClose?: () => void;
 }
@@ -44,29 +42,29 @@ export function TweetForm({ onClose }: ITweetForm) {
     event.preventDefault();
     setLoading(true);
     const { uid } = user;
-      if(uid){
-        let tweetData: ITweet = {
-          id: '',
-          text,
-          timestamp: Timestamp.fromDate(new Date()).toMillis(),
-          amountOfLikes: 0,
-          usersLikes: [],
-          userId: uid,
-        };
+    if (uid) {
+      let tweetData: ITweet = {
+        id: '',
+        text,
+        timestamp: Timestamp.fromDate(new Date()).toMillis(),
+        amountOfLikes: 0,
+        usersLikes: [],
+        userId: uid,
+      };
 
-          const [imageUrl,tweetId] = await addTweet(tweetData,image);
-          if(tweetId){
-            tweetData = {...tweetData, id:tweetId, imageUrl}
-            dispatch(setTweets([tweetData]));
-          }
+      const [imageUrl, tweetId] = await addTweet(tweetData, image);
+      if (tweetId) {
+        tweetData = { ...tweetData, id: tweetId, imageUrl };
+        dispatch(setTweets([tweetData]));
       }
+    }
 
-      setLoading(false);
-      setImage(null);
-      setText('');
-      if (onClose) {
-        onClose();
-      }
+    setLoading(false);
+    setImage(null);
+    setText('');
+    if (onClose) {
+      onClose();
+    }
   };
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {

@@ -12,7 +12,6 @@ import { auth } from '@db/index';
 
 import { Form, Icon, LogInInput, LogInWrapper, LogInBtn, SectionLogIn, SignUpLink, Title } from './styled';
 
-
 export function LogIn() {
   const navigate = useNavigate();
   const {

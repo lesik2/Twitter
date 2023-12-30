@@ -42,7 +42,7 @@
       "@app/*": ["src/app/*"],
       "@containers/*": ["src/containers/*"],
       "@pages/*": ["src/pages/*"],
-      "@db/*": ["src/firebase/*"],
+      "@db/*": ["src/firebase/*"]
     }
   },
   "exclude": ["node_modules", "dist", "build", ".vscode", "vite.config.ts"],
