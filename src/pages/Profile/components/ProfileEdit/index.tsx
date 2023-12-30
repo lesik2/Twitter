@@ -6,16 +6,16 @@ import twitter from '@assets/icons/twitter.svg';
 import DateChoose from '@components/DateChoose';
 import { isValidDate } from '@pages/SignUp/helpers';
 import { useState } from 'react';
-import { IDate } from '@customTypes/index';
 import { CONSTANTS } from '@constants/index';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import { SnackBar } from '@components/SnackBar';
 import { InfinityLoader } from '@components/InfinityLoader';
 import { updateUserProfile } from '@store/reducers/userSlice';
+import { IDate } from '@customTypes/models';
+import { updateUserInfo, updateUserPassword } from '@db/user';
 
 import { EditInput, Form, ProfileEditSection, EditBtn, Title, WrapperInputs } from './styled';
-import { updateUserPassword } from './helpers/updateUserPassword';
-import { updateUserInfo } from './helpers/updateUserInfo';
+
 
 export interface IProfileEdit {
   handleClose: () => void;

@@ -2,10 +2,11 @@ import defaultUser from '@assets/images/defaultUser.png';
 import gallery from '@assets/icons/gallery.svg';
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
 import closeIcon from '@assets/icons/close.svg';
-import { Timestamp, addDoc, collection, doc, updateDoc } from 'firebase/firestore';
+import { Timestamp} from 'firebase/firestore';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
-import { ITweet } from '@customTypes/index';
-import { setTweets } from '@store/reducers/userSlice';
+import { ITweet } from '@customTypes/models';
+import { setTweets } from '@store/reducers/tweetsSlice';
+import { addTweet } from '@db/tweet';
 
 import {
   BtnTweet,
@@ -23,11 +24,10 @@ import {
   TwittText,
   UserWrapperImage,
 } from './styled';
-import { uploadImageToStorage } from './helpers';
 
 import { ImageApp } from '../ui';
 
-import { db } from '@//firebase';
+
 
 export interface ITweetForm {
   onClose?: () => void;
@@ -39,37 +39,26 @@ export function TweetForm({ onClose }: ITweetForm) {
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
     const { uid } = user;
+      if(uid){
+        let tweetData: ITweet = {
+          id: '',
+          text,
+          timestamp: Timestamp.fromDate(new Date()).toMillis(),
+          amountOfLikes: 0,
+          usersLikes: [],
+          userId: uid,
+        };
 
-    try {
-      const tweetData: ITweet = {
-        id: '',
-        text,
-        timestamp: Timestamp.fromDate(new Date()).toMillis(),
-        amountOfLikes: 0,
-        usersLikes: [],
-      };
-
-      if (image) {
-        const imageUrl = await uploadImageToStorage(image);
-        tweetData.imageUrl = imageUrl;
-      }
-
-      if (uid) {
-        const userRef = doc(db, 'users', uid);
-
-        const tweetsCollectionRef = collection(userRef, 'tweets');
-
-        const docRef = await addDoc(tweetsCollectionRef, tweetData);
-        const tweetId = docRef.id;
-        await updateDoc(doc(tweetsCollectionRef, tweetId), {
-          id: tweetId,
-        });
-        tweetData.id = tweetId;
-        dispatch(setTweets([tweetData]));
+          const [imageUrl,tweetId] = await addTweet(tweetData,image);
+          if(tweetId){
+            tweetData = {...tweetData, id:tweetId, imageUrl}
+            dispatch(setTweets([tweetData]));
+          }
       }
 
       setLoading(false);
@@ -78,11 +67,6 @@ export function TweetForm({ onClose }: ITweetForm) {
       if (onClose) {
         onClose();
       }
-    } catch (errorObj: unknown) {
-      if (errorObj instanceof Error) {
-        console.error(errorObj);
-      }
-    }
   };
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {

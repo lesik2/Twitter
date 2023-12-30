@@ -3,10 +3,11 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import defaultUser from '@assets/images/defaultUser.png';
 import { ROUTES, CONSTANTS } from '@constants/index';
-import { getAuth } from 'firebase/auth';
+import { auth } from '@db/index';
 import { removeUser } from '@store/reducers/userSlice';
 import twitter from '@assets/icons/twitter.svg';
 import { useState } from 'react';
+import { clearTweets } from '@store/reducers/tweetsSlice';
 
 import {
   Aside,
@@ -47,9 +48,10 @@ export function SideBar() {
 
   const handleSignOut = async () => {
     try {
-      await getAuth().signOut();
+      await auth.signOut();
       navigate(ROUTES.AUTHORIZATION);
       dispatch(removeUser());
+      dispatch(clearTweets());
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error(error);

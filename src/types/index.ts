@@ -1,6 +1,8 @@
 import { User } from 'firebase/auth';
 import { Dispatch } from 'react';
 
+import { IDate } from './models';
+
 export interface IDropDown {
   type: TDate;
   values: number[];
@@ -11,11 +13,7 @@ export interface IDateChoose {
   date: IDate;
   setDate: Dispatch<React.SetStateAction<IDate>>;
 }
-export interface IDate {
-  day?: number;
-  month?: number;
-  year?: number;
-}
+
 export type TDate = keyof IDate;
 export interface IRouter {
   user: User | null | undefined;
@@ -23,13 +21,4 @@ export interface IRouter {
 export interface ISnackbar {
   message: string;
   error?: Error;
-}
-
-export interface ITweet {
-  id: string;
-  text: string;
-  imageUrl?: string;
-  timestamp: number;
-  amountOfLikes: number;
-  usersLikes: Array<string>;
 }

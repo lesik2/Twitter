@@ -4,16 +4,8 @@ import likeFilled from '@assets/icons/fill/like.svg';
 import option from '@assets/icons/option.svg';
 import { useCallback, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
-import {
-  collection,
-  deleteDoc,
-  doc,
-  updateDoc,
-  increment,
-  arrayUnion,
-  arrayRemove,
-} from 'firebase/firestore';
-import { deleteTweet, updateTweet } from '@store/reducers/userSlice';
+import { deleteTweetFromFirebase, likeTweetFromFirebase } from '@db/tweet';
+import { deleteTweet, updateTweet } from '@store/reducers/tweetsSlice';
 
 import {
   ImageTwitter,
@@ -39,7 +31,7 @@ import { ImageApp } from '../ui';
 import { UserTitle } from '../ui/profile';
 import { useCloseList } from '../DropDown/hooks/useCloseList';
 
-import { db } from '@//firebase';
+
 
 export interface ITweetComponent {
   id: string;
@@ -71,7 +63,7 @@ export function Tweet({
   const handleOpen = () => {
     setIsOpen(!isOpen);
   };
-
+  
   const handleClose = useCallback(() => {
     setIsOpen(false);
   }, []);
@@ -80,35 +72,23 @@ export function Tweet({
   const handleDeleteTweet = async () => {
     handleClose();
     if (user.uid === authorId) {
-      try {
-        const userRef = doc(db, 'users', authorId);
-        const tweetsCollectionRef = collection(userRef, 'tweets');
-
-        await deleteDoc(doc(tweetsCollectionRef, id));
-
+        await deleteTweetFromFirebase(id)
         dispatch(deleteTweet(id));
-      } catch (error) {
-        console.error(error);
-      }
+      
     }
   };
 
   const handleLike = async () => {
-    try {
-      const userRef = doc(db, 'users', authorId);
-      const tweetsCollectionRef = collection(userRef, 'tweets');
+    const {uid} = user;
+    if(uid){
       const gap = activeLike ? -1 : 1;
-      await updateDoc(doc(tweetsCollectionRef, id), {
-        amountOfLikes: increment(gap),
-        usersLikes: activeLike ? arrayRemove(user.uid) : arrayUnion(user.uid),
-      });
+      await likeTweetFromFirebase(id, uid,gap);
       setActiveLike(!activeLike);
       setLikesAmount(likesAmount + gap);
 
-      dispatch(updateTweet({ id, userId: user.uid, activeLike }));
-    } catch (error) {
-      console.error(error);
+      dispatch(updateTweet({ id, userId: uid, gap }));
     }
+
   };
 
   return (

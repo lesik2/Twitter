@@ -8,10 +8,10 @@ import { useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { InfinityLoader } from '@components/InfinityLoader';
 import { SnackBar } from '@components/SnackBar';
+import { auth } from '@db/index';
 
 import { Form, Icon, LogInInput, LogInWrapper, LogInBtn, SectionLogIn, SignUpLink, Title } from './styled';
 
-import { auth } from '@//firebase';
 
 export function LogIn() {
   const navigate = useNavigate();

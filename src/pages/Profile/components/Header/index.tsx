@@ -29,6 +29,7 @@ import { ProfileEdit } from '../ProfileEdit';
 
 export function Header() {
   const user = useAppSelector((state) => state.userReducer);
+  const tweetState = useAppSelector((state) => state.tweetsReducer);
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => {
     setIsOpen(true);
@@ -43,7 +44,7 @@ export function Header() {
       <TweetsWrapper>
         <UserInfoProfile>
           <UserTitle>{user.displayName}</UserTitle>
-          <UserSubtitle>{`${user.tweets.length} Tweets`}</UserSubtitle>
+          <UserSubtitle>{`${tweetState.tweets.length} Tweets`}</UserSubtitle>
         </UserInfoProfile>
       </TweetsWrapper>
       <WrapperImage>

@@ -41,7 +41,8 @@
       "@utils/*": ["src/utils/*"],
       "@app/*": ["src/app/*"],
       "@containers/*": ["src/containers/*"],
-      "@pages/*": ["src/pages/*"]
+      "@pages/*": ["src/pages/*"],
+      "@db/*": ["src/firebase/*"],
     }
   },
   "exclude": ["node_modules", "dist", "build", ".vscode", "vite.config.ts"],
