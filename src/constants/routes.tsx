@@ -9,7 +9,7 @@ import { User } from '../pages/User';
 
 import { ROUTES } from './index';
 
-import {TweetPage} from '@//pages/TweetPage/index';
+import { TweetPage } from '@//pages/TweetPage/index';
 
 export const publicRoutes: Readonly<IRoute[]> = [
   {
