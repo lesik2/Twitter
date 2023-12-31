@@ -23,7 +23,7 @@ import {
   TweetWrapper,
 } from './styled';
 
-import { UserInfo, UserSubtitle,IconTwitter, ImageUser, ImageUserWrapper } from '../ui/index';
+import { UserInfo, UserSubtitle, IconTwitter, ImageUser, ImageUserWrapper } from '../ui/index';
 import { Modal } from '../Modal';
 import { TweetForm } from '../TweetForm';
 
@@ -80,7 +80,7 @@ export function SideBar() {
         </ImageUserWrapper>
         <UserInfo>
           <UserName>{user.displayName}</UserName>
-          <UserSubtitle>{user.link?user.link: user.email}</UserSubtitle>
+          <UserSubtitle>{user.link ? user.link : user.email}</UserSubtitle>
         </UserInfo>
       </UserWrapper>
       <LogOutBtn onClick={handleSignOut}>{CONSTANTS.ASIDE_LOG_OUT}</LogOutBtn>

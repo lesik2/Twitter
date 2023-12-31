@@ -10,7 +10,6 @@ export function Profile() {
   const user = useAppSelector((state) => state.userReducer);
   const tweetState = useAppSelector((state) => state.tweetsReducer);
 
-
   return (
     <>
       <ProfileSection>
@@ -32,7 +31,7 @@ export function Profile() {
                   nameUser={user.displayName ?? 'user'}
                   text={text}
                   image={imageUrl}
-                  email={user.link?user.link: user.email ?? '@user'}
+                  email={user.link ? user.link : user.email ?? '@user'}
                   date={getFormatDate(timestamp)}
                 />
               );

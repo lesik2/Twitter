@@ -8,7 +8,6 @@ import { Wrapper } from './styled';
 import { SideBar } from '../SideBar';
 import { Search } from '../Search';
 
-
 export const Router = ({ user }: IRouter) => {
   useRoute(user);
 

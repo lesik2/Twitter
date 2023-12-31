@@ -10,7 +10,6 @@ import { useCloseList } from '@hooks/useCloseList';
 
 import {
   ImageTwitter,
-
   ImageWrapper,
   LikeImageBtn,
   LikeText,
@@ -26,7 +25,6 @@ import {
   TweetWrapper,
   UserInfoWrapper,
   UserWrapperImage,
-
 } from './styled';
 
 import { ImageApp, ImageUser, UserTitle } from '../ui';

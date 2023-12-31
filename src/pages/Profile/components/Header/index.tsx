@@ -57,7 +57,7 @@ export function Header() {
         <UserProfileWrapper>
           <UserInfo>
             <UserNameProfile>{user.displayName}</UserNameProfile>
-            <UserSubtitle>{user.link?user.link: user.email}</UserSubtitle>
+            <UserSubtitle>{user.link ? user.link : user.email}</UserSubtitle>
           </UserInfo>
           <UserDescription>
             UX&UI designer at <MarkText>@abutechuz</MarkText>

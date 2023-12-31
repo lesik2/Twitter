@@ -6,7 +6,6 @@ import { useCloseList } from '@hooks/useCloseList';
 import { Icon, ItemList, List, SelectedValue, Wrapper } from './styled';
 import { getMonthName, validateDayForMonth } from './helpers';
 
-
 export function DropDown({ type, date, setDate, values }: IDropDown) {
   const [active, setActive] = useState(false);
   const [value, setValue] = useState<number | string>(date[type] ?? type);

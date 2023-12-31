@@ -11,8 +11,16 @@ import { updateUserProfile } from '@store/reducers/userSlice';
 import { updateUserInfo, updateUserPassword } from '@db/user';
 import { TEditInputs } from '@customTypes/user';
 
-import { EditInput, Form, ProfileEditSection, EditBtn, Title, WrapperInputs, LabelInput, LabelWrapper } from './styled';
-
+import {
+  EditInput,
+  Form,
+  ProfileEditSection,
+  EditBtn,
+  Title,
+  WrapperInputs,
+  LabelInput,
+  LabelWrapper,
+} from './styled';
 
 export interface IProfileEdit {
   handleClose: () => void;
@@ -23,8 +31,6 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-
-
   const {
     register,
     handleSubmit,
@@ -34,7 +40,7 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
     defaultValues: {
       name: user.displayName ?? '',
       phoneNumber: user.phoneNumber ?? '',
-      link: user.link??'',
+      link: user.link ?? '',
     },
   });
 
@@ -48,13 +54,13 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
         return;
       }
 
-      if (password && newPassword && password!==newPassword) {
+      if (password && newPassword && password !== newPassword) {
         setLoading(true);
         await updateUserPassword(password, newPassword);
         setLoading(false);
       }
 
-      if (user.displayName !== name || user.phoneNumber !== phoneNumber || user.link!==link) {
+      if (user.displayName !== name || user.phoneNumber !== phoneNumber || user.link !== link) {
         setLoading(true);
         await updateUserInfo(name, phoneNumber, link);
         setLoading(false);
@@ -62,7 +68,7 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
           updateUserProfile({
             displayName: name,
             phoneNumber,
-            link
+            link,
           }),
         );
       }
@@ -84,37 +90,30 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
         <Title>{CONSTANTS.EDIT_TITLE}</Title>
         <WrapperInputs>
           {EDIT_INPUTS.map((input) => {
-            const {
-              name,type,pattern,errorMessage,lengthError,label,minLength,
-            } = input;
+            const { name, type, pattern, errorMessage, lengthError, label, minLength } = input;
 
             return (
               <LabelWrapper key={name}>
-                <LabelInput  htmlFor={name}>
-                    {label}
-                </LabelInput>
+                <LabelInput htmlFor={name}>{label}</LabelInput>
                 <InputWrapper>
                   <EditInput
                     id={name}
                     type={type}
                     $error={errors[name]}
                     {...register(name, {
-                      required: !!(type === 'name'|| type==='phoneNumber'),
+                      required: !!(type === 'name' || type === 'phoneNumber'),
                       pattern: { value: pattern, message: errorMessage },
                       minLength: {
                         value: minLength,
                         message: lengthError ?? errorMessage,
                       },
                     })}
-                    
                   />
                   {errors[name] && <ErrorMessage>{errors[name]?.message}</ErrorMessage>}
                 </InputWrapper>
               </LabelWrapper>
-              
             );
           })}
-
         </WrapperInputs>
         {loading && <InfinityLoader />}
         <EditBtn type='submit' disabled={!isValid}>
