@@ -9,6 +9,8 @@ import { User } from '../pages/User';
 
 import { ROUTES } from './index';
 
+import {TweetPage} from '@//pages/TweetPage/index';
+
 export const publicRoutes: Readonly<IRoute[]> = [
   {
     path: ROUTES.LOG_IN,
@@ -47,5 +49,9 @@ export const privateRoutes: Readonly<IRoute[]> = [
   {
     path: `users/:id`,
     element: <User />,
+  },
+  {
+    path: `tweets/:id`,
+    element: <TweetPage />,
   },
 ] as const;

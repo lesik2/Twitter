@@ -5,6 +5,7 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   getDocs,
   increment,
   orderBy,
@@ -97,4 +98,15 @@ export const likeTweetFromFirebase = async (id: string, uid: string, gap: number
   } catch (error) {
     console.error(error);
   }
+};
+
+export const getTweetById = async (id: string) => {
+  let tweet: ITweet | null = null;
+  const docRef = doc(db, COLLECTIONS.TWEETS, id);
+  const docSnapShot = await getDoc(docRef);
+  if (docSnapShot.exists()) {
+    tweet = docSnapShot.data() as ITweet;
+  }
+
+  return tweet;
 };
