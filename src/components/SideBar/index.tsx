@@ -12,8 +12,6 @@ import { clearTweets } from '@store/reducers/tweetsSlice';
 import {
   Aside,
   Icon,
-  ImageUser,
-  ImageWrapper,
   TextLink,
   LogOutBtn,
   Navigation,
@@ -25,8 +23,7 @@ import {
   TweetWrapper,
 } from './styled';
 
-import { IconTwitter } from '../ui';
-import { UserInfo, UserSubtitle } from '../ui/profile';
+import { UserInfo, UserSubtitle,IconTwitter, ImageUser, ImageUserWrapper } from '../ui/index';
 import { Modal } from '../Modal';
 import { TweetForm } from '../TweetForm';
 
@@ -78,12 +75,12 @@ export function SideBar() {
         <TweetBtn onClick={handleOpen}>{CONSTANTS.ASIDE_TWEET}</TweetBtn>
       </Wrapper>
       <UserWrapper>
-        <ImageWrapper>
+        <ImageUserWrapper>
           <ImageUser alt='user icon' src={defaultUser} />
-        </ImageWrapper>
+        </ImageUserWrapper>
         <UserInfo>
           <UserName>{user.displayName}</UserName>
-          <UserSubtitle>{user.email}</UserSubtitle>
+          <UserSubtitle>{user.link?user.link: user.email}</UserSubtitle>
         </UserInfo>
       </UserWrapper>
       <LogOutBtn onClick={handleSignOut}>{CONSTANTS.ASIDE_LOG_OUT}</LogOutBtn>

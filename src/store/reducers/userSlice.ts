@@ -8,6 +8,7 @@ const initialState: UserState = {
   dateOfBirth: null,
   uid: null,
   email: null,
+  link: undefined,
 };
 
 export const userSlice = createSlice({
@@ -16,7 +17,7 @@ export const userSlice = createSlice({
   reducers: {
     setUser: (_state, action: PayloadAction<UserState>) => action.payload,
     removeUser: (_state) => initialState,
-    updateUserProfile: (state, action: PayloadAction<Omit<UserState, 'uid' | 'email'>>) => ({
+    updateUserProfile: (state, action: PayloadAction<Omit<UserState, 'uid' | 'email' | 'dateOfBirth'>>) => ({
       ...state,
       ...action.payload,
     }),

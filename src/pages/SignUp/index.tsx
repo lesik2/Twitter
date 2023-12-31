@@ -4,7 +4,7 @@ import { CONSTANTS, SIGN_UP_INPUTS, ERRORS_MESSAGE } from '@constants/auth';
 import { ROUTES } from '@constants/index';
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { TSignUpInputs } from '@customTypes/auth';
+import { TSignUpInputs } from '@customTypes/user';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { InfinityLoader } from '@components/InfinityLoader';

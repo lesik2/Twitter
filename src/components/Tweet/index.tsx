@@ -6,10 +6,11 @@ import { useCallback, useState } from 'react';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import { deleteTweetFromFirebase, likeTweetFromFirebase } from '@db/tweet';
 import { deleteTweet, updateTweet } from '@store/reducers/tweetsSlice';
+import { useCloseList } from '@hooks/useCloseList';
 
 import {
   ImageTwitter,
-  ImageUser,
+
   ImageWrapper,
   LikeImageBtn,
   LikeText,
@@ -25,11 +26,10 @@ import {
   TweetWrapper,
   UserInfoWrapper,
   UserWrapperImage,
+
 } from './styled';
 
-import { ImageApp } from '../ui';
-import { UserTitle } from '../ui/profile';
-import { useCloseList } from '../DropDown/hooks/useCloseList';
+import { ImageApp, ImageUser, UserTitle } from '../ui';
 
 export interface ITweetComponent {
   id: string;
@@ -60,7 +60,7 @@ export function Tweet({
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => {
     if (user.uid === authorId) {
-    setIsOpen(!isOpen);
+      setIsOpen(!isOpen);
     }
   };
 

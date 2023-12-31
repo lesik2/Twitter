@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { ImageApp } from '../ui';
-import { UserSubtitle } from '../ui/profile';
+import { ImageApp, ImageUserWrapper, UserSubtitle } from '../ui';
 
 export const TweetArticle = styled.article`
   ${({ theme }) => css`
@@ -16,13 +15,11 @@ export const TweetArticle = styled.article`
     }
   `};
 `;
-export const UserWrapperImage = styled.div`
+export const UserWrapperImage = styled(ImageUserWrapper)`
   width: 55px;
   margin-right: 7px;
 `;
-export const ImageUser = styled(ImageApp)`
-  border-radius: 100%;
-`;
+
 export const OptionWrapper = styled.div`
   position: relative;
 `;

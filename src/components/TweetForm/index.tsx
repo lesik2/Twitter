@@ -15,7 +15,6 @@ import {
   Form,
   ImageClose,
   ImageTwitter,
-  ImageUser,
   ImageWrapper,
   LabelTweet,
   LoaderStatus,
@@ -25,7 +24,7 @@ import {
   UserWrapperImage,
 } from './styled';
 
-import { ImageApp } from '../ui';
+import { ImageApp, ImageUser } from '../ui';
 
 export interface ITweetForm {
   onClose?: () => void;

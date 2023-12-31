@@ -1,7 +1,7 @@
 import defaultUser from '@assets/images/defaultUser.png';
 import backProfile from '@assets/images/backProfile.png';
 import { useAppSelector } from '@hooks/redux';
-import { UserInfo, UserSubtitle, UserTitle } from '@components/ui/profile';
+import { ImageUser, UserInfo, UserSubtitle, UserTitle } from '@components/ui/index';
 import { ImageApp } from '@components/ui';
 import { CONSTANTS } from '@constants/index';
 import { useState } from 'react';
@@ -13,7 +13,6 @@ import {
   FollowText,
   FollowWrapper,
   HeaderSection,
-  ImageUser,
   MarkText,
   TweetsWrapper,
   UserDescription,
@@ -58,7 +57,7 @@ export function Header() {
         <UserProfileWrapper>
           <UserInfo>
             <UserNameProfile>{user.displayName}</UserNameProfile>
-            <UserSubtitle>{user.email}</UserSubtitle>
+            <UserSubtitle>{user.link?user.link: user.email}</UserSubtitle>
           </UserInfo>
           <UserDescription>
             UX&UI designer at <MarkText>@abutechuz</MarkText>

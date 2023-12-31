@@ -28,14 +28,14 @@ export const setUser = async (user: UserState) => {
   }
 };
 
-export async function updateUserInfo(name: string, phoneNumber: string, dateOfBirth: number): Promise<void> {
+export async function updateUserInfo(name: string, phoneNumber: string, link: string): Promise<void> {
   const user = auth.currentUser;
   if (user) {
     const userDoc = doc(db, 'users', user.uid);
     await updateDoc(userDoc, {
       displayName: name,
       phoneNumber,
-      dateOfBirth,
+      link,
     });
   }
 }

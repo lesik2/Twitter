@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import { Button } from '../ui';
-import { UserTitle } from '../ui/profile';
+import { Button, UserTitle } from '../ui';
 
 export const Aside = styled.aside`
   display: flex;
@@ -90,14 +89,6 @@ export const UserName = styled(UserTitle)`
   font-size: 16px;
 `;
 
-export const ImageWrapper = styled.div`
-  width: 50px;
-`;
-export const ImageUser = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-`;
 export const TweetWrapper = styled.div`
   ${({ theme }) => css`
     padding: 20px 20px 25px 20px;

@@ -1,4 +1,4 @@
-import { IDate } from '@customTypes/index';
+import { IDate } from '@customTypes/models';
 import { Dispatch } from 'react';
 
 export const getMonthName = (numberOfMonth: number) => {

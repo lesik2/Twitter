@@ -2,7 +2,7 @@ import twitter from '@assets/icons/twitter.svg';
 import { ROUTES } from '@constants/index';
 import { CONSTANTS, ERRORS_MESSAGE, LOG_IN_INPUTS } from '@constants/auth';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { TSignUpInputs } from '@customTypes/auth';
+import { TSignUpInputs } from '@//types/user';
 import { InputWrapper } from '@components/ui';
 import { useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';

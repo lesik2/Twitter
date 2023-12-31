@@ -23,6 +23,7 @@ export interface UserState {
   displayName: string | null;
   phoneNumber: string | null;
   dateOfBirth: number | null;
+  link?: string | null;
   uid: string | null;
   email: string | null;
 }

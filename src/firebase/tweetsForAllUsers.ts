@@ -29,7 +29,7 @@ export const getTweetsWithForAllUsers = async (idOfCurrentUser: string) => {
             id,
             nameUser: userInfo.displayName ?? 'user',
             date: getFormatDate(timestamp),
-            email: userInfo.email ?? 'user@com',
+            email: userInfo.link ? userInfo.link : userInfo.email ?? '@user',
             text,
             image: imageUrl,
             authorId: userId,

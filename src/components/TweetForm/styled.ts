@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
 
-import { Button, ImageApp } from '../ui';
+import { Button, ImageApp, ImageUserWrapper } from '../ui';
 
 export const TweetFormSection = styled.section`
   ${({ theme }) => css`
@@ -13,12 +13,10 @@ export const TweetFormSection = styled.section`
     position: relative;
   `};
 `;
-export const UserWrapperImage = styled.div`
+export const UserWrapperImage = styled(ImageUserWrapper)`
   width: 55px;
 `;
-export const ImageUser = styled(ImageApp)`
-  border-radius: 100%;
-`;
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;

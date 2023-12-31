@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import arrowIcon from '@assets/icons/arrow.svg';
 import { IDropDown } from '@customTypes/index';
+import { useCloseList } from '@hooks/useCloseList';
 
 import { Icon, ItemList, List, SelectedValue, Wrapper } from './styled';
 import { getMonthName, validateDayForMonth } from './helpers';
-import { useCloseList } from './hooks/useCloseList';
+
 
 export function DropDown({ type, date, setDate, values }: IDropDown) {
   const [active, setActive] = useState(false);
