@@ -32,7 +32,7 @@ export function LogIn() {
     try {
       const userCredential = await signInWithEmailAndPassword(email, password);
       if (userCredential) {
-        navigate(ROUTES.PROFILE);
+        navigate(ROUTES.HOME);
       }
     } catch (errorObj: unknown) {
       if (errorObj instanceof Error) {

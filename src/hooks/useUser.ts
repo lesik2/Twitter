@@ -9,6 +9,7 @@ import { useAppDispatch } from './redux';
 
 export function useUser(user: User | undefined | null): void {
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     if (user) {
       const { uid } = user;

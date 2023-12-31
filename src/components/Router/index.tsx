@@ -4,6 +4,7 @@ import { IRouter } from '@customTypes/index';
 import search from '@assets/icons/search.svg';
 import defaultUser from '@assets/images/defaultUser.png';
 
+
 import {
   FollowBtn,
   ImageUser,
@@ -24,7 +25,13 @@ import {
 import { SideBar } from '../SideBar';
 import { ImageApp } from '../ui';
 
-export const Router = ({ user }: IRouter) => (
+import { useRoute } from '@//hooks/useRoute';
+
+export const Router = ({ user }: IRouter) => {
+
+  useRoute(user);
+
+  return (
   <Wrapper>
     {user ? (
       <>
@@ -64,4 +71,5 @@ export const Router = ({ user }: IRouter) => (
       </Routes>
     )}
   </Wrapper>
-);
+  )
+};

@@ -46,7 +46,7 @@ export function Authorization() {
         };
 
         await setUser(userDoc);
-        navigate(ROUTES.PROFILE);
+        navigate(ROUTES.HOME);
       }
     } catch (errorObj: unknown) {
       if (errorObj instanceof Error) {

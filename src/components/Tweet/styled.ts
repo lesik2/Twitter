@@ -10,6 +10,10 @@ export const TweetArticle = styled.article`
     padding: 10px 35px 21px 35px;
     border-bottom: 1px solid ${theme.colors.border};
     width: 100%;
+    cursor: pointer;
+    &:hover {
+      background-color: ${theme.colors.lightBorder};
+    }
   `};
 `;
 export const UserWrapperImage = styled.div`
@@ -30,7 +34,7 @@ export const OptionWrapperBtn = styled.button`
     align-items: center;
     justify-content: center;
     border-radius: 100%;
-    background-color: ${theme.colors.primary};
+    background-color: inherit;
     border: none;
     outline: none;
     margin: 0px 0px 0px 15px;
@@ -114,15 +118,13 @@ export const LikesWrapper = styled.div`
   gap: 10px;
   margin-top: 22px;
 `;
-export const LikeImageWrapper = styled.button`
-  ${({ theme }) => css`
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    border: none;
-    outline: none;
-    background-color: ${theme.colors.primary};
-  `};
+export const LikeImageBtn = styled.button`
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: inherit;
 `;
 export const LikeText = styled.p`
   ${({ theme }) => css`

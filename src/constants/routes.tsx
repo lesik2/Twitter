@@ -42,7 +42,7 @@ export const privateRoutes: Readonly<IRoute[]> = [
   },
   {
     path: '*',
-    element: <Profile />,
+    element: <Home />,
   },
   {
     path: `users/:id`,

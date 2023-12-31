@@ -11,7 +11,7 @@ import {
   ImageTwitter,
   ImageUser,
   ImageWrapper,
-  LikeImageWrapper,
+  LikeImageBtn,
   LikeText,
   LikesWrapper,
   OptionImage,
@@ -59,7 +59,9 @@ export function Tweet({
   const user = useAppSelector((state) => state.userReducer);
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => {
+    if (user.uid === authorId) {
     setIsOpen(!isOpen);
+    }
   };
 
   const handleClose = useCallback(() => {
@@ -69,10 +71,8 @@ export function Tweet({
   const [wrapperRef, listRef] = useCloseList(handleClose);
   const handleDeleteTweet = async () => {
     handleClose();
-    if (user.uid === authorId) {
-      await deleteTweetFromFirebase(id);
-      dispatch(deleteTweet(id));
-    }
+    await deleteTweetFromFirebase(id);
+    dispatch(deleteTweet(id));
   };
 
   const handleLike = async () => {
@@ -104,9 +104,9 @@ export function Tweet({
           </ImageWrapper>
         )}
         <LikesWrapper>
-          <LikeImageWrapper onClick={handleLike}>
+          <LikeImageBtn onClick={handleLike}>
             <ImageApp alt='like' src={activeLike ? likeFilled : likeOutline} />
-          </LikeImageWrapper>
+          </LikeImageBtn>
           <LikeText>{likesAmount}</LikeText>
         </LikesWrapper>
       </TweetWrapper>

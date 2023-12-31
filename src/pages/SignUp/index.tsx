@@ -61,7 +61,7 @@ export function SignUp() {
       };
 
       await setUser(userDoc);
-      navigate(ROUTES.PROFILE);
+      navigate(ROUTES.HOME);
     }
   };
 
