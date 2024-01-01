@@ -1,8 +1,9 @@
 import { TweetForm } from '@components/TweetForm';
-import { ITweetComponent, Tweet } from '@components/Tweet';
+import { ITweetComponent } from '@customTypes/index';
 import { useEffect, useState } from 'react';
 import { getTweetsWithForAllUsers } from '@db/tweetsForAllUsers';
 import { Header } from '@components/Header/index';
+import { Tweet } from '@components/Tweet';
 
 import { HomeSection } from './styled';
 
