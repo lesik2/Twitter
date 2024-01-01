@@ -10,6 +10,7 @@ export const ROUTES = {
   BOOKMARKS: '/bookmarks',
   LISTS: '/lists',
   MORE: '/more',
+  USERS: '/users/',
 } as const;
 
 export const CONSTANTS = {
@@ -19,4 +20,5 @@ export const CONSTANTS = {
   EDIT_BTN: 'Save',
   EDIT_TITLE: 'Edit profile',
   HOME_TITLE: 'Home',
+  SEARCH_TITLE: 'Search results',
 };

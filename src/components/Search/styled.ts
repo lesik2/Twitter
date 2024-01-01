@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 import { ImageUserWrapper } from '../ui';
 
@@ -63,11 +64,12 @@ export const SearchResultsWrapper = styled.div`
     background-color: ${theme.colors.lightBorder};
     border-radius: 10px;
     padding: 43px 12px 135px 15px;
+    gap: 10px;
   `};
 `;
 export const SearchResultText = styled.h2`
   ${({ theme }) => css`
-    margin: 0px 0px 29px 0px;
+    margin: 0px 0px 29px 10px;
     color: ${theme.colors.third};
     font-family: ${theme.fontFamily.serif};
     font-size: 24px;
@@ -77,15 +79,15 @@ export const SearchResultText = styled.h2`
   `};
 `;
 
-export const UserWrapper = styled.div`
+export const UserWrapper = styled(NavLink)`
   ${({ theme }) => css`
-    width: 358px;
+    width: 100%;
     height: 60px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     border-radius: 15px;
-
+    padding: 10px;
     cursor: pointer;
     &:hover {
       background-color: ${theme.colors.border};
