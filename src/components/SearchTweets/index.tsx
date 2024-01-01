@@ -28,13 +28,13 @@ export function SearchTweets() {
   const [tweets, setTweets] = useState<ITweetComponent[]>([]);
   const [searchValue, setSearchValue] = useState('');
   const debouncedValue = useDebounce(searchValue);
-  const user = useAppSelector((state)=>state.userReducer);
+  const user = useAppSelector((state) => state.userReducer);
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
   };
 
   useEffect(() => {
-    const {uid} = user;
+    const { uid } = user;
     if (debouncedValue.length > 0 && uid) {
       getTweetsByText(uid, debouncedValue)
         .then((tweetsFromDb) => setTweets(tweetsFromDb))

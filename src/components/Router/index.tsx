@@ -10,11 +10,9 @@ import { SideBar } from '../SideBar';
 import { SearchUsers } from '../SearchUsers';
 import { SearchTweets } from '../SearchTweets';
 
-
 export const Router = ({ user }: IRouter) => {
   useRoute(user);
   const location = useLocation();
-
 
   return (
     <Wrapper>
@@ -26,8 +24,11 @@ export const Router = ({ user }: IRouter) => {
               <Route key={route.path} {...route} />
             ))}
           </Routes>
-          {location.pathname === ROUTES.PROFILE || location.pathname.startsWith(ROUTES.USERS)
-          ?<SearchUsers />:<SearchTweets />}
+          {location.pathname === ROUTES.PROFILE || location.pathname.startsWith(ROUTES.USERS) ? (
+            <SearchUsers />
+          ) : (
+            <SearchTweets />
+          )}
         </>
       ) : (
         <Routes>
