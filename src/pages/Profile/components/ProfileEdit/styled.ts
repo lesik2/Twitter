@@ -12,8 +12,18 @@ export const ProfileEditSection = styled.section`
     border-radius: 20px;
   `};
 `;
+export const LabelInput = styled.label`
+  ${({ theme }) => css`
+    color: ${theme.colors.third};
+    font-family: ${theme.fontFamily.serif};
+    font-size: 18px;
+    font-style: normal;
+    font-weight: ${theme.fontWeight.bold};
+    line-height: normal;
+  `};
+`;
 export const EditInput = styled(Input)`
-  width: 663px;
+  width: 260px;
 `;
 export const EditBtn = styled(Button)`
   width: 450px;
@@ -29,7 +39,7 @@ export const Title = styled.h1`
     font-style: normal;
     font-weight: ${theme.fontWeight.bold};
     line-height: normal;
-    margin: 20px 0px 20px 0px;
+    margin: 20px 0px 25px 0px;
   `};
 `;
 export const Form = styled.form`
@@ -43,4 +53,10 @@ export const WrapperInputs = styled.div`
   flex-direction: column;
   gap: 25px;
   margin-bottom: 25px;
+`;
+
+export const LabelWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 25px;
 `;

@@ -1,4 +1,4 @@
-import { IDate } from '@customTypes/index';
+import { IDate } from '@customTypes/models';
 
 export const getArrayOfNumbers = (start: number, end: number) => {
   const numbers: number[] = [];

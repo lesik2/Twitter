@@ -3,16 +3,15 @@ import DateChoose from '@components/DateChoose';
 import { CONSTANTS, SIGN_UP_INPUTS, ERRORS_MESSAGE } from '@constants/auth';
 import { ROUTES } from '@constants/index';
 import { useState } from 'react';
-import { IDate } from '@customTypes/index';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { TSignUpInputs } from '@customTypes/auth';
+import { TSignUpInputs } from '@customTypes/user';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { InfinityLoader } from '@components/InfinityLoader';
 import { SnackBar } from '@components/SnackBar';
-import { Timestamp, doc, setDoc } from 'firebase/firestore';
-import { COLLECTIONS } from '@constants/firebase';
 import { ErrorMessage, IconTwitter, InputWrapper } from '@components/ui';
+import { IDate, UserState } from '@customTypes/models';
+import { auth } from '@db/index';
 
 import {
   Link,
@@ -28,7 +27,7 @@ import {
 } from './styled';
 import { isValidDate } from './helpers';
 
-import { auth, db } from '@//firebase';
+import { setUser } from '@//firebase/user';
 
 export function SignUp() {
   const [date, setDate] = useState<IDate>({});
@@ -50,25 +49,19 @@ export function SignUp() {
     reset();
     setDate({});
 
-    try {
-      const userCredential = await createUserWithEmailAndPassword(email, password);
-      if (userCredential && year && month && day) {
-        const { uid } = userCredential.user;
-        const userDoc = {
-          displayName: name,
-          phoneNumber,
-          uid,
-          email,
-          dateOfBirth: Timestamp.fromDate(new Date(year, month, day)).toMillis(),
-        };
+    const userCredential = await createUserWithEmailAndPassword(email, password);
+    if (userCredential && year && month && day) {
+      const { uid } = userCredential.user;
+      const userDoc: UserState = {
+        displayName: name,
+        phoneNumber,
+        uid,
+        email,
+        dateOfBirth: new Date(year, month, day).getTime(),
+      };
 
-        await setDoc(doc(db, COLLECTIONS.USERS, uid), userDoc);
-        navigate(ROUTES.PROFILE);
-      }
-    } catch (errorObj: unknown) {
-      if (errorObj instanceof Error) {
-        console.error(errorObj);
-      }
+      await setUser(userDoc);
+      navigate(ROUTES.HOME);
     }
   };
 

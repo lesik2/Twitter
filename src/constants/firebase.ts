@@ -8,4 +8,5 @@ export const firebaseConfig = {
 };
 export const COLLECTIONS = {
   USERS: 'users',
+  TWEETS: 'tweets',
 };

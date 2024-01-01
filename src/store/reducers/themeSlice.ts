@@ -1,10 +1,7 @@
 /* eslint-disable no-param-reassign */
+import { Theme, ThemeState } from '@customTypes/models';
 import { createSlice } from '@reduxjs/toolkit';
 
-type Theme = 'light' | 'dark';
-export interface ThemeState {
-  currentTheme: Theme;
-}
 const initialState: ThemeState = {
   currentTheme: (localStorage.getItem('theme') as Theme) ?? 'light',
 };

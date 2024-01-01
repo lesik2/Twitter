@@ -1,13 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
-export interface UserState {
-  displayName: string | null;
-  phoneNumber: string | null;
-  dateOfBirth: number | null;
-  uid: string | null;
-  email: string | null;
-}
+import { UserState } from '@customTypes/models';
 
 const initialState: UserState = {
   displayName: null,
@@ -15,6 +8,7 @@ const initialState: UserState = {
   dateOfBirth: null,
   uid: null,
   email: null,
+  link: undefined,
 };
 
 export const userSlice = createSlice({
@@ -23,7 +17,7 @@ export const userSlice = createSlice({
   reducers: {
     setUser: (_state, action: PayloadAction<UserState>) => action.payload,
     removeUser: (_state) => initialState,
-    updateUserProfile: (state, action: PayloadAction<Omit<UserState, 'uid' | 'email'>>) => ({
+    updateUserProfile: (state, action: PayloadAction<Omit<UserState, 'uid' | 'email' | 'dateOfBirth'>>) => ({
       ...state,
       ...action.payload,
     }),

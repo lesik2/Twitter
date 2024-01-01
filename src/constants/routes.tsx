@@ -5,7 +5,11 @@ import { Profile } from '@pages/Profile/index';
 import { SignUp } from '@pages/SignUp/index';
 import { IRoute } from '@customTypes/routes';
 
+import { User } from '../pages/User';
+
 import { ROUTES } from './index';
+
+import { TweetPage } from '@//pages/TweetPage/index';
 
 export const publicRoutes: Readonly<IRoute[]> = [
   {
@@ -40,6 +44,14 @@ export const privateRoutes: Readonly<IRoute[]> = [
   },
   {
     path: '*',
-    element: <Profile />,
+    element: <Home />,
+  },
+  {
+    path: `users/:id`,
+    element: <User />,
+  },
+  {
+    path: `tweets/:id`,
+    element: <TweetPage />,
   },
 ] as const;

@@ -1,13 +1,12 @@
-import { Button, ImageApp } from '@components/ui';
+import { Button, UserTitle, UserInfo } from '@components/ui';
 import styled, { css } from 'styled-components';
-
-import { UserTitle, UserInfo } from '@//components/ui/profile';
 
 export const HeaderSection = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 `;
 export const TweetsWrapper = styled.div`
   width: 100%;
@@ -27,6 +26,7 @@ export const UserNameProfile = styled(UserTitle)`
 
 export const WrapperImage = styled.div`
   width: 100%;
+  height: 280px;
 `;
 
 export const UserWrapper = styled.div`
@@ -68,9 +68,7 @@ export const UserWrapperImage = styled.div`
   top: -60px;
   left: 0px;
 `;
-export const ImageUser = styled(ImageApp)`
-  border-radius: 100%;
-`;
+
 export const FollowWrapper = styled.div`
   display: flex;
   align-items: center;

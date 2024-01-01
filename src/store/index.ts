@@ -3,10 +3,12 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 
 import userReducer from './reducers/userSlice';
 import themeReducer from './reducers/themeSlice';
+import tweetsReducer from './reducers/tweetsSlice';
 
 const rootReducer = combineReducers({
   userReducer,
   themeReducer,
+  tweetsReducer,
 });
 
 export const store = configureStore({

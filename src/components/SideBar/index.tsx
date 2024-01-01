@@ -3,15 +3,15 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import defaultUser from '@assets/images/defaultUser.png';
 import { ROUTES, CONSTANTS } from '@constants/index';
-import { getAuth } from 'firebase/auth';
+import { auth } from '@db/index';
 import { removeUser } from '@store/reducers/userSlice';
 import twitter from '@assets/icons/twitter.svg';
+import { useState } from 'react';
+import { clearTweets } from '@store/reducers/tweetsSlice';
 
 import {
   Aside,
   Icon,
-  ImageUser,
-  ImageWrapper,
   TextLink,
   LogOutBtn,
   Navigation,
@@ -20,23 +20,35 @@ import {
   UserWrapper,
   Wrapper,
   WrapperLink,
+  TweetWrapper,
 } from './styled';
 
-import { IconTwitter } from '../ui';
-import { UserInfo, UserSubtitle } from '../ui/profile';
+import { UserInfo, UserSubtitle, IconTwitter, ImageUser, ImageUserWrapper } from '../ui/index';
+import { Modal } from '../Modal';
+import { TweetForm } from '../TweetForm';
 
 export function SideBar() {
   const user = useAppSelector((state) => state.userReducer);
   const location = useLocation().pathname;
+
+  const [isOpen, setIsOpen] = useState(false);
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const handleSignOut = async () => {
     try {
-      await getAuth().signOut();
+      await auth.signOut();
       navigate(ROUTES.AUTHORIZATION);
       dispatch(removeUser());
+      dispatch(clearTweets());
     } catch (error: unknown) {
       if (error instanceof Error) {
         console.error(error);
@@ -60,18 +72,25 @@ export function SideBar() {
             );
           })}
         </Navigation>
-        <TweetBtn>{CONSTANTS.ASIDE_TWEET}</TweetBtn>
+        <TweetBtn onClick={handleOpen}>{CONSTANTS.ASIDE_TWEET}</TweetBtn>
       </Wrapper>
       <UserWrapper>
-        <ImageWrapper>
+        <ImageUserWrapper>
           <ImageUser alt='user icon' src={defaultUser} />
-        </ImageWrapper>
+        </ImageUserWrapper>
         <UserInfo>
           <UserName>{user.displayName}</UserName>
-          <UserSubtitle>{user.email}</UserSubtitle>
+          <UserSubtitle>{user.link ? user.link : user.email}</UserSubtitle>
         </UserInfo>
       </UserWrapper>
       <LogOutBtn onClick={handleSignOut}>{CONSTANTS.ASIDE_LOG_OUT}</LogOutBtn>
+      {isOpen && (
+        <Modal onClose={handleClose}>
+          <TweetWrapper>
+            <TweetForm onClose={handleClose} />
+          </TweetWrapper>
+        </Modal>
+      )}
     </Aside>
   );
 }

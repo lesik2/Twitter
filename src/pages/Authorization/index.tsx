@@ -5,9 +5,10 @@ import google from '@assets/icons/google.svg';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { SnackBar } from '@components/SnackBar';
-import { doc, setDoc } from 'firebase/firestore';
-import { COLLECTIONS } from '@constants/firebase';
 import { ImageApp } from '@components/ui';
+import { auth } from '@db/index';
+import { UserState } from '@customTypes/models';
+import { setUser } from '@db/user';
 
 import {
   Main,
@@ -26,8 +27,6 @@ import {
 import { FooterComponent } from './components/Footer';
 import { HeaderComponent } from './components/Header';
 
-import { auth, db } from '@//firebase';
-
 export function Authorization() {
   const [signInWithGoogle, , , error] = useSignInWithGoogle(auth);
   const navigate = useNavigate();
@@ -38,7 +37,7 @@ export function Authorization() {
       if (userCredential) {
         const { uid, displayName, phoneNumber, email } = userCredential.user;
 
-        const userDoc = {
+        const userDoc: UserState = {
           displayName,
           phoneNumber,
           uid,
@@ -46,9 +45,8 @@ export function Authorization() {
           email,
         };
 
-        navigate(ROUTES.PROFILE);
-
-        await setDoc(doc(db, COLLECTIONS.USERS, uid), userDoc);
+        await setUser(userDoc);
+        navigate(ROUTES.HOME);
       }
     } catch (errorObj: unknown) {
       if (errorObj instanceof Error) {

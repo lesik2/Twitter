@@ -29,6 +29,7 @@ export const lightTheme: ITheme = {
     error: '#ff0000',
     disabled: ' #B3B8BB',
     modalWrapper: 'rgba(0, 0, 0, 0.7)',
+    lightBorder: '#F7F9F9',
   },
 };
 export const darkTheme: ITheme = {
@@ -43,5 +44,6 @@ export const darkTheme: ITheme = {
     error: '#ff0000',
     disabled: '#B3B8BB',
     modalWrapper: 'rgba(0, 0, 0, 0.7)',
+    lightBorder: '#c9cecf',
   },
 };
