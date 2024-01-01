@@ -7,6 +7,7 @@ import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import { deleteTweetFromFirebase, likeTweetFromFirebase } from '@db/tweet';
 import { deleteTweet, updateTweet } from '@store/reducers/tweetsSlice';
 import { useCloseList } from '@hooks/useCloseList';
+import { ITweetComponent } from '@customTypes/index';
 
 import {
   ImageTwitter,
@@ -29,17 +30,7 @@ import {
 
 import { ImageApp, ImageUser, UserTitle } from '../ui';
 
-export interface ITweetComponent {
-  id: string;
-  nameUser: string;
-  date: string;
-  email: string;
-  text: string;
-  image: string | undefined;
-  authorId: string;
-  amountOfLikes: number;
-  isLiked: boolean;
-}
+
 export function Tweet({
   nameUser,
   date,

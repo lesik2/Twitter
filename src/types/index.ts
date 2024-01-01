@@ -22,3 +22,14 @@ export interface ISnackbar {
   message: string;
   error?: Error;
 }
+export interface ITweetComponent {
+  id: string;
+  nameUser: string;
+  date: string;
+  email: string;
+  text: string;
+  image: string | undefined;
+  authorId: string;
+  amountOfLikes: number;
+  isLiked: boolean;
+}
