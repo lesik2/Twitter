@@ -11,6 +11,7 @@ export const ROUTES = {
   LISTS: '/lists',
   MORE: '/more',
   USERS: '/users/',
+  TWEETS: '/tweets/',
 } as const;
 
 export const CONSTANTS = {
@@ -21,4 +22,6 @@ export const CONSTANTS = {
   EDIT_TITLE: 'Edit profile',
   HOME_TITLE: 'Home',
   SEARCH_TITLE: 'Search results',
+  SEARCH_PLACEHOLDER_USERS: 'Search Users',
+  SEARCH_PLACEHOLDER_TWITTER: 'Search Twitter',
 };

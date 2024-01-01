@@ -63,8 +63,9 @@ export const SearchResultsWrapper = styled.div`
     justify-content: flex-start;
     background-color: ${theme.colors.lightBorder};
     border-radius: 10px;
-    padding: 43px 12px 135px 15px;
+    padding: 43px 12px 50px 15px;
     gap: 10px;
+    min-width: 373px;
   `};
 `;
 export const SearchResultText = styled.h2`
