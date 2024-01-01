@@ -30,7 +30,6 @@ import {
 
 import { ImageApp, ImageUser, UserTitle } from '../ui';
 
-
 export function Tweet({
   nameUser,
   date,

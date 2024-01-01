@@ -1,10 +1,10 @@
 import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import { ITweetComponent } from '@customTypes/index';
 
 import { getUserById } from './user';
 
 import { COLLECTIONS } from '../constants/firebase';
 import { ITweet } from '../types/models';
-import { ITweetComponent } from '../components/Tweet';
 import { getFormatDate } from '../utils';
 
 import { db } from '.';
