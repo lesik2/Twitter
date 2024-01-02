@@ -1,4 +1,4 @@
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { COLLECTIONS } from '@constants/firebase';
 import { EmailAuthProvider, reauthenticateWithCredential, updatePassword } from 'firebase/auth';
 
@@ -15,6 +15,24 @@ export const getUserById = async (uid: string) => {
   }
 
   return user;
+};
+
+export const getUsersByName = async (name: string) => {
+  const users: UserState[] = [];
+  const usersCollectionRef = collection(db, COLLECTIONS.USERS);
+  const searchQueryUserName: keyof UserState = 'displayName';
+  const queryUsers = query(
+    usersCollectionRef,
+    where(searchQueryUserName, '>=', name),
+    where(searchQueryUserName, '<', `${name}\uf8ff`),
+  );
+
+  const querySnapshot = await getDocs(queryUsers);
+  querySnapshot.forEach((docUser) => {
+    users.push(docUser.data() as UserState);
+  });
+
+  return users;
 };
 
 export const setUser = async (user: UserState) => {

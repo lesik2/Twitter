@@ -22,7 +22,7 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: start;
   justify-content: center;
-  width: 100%;
+  width: 90%;
 `;
 export const TwittText = styled.textarea`
   ${({ theme }) => css`

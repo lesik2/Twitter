@@ -1,15 +1,18 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { privateRoutes, publicRoutes } from '@constants/routes';
 import { IRouter } from '@customTypes/index';
 import { useRoute } from '@hooks/useRoute';
+import { ROUTES } from '@constants/index';
 
 import { Wrapper } from './styled';
 
 import { SideBar } from '../SideBar';
-import { Search } from '../Search';
+import { SearchUsers } from '../SearchUsers';
+import { SearchTweets } from '../SearchTweets';
 
 export const Router = ({ user }: IRouter) => {
   useRoute(user);
+  const location = useLocation();
 
   return (
     <Wrapper>
@@ -21,7 +24,11 @@ export const Router = ({ user }: IRouter) => {
               <Route key={route.path} {...route} />
             ))}
           </Routes>
-          <Search />
+          {location.pathname === ROUTES.PROFILE || location.pathname.startsWith(ROUTES.USERS) ? (
+            <SearchUsers />
+          ) : (
+            <SearchTweets />
+          )}
         </>
       ) : (
         <Routes>

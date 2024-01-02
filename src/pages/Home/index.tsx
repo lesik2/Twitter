@@ -1,7 +1,7 @@
 import { TweetForm } from '@components/TweetForm';
 import { ITweetComponent } from '@customTypes/index';
 import { useEffect, useState } from 'react';
-import { getTweetsWithForAllUsers } from '@db/tweetsForAllUsers';
+import { getTweetsForAllUsers } from '@db/tweetsForAllUsers';
 import { Header } from '@components/Header/index';
 import { Tweet } from '@components/Tweet';
 
@@ -19,7 +19,7 @@ export function Home() {
   useEffect(() => {
     const { uid } = user;
     if (uid) {
-      getTweetsWithForAllUsers(uid)
+      getTweetsForAllUsers(uid)
         .then((allTweets) => {
           setTweetsData(allTweets);
         })
