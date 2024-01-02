@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { AuthLink } from '@components/ui';
+import { device } from '@constants/theme';
 
 export const SectionAuth = styled.section`
   ${({ theme }) => css`
@@ -9,6 +10,9 @@ export const SectionAuth = styled.section`
     align-items: center;
     justify-content: center;
     background-color: ${theme.colors.primary};
+    @media ${device.tablet} {
+      min-height: 100vh;
+    }
   `};
 `;
 export const Main = styled.main`
@@ -17,13 +21,23 @@ export const Main = styled.main`
   justify-content: center;
   gap: 41px;
   width: 100%;
+  @media ${device.laptop} {
+    gap: 20px;
+  }
+  @media ${device.tablet} {
+    gap: 0px;
+  }
 `;
 export const AuthWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  width: 42%;
+  width: 50%;
+  @media ${device.tablet} {
+    width: 100%;
+    align-items: center;
+  }
 `;
 
 export const IconGoogle = styled.img`
@@ -37,6 +51,10 @@ export const RegisterWrapper = styled.div`
   gap: 21px;
   margin-bottom: 31px;
   position: relative;
+  @media ${device.laptop} {
+    gap: 15px;
+    margin-bottom: 20px;
+  }
 `;
 export const RegisterBtn = styled.button`
   ${({ theme }) => css`
@@ -54,6 +72,13 @@ export const RegisterBtn = styled.button`
       background-color: ${theme.colors.border};
     }
   `};
+  @media ${device.laptop} {
+    width: 300px;
+    height: 50px;
+  }
+  @media ${device.mobileS} {
+    width: 280px;
+  }
 `;
 export const RegisterText = styled.p`
   ${({ theme }) => css`
@@ -63,10 +88,15 @@ export const RegisterText = styled.p`
     font-weight: ${theme.fontWeight.medium};
     line-height: normal;
   `};
+  @media ${device.laptop} {
+    font-size: 17px;
+  }
 `;
 export const WrapperImage = styled.div`
-  width: 58%;
-  height: 93.5vh;
+  width: 50%;
+  @media ${device.tablet} {
+    width: 0%;
+  }
 `;
 
 export const AuthText = styled.p`
@@ -79,6 +109,13 @@ export const AuthText = styled.p`
     margin-bottom: 21px;
     width: 373px;
   `};
+  @media ${device.laptop} {
+    margin-bottom: 15px;
+    width: 300px;
+  }
+  @media ${device.tablet} {
+    text-align: center;
+  }
 `;
 export const AuthMarkText = styled.a`
   ${({ theme }) => css`
@@ -93,7 +130,13 @@ export const LoginText = styled.p`
     font-weight: ${theme.fontWeight.normal}
     line-height: normal;
   `};
+  @media ${device.laptop} {
+    font-size: 14px;
+  }
 `;
 export const LinkToLogin = styled(AuthLink)`
   font-size: 16px;
+  @media ${device.laptop} {
+    font-size: 14px;
+  }
 `;

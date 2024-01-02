@@ -14,7 +14,14 @@ export interface ITheme {
   zIndex: {
     modal: number;
   };
-  breakPoints: object;
+  breakPoints: {
+    mobileS: string;
+    mobileM: string;
+    mobileL: string;
+    tablet: string;
+    laptop: string;
+    laptopL: string;
+  };
   colors: {
     primary: string;
     secondary: string;

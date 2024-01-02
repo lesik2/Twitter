@@ -15,7 +15,14 @@ export const theme = {
   zIndex: {
     modal: 1000,
   },
-  breakPoints: {},
+  breakPoints: {
+    mobileS: '320px',
+    mobileM: '375px',
+    mobileL: '425px',
+    tablet: '768px',
+    laptop: '1040px',
+    laptopL: '1460px',
+  },
 };
 export const lightTheme: ITheme = {
   ...theme,
@@ -46,4 +53,13 @@ export const darkTheme: ITheme = {
     modalWrapper: 'rgba(0, 0, 0, 0.7)',
     lightBorder: '#c9cecf',
   },
+};
+
+export const device = {
+  mobileS: `(max-width: ${theme.breakPoints.mobileS})`,
+  mobileM: `(max-width: ${theme.breakPoints.mobileM})`,
+  mobileL: `(max-width: ${theme.breakPoints.mobileL})`,
+  tablet: `(max-width: ${theme.breakPoints.tablet})`,
+  laptop: `(max-width: ${theme.breakPoints.laptop})`,
+  laptopL: `(max-width: ${theme.breakPoints.laptopL})`,
 };
