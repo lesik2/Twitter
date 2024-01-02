@@ -1,3 +1,4 @@
+import { device } from '@constants/theme';
 import { TDate } from '@customTypes/index';
 import styled, { css } from 'styled-components';
 
@@ -15,6 +16,15 @@ export const Wrapper = styled.div<{ $type: TDate }>`
     }};
     position: relative;
   `};
+  @media ${device.tablet} {
+    width: 120px;
+  }
+  @media ${device.mobileL} {
+    width: 100px;
+  }
+  @media ${device.mobileM} {
+    width: 90px;
+  }
 `;
 export const SelectedValue = styled.button`
   ${({ theme }) => css`
@@ -37,6 +47,15 @@ export const SelectedValue = styled.button`
       border: 2px solid ${theme.colors.third};
     }
   `};
+  @media ${device.tablet} {
+    height: 48px;
+    padding: 15px 5px 15px 5px;
+    font-size: 15px;
+  }
+  @media ${device.mobileL} {
+    height: 40px;
+    font-size: 13px;
+  }
 `;
 
 export const List = styled.ul<{ $active?: boolean }>`
@@ -58,6 +77,12 @@ export const List = styled.ul<{ $active?: boolean }>`
       width: 0px;
       height: 0px;
     }
+    @media ${device.tablet} {
+      bottom: 48px;
+    }
+    @media ${device.mobileL} {
+      bottom: 40px;
+    }
   `};
 `;
 export const ItemList = styled.li`
@@ -72,5 +97,16 @@ export const ItemList = styled.li`
       background-color: ${(props) => props.theme.colors.border};
     }
   `};
+  @media ${device.tablet} {
+    font-size: 15px;
+  }
+  @media ${device.mobileL} {
+    font-size: 13px;
+  }
 `;
-export const Icon = styled.img``;
+export const Icon = styled.img`
+  @media ${device.mobileL} {
+    width: 12px;
+    height: 6px;
+  }
+`;

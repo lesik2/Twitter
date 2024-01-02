@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FieldError } from 'react-hook-form';
+import { device } from '@constants/theme';
 
 export const Input = styled.input<{ $error?: FieldError }>`
   ${({ theme, $error }) => css`
@@ -78,6 +79,10 @@ export const IconTwitter = styled.img`
   width: 40px;
   height: 33px;
   filter: invert(48%) sepia(89%) saturate(1415%) hue-rotate(179deg) brightness(94%) contrast(101%);
+  @media ${device.mobileL} {
+    width: 35px;
+    height: 30px;
+  }
 `;
 
 export const ImageApp = styled.img`

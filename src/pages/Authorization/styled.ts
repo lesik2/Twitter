@@ -11,7 +11,7 @@ export const SectionAuth = styled.section`
     justify-content: center;
     background-color: ${theme.colors.primary};
     @media ${device.tablet} {
-      min-height: 100vh;
+      padding: 25px 10px 10px 10px;
     }
   `};
 `;
@@ -21,8 +21,8 @@ export const Main = styled.main`
   justify-content: center;
   gap: 41px;
   width: 100%;
-  @media ${device.laptop} {
-    gap: 20px;
+  @media ${device.laptopL} {
+    gap: 15px;
   }
   @media ${device.tablet} {
     gap: 0px;
@@ -34,6 +34,9 @@ export const AuthWrapper = styled.div`
   align-items: flex-start;
   justify-content: center;
   width: 50%;
+  @media ${device.laptopL} {
+    width: 43%;
+  }
   @media ${device.tablet} {
     width: 100%;
     align-items: center;
@@ -43,6 +46,10 @@ export const AuthWrapper = styled.div`
 export const IconGoogle = styled.img`
   width: 31px;
   height: 32px;
+  @media ${device.mobileL} {
+    width: 25px;
+    height: 25px;
+  }
 `;
 
 export const RegisterWrapper = styled.div`
@@ -76,8 +83,9 @@ export const RegisterBtn = styled.button`
     width: 300px;
     height: 50px;
   }
-  @media ${device.mobileS} {
-    width: 280px;
+  @media ${device.mobileL} {
+    width: 270px;
+    height: 40px;
   }
 `;
 export const RegisterText = styled.p`
@@ -91,9 +99,16 @@ export const RegisterText = styled.p`
   @media ${device.laptop} {
     font-size: 17px;
   }
+  @media ${device.mobileL} {
+    font-size: 16px;
+  }
 `;
 export const WrapperImage = styled.div`
   width: 50%;
+  @media ${device.laptopL} {
+    width: 57%;
+  }
+
   @media ${device.tablet} {
     width: 0%;
   }
@@ -115,6 +130,7 @@ export const AuthText = styled.p`
   }
   @media ${device.tablet} {
     text-align: center;
+    width: 280px;
   }
 `;
 export const AuthMarkText = styled.a`

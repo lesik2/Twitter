@@ -16,6 +16,7 @@ export const Footer = styled.footer`
   @media ${device.tablet} {
     gap: 10px;
     width: 90%;
+    margin-top: 35px;
   }
 `;
 export const FooterLink = styled.a`

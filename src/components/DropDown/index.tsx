@@ -12,7 +12,7 @@ export function DropDown({ type, date, setDate, values }: IDropDown) {
 
   useEffect(() => {
     const defaultValue = date[type];
-    if (defaultValue) {
+    if (defaultValue!==undefined) {
       setValue(type === 'month' ? getMonthName(defaultValue) : defaultValue);
     } else {
       setValue(type);

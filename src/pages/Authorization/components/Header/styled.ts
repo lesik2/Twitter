@@ -17,14 +17,13 @@ export const AuthTitle = styled.h1`
     font-weight: ${theme.fontWeight.large};
     line-height: normal;
     @media ${device.laptopL} {
-      margin: 30px 0 30px 0px;
+      margin: 35px 0 30px 0px;
       font-size: 60px;
     }
     @media ${device.laptop} {
-      margin: 20px 0 25px 0px;
-      font-size: 50px;
+      font-size: 45px;
     }
-    @media ${device.tablet} {
+    @media ${device.mobileL} {
       font-size: 40px;
     }
     @media ${device.mobileS} {
@@ -41,7 +40,7 @@ export const AuthSubTitle = styled.h2`
     line-height: normal;
     margin: 0px 0px 31px 0px;
     @media ${device.laptopL} {
-      margin: 0px 0 20px 0px;
+      margin: 0px 0 35px 0px;
       font-size: 35px;
     }
     @media ${device.laptop} {
@@ -50,8 +49,7 @@ export const AuthSubTitle = styled.h2`
     @media ${device.tablet} {
       text-align: center;
     }
-    @media ${device.tablet} {
-      margin: 0px 0 35px 0px;
+    @media ${device.mobileL} {
       font-size: 27px;
     }
     @media ${device.mobileS} {
