@@ -10,15 +10,26 @@ export const HeaderSection = styled.header`
   width: 100%;
 `;
 export const TweetsWrapper = styled.div`
-  width: 100%;
-  height: 87px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 15px;
-  @media ${device.tablet} {
-    padding-left: 60px;
-  }
+  ${({ theme }) => css`
+    width: 100%;
+    height: 87px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 15px;
+    @media ${device.laptopM} {
+      position: fixed;
+      top: 0px;
+      right: 0px;
+      width: 85%;
+      z-index: ${theme.zIndex.header};
+      background-color: ${theme.colors.primary};
+    }
+    @media ${device.tablet} {
+      padding-left: 60px;
+      width: 100%;
+    }
+  `};
 `;
 export const UserInfoProfile = styled(UserInfo)`
   gap: 6px;
@@ -30,7 +41,9 @@ export const UserNameProfile = styled(UserTitle)`
 
 export const WrapperImage = styled.div`
   width: 100%;
-  height: 280px;
+  @media ${device.laptopM} {
+    padding-top: 87px;
+  }
 `;
 
 export const UserWrapper = styled.div`

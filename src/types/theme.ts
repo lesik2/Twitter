@@ -16,6 +16,7 @@ export interface ITheme {
     burgerBtn: number;
     burgerMenu: number;
     burgerMenuBack: number;
+    header: number;
   };
   breakPoints: {
     mobileS: string;

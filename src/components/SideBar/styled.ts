@@ -9,6 +9,9 @@ export const Aside = styled.aside`
   flex-direction: column;
   align-items: flex-end;
   padding-bottom: 10px;
+  @media ${device.tablet} {
+    padding: 0px 10px 10px 25px;
+  }
 `;
 export const Wrapper = styled.div`
   display: flex;
@@ -83,6 +86,10 @@ export const SideBarIconTwitter = styled(IconTwitter)`
   @media ${device.laptopM} {
     width: 38px;
     height: 30px;
+  }
+  @media ${device.tablet} {
+    align-self: flex-start;
+    margin-left: 15px;
   }
 `;
 export const TextLink = styled.h4<{ $isActive?: boolean }>`

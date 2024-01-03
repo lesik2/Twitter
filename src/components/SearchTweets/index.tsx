@@ -7,7 +7,6 @@ import { FooterSearch } from '@components/FooterSearch/index';
 import { ITweetComponent } from '@customTypes/index';
 import { useAppSelector } from '@hooks/redux';
 import { getTweetsByText } from '@db/tweetsForAllUsers';
-
 import {
   ImageWrapper,
   SearchBtn,
@@ -20,7 +19,7 @@ import {
   UserSubtitle,
   UserTitle,
   UserWrapper,
-} from './styled';
+} from '@components/ui/search';
 
 import { ImageApp, ImageUser } from '../ui';
 

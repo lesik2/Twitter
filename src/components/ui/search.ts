@@ -1,18 +1,21 @@
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { device } from '@constants/theme';
 
-import { ImageUserWrapper } from '../ui';
+import { ImageUserWrapper } from './index';
 
 export const SearchSection = styled.section`
-  width: 27%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 20px 10px 10px 18px;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
+  @media ${device.laptopL} {
+    padding: 20px 3px 10px 3px;
+    align-items: center;
+  }
+  @media ${device.laptopM} {
+    padding: 70px 3px 10px 3px;
+  }
 `;
 export const SearchWrapper = styled.div`
   position: relative;
@@ -38,6 +41,9 @@ export const SearchInput = styled.input`
       border: 2px solid ${theme.colors.option};
     }
   `};
+  @media ${device.laptopL} {
+    width: 300px;
+  }
 `;
 export const SearchBtn = styled.button`
   width: 24px;
@@ -63,10 +69,12 @@ export const SearchResultsWrapper = styled.div`
     justify-content: flex-start;
     background-color: ${theme.colors.lightBorder};
     border-radius: 10px;
-    padding: 43px 12px 50px 15px;
+    padding: 43px 10px 50px 5px;
     gap: 10px;
-    min-width: 373px;
   `};
+  @media ${device.laptopL} {
+    padding: 30px 3px 40px 3px;
+  }
 `;
 export const SearchResultText = styled.h2`
   ${({ theme }) => css`
@@ -78,6 +86,9 @@ export const SearchResultText = styled.h2`
     font-weight: ${theme.fontWeight.large};
     line-height: normal;
   `};
+  @media ${device.laptopL} {
+    font-size: 20px;
+  }
 `;
 
 export const UserWrapper = styled(NavLink)`
@@ -88,7 +99,7 @@ export const UserWrapper = styled(NavLink)`
     align-items: center;
     justify-content: flex-start;
     border-radius: 15px;
-    padding: 10px;
+    padding: 9px;
     cursor: pointer;
     &:hover {
       background-color: ${theme.colors.border};
@@ -102,6 +113,9 @@ export const UserInfoWrapper = styled.div`
   align-items: flex-start;
   justify-content: center;
   margin: 0px 31px 0px 13px;
+  @media ${device.laptopL} {
+    margin: 0px 10px 0px 8px;
+  }
 `;
 
 export const UserTitle = styled.h3`
@@ -118,13 +132,38 @@ export const UserTitle = styled.h3`
 export const UserSubtitle = styled.h3`
   ${({ theme }) => css`
     color: ${theme.colors.option};
-    font-size: 18px;
+    font-size: 15px;
     font-style: normal;
     font-weight: ${theme.fontWeight.normal};
     line-height: normal;
     margin: 0px;
   `};
 `;
+export const FollowBtn = styled.button`
+  ${({ theme }) => css`
+    display: inline-flex;
+    padding: 10px 18px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 50px;
+    background: ${theme.colors.third};
+    color: ${theme.colors.primary};
+    font-family: ${theme.fontFamily.serif};
+    font-size: 18px;
+    font-style: normal;
+    font-weight: ${theme.fontWeight.bold};
+    line-height: 100%;
+    outline: none;
+    border: none;
+  `};
+  @media ${device.laptopL} {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+`;
 export const ImageWrapper = styled(ImageUserWrapper)`
   width: 60px;
+  @media ${device.laptopL} {
+    width: 50px;
+  }
 `;

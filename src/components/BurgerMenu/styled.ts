@@ -42,13 +42,14 @@ export const Wrapper = styled.div<{ $isOpen?: boolean }>`
         bottom 0.3s;
       transform: translateX(-50%) ${$isOpen ? 'rotate(-45deg)' : ''};
     }
+    @media ${device.tablet} {
+      display: block;
+      position: fixed;
+      top: 25px;
+      left: ${$isOpen ? '230px' : '15px'};
+      transition: left 0.4s;
+    }
   `};
-  @media ${device.tablet} {
-    display: block;
-    position: fixed;
-    top: 25px;
-    left: 10px;
-  }
 `;
 export const Line = styled.span<{ $isOpen?: boolean }>`
   ${({ theme, $isOpen }) => css`

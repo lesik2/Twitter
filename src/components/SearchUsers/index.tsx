@@ -6,7 +6,6 @@ import { useDebounce } from '@hooks/useDebounce';
 import { UserState } from '@customTypes/models';
 import { getUsersByName } from '@db/user';
 import { FooterSearch } from '@components/FooterSearch/index';
-
 import {
   FollowBtn,
   ImageWrapper,
@@ -20,7 +19,7 @@ import {
   UserSubtitle,
   UserTitle,
   UserWrapper,
-} from './styled';
+} from '@components/ui/search';
 
 import { ImageApp, ImageUser } from '../ui';
 

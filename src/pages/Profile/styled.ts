@@ -12,10 +12,10 @@ export const ProfileSection = styled.section`
     overflow-y: auto;
   `};
   @media ${device.laptopM} {
-    width: 58%;
+    width: 85%;
   }
   @media ${device.tablet} {
-    width: 73%;
+    width: 100%;
   }
 `;
 

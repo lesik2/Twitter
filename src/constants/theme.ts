@@ -13,10 +13,11 @@ export const theme = {
     large: '900',
   },
   zIndex: {
-    modal: 1000,
-    burgerBtn: 1000,
-    burgerMenu: 1000,
-    burgerMenuBack: 900,
+    modal: 1500,
+    burgerBtn: 1200,
+    burgerMenu: 1200,
+    burgerMenuBack: 1000,
+    header: 500,
   },
   breakPoints: {
     mobileS: '320px',
