@@ -13,6 +13,9 @@ export interface ITheme {
   };
   zIndex: {
     modal: number;
+    burgerBtn: number;
+    burgerMenu: number;
+    burgerMenuBack: number;
   };
   breakPoints: {
     mobileS: string;
@@ -20,6 +23,7 @@ export interface ITheme {
     mobileL: string;
     tablet: string;
     laptop: string;
+    laptopM: string;
     laptopL: string;
   };
   colors: {

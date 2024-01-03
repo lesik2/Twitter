@@ -14,6 +14,9 @@ export const theme = {
   },
   zIndex: {
     modal: 1000,
+    burgerBtn: 1000,
+    burgerMenu: 1000,
+    burgerMenuBack: 900,
   },
   breakPoints: {
     mobileS: '320px',
@@ -21,6 +24,7 @@ export const theme = {
     mobileL: '425px',
     tablet: '768px',
     laptop: '1040px',
+    laptopM: '1120px',
     laptopL: '1460px',
   },
 };
@@ -61,5 +65,6 @@ export const device = {
   mobileL: `(max-width: ${theme.breakPoints.mobileL})`,
   tablet: `(max-width: ${theme.breakPoints.tablet})`,
   laptop: `(max-width: ${theme.breakPoints.laptop})`,
+  laptopM: `(max-width: ${theme.breakPoints.laptopM})`,
   laptopL: `(max-width: ${theme.breakPoints.laptopL})`,
-};
+} as const;

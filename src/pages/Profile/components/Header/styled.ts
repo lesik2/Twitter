@@ -1,5 +1,6 @@
 import { Button, UserTitle, UserInfo } from '@components/ui';
 import styled, { css } from 'styled-components';
+import { device } from '@constants/theme';
 
 export const HeaderSection = styled.header`
   display: flex;
@@ -15,6 +16,9 @@ export const TweetsWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding-left: 15px;
+  @media ${device.tablet} {
+    padding-left: 60px;
+  }
 `;
 export const UserInfoProfile = styled(UserInfo)`
   gap: 6px;

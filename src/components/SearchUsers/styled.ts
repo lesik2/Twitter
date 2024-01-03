@@ -8,7 +8,7 @@ export const SearchSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 20px 10px 10px 28px;
+  padding: 20px 10px 10px 18px;
   position: sticky;
   top: 0;
   height: 100vh;

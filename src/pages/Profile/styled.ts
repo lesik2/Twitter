@@ -1,3 +1,4 @@
+import { device } from '@constants/theme';
 import styled, { css } from 'styled-components';
 
 export const ProfileSection = styled.section`
@@ -10,6 +11,12 @@ export const ProfileSection = styled.section`
     border-left: 1px solid ${theme.colors.border};
     overflow-y: auto;
   `};
+  @media ${device.laptopM} {
+    width: 58%;
+  }
+  @media ${device.tablet} {
+    width: 73%;
+  }
 `;
 
 export const TweetsTitle = styled.div`

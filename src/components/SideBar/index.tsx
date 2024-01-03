@@ -21,9 +21,10 @@ import {
   Wrapper,
   WrapperLink,
   TweetWrapper,
+  SideBarIconTwitter,
 } from './styled';
 
-import { UserInfo, UserSubtitle, IconTwitter, ImageUser, ImageUserWrapper } from '../ui/index';
+import { UserInfo, UserSubtitle, ImageUser, ImageUserWrapper } from '../ui/index';
 import { Modal } from '../Modal';
 import { TweetForm } from '../TweetForm';
 
@@ -59,7 +60,7 @@ export function SideBar() {
   return (
     <Aside>
       <Wrapper>
-        <IconTwitter alt='twitter' src={twitter} />
+        <SideBarIconTwitter alt='twitter' src={twitter} />
         <Navigation>
           {APP_LINKS.map((link) => {
             const { name, path, outlineIcon, fillIcon } = link;

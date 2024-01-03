@@ -1,3 +1,4 @@
+import { device } from '@constants/theme';
 import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
@@ -18,6 +19,10 @@ export const HeaderSection = styled.header`
     background-color: ${theme.colors.primary};
     transform: translateX(-55%);
   `};
+  @media ${device.laptop} {
+    top: 0;
+    transform: translateX(-62%);
+  }
 `;
 export const Wrapper = styled.div`
   display: flex;

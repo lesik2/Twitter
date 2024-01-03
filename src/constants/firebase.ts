@@ -5,8 +5,8 @@ export const firebaseConfig = {
   storageBucket: import.meta.env.VITE_APP_STORAGE_BUCKET as string,
   messagingSenderId: import.meta.env.VITE_APP_MESSAGING_SENDER_ID as string,
   appId: import.meta.env.VITE_APP_ID as string,
-};
+} as const;
 export const COLLECTIONS = {
   USERS: 'users',
   TWEETS: 'tweets',
-};
+} as const;

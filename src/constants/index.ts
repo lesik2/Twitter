@@ -24,4 +24,4 @@ export const CONSTANTS = {
   SEARCH_TITLE: 'Search results',
   SEARCH_PLACEHOLDER_USERS: 'Search Users',
   SEARCH_PLACEHOLDER_TWITTER: 'Search Twitter',
-};
+} as const;
