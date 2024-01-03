@@ -22,8 +22,9 @@ import {
 } from '@components/ui/search';
 
 import { ImageApp, ImageUser } from '../ui';
+import { ISearch } from '../SearchTweets';
 
-export function SearchUsers() {
+export function SearchUsers({onClose}: ISearch) {
   const [users, setUsers] = useState<UserState[]>([]);
   const [searchValue, setSearchValue] = useState('');
   const debouncedValue = useDebounce(searchValue);
@@ -57,7 +58,7 @@ export function SearchUsers() {
         <SearchResultsWrapper>
           <SearchResultText>{CONSTANTS.SEARCH_TITLE}</SearchResultText>
           {users.map((user) => (
-            <UserWrapper to={`${ROUTES.USERS}${user.uid}`} key={user.uid}>
+            <UserWrapper to={`${ROUTES.USERS}${user.uid}`} key={user.uid} onClick={onClose}>
               <ImageWrapper>
                 <ImageUser alt='user icon' src={defaultUser} />
               </ImageWrapper>

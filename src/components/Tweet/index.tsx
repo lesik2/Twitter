@@ -26,6 +26,7 @@ import {
   TweetWrapper,
   UserInfoWrapper,
   UserWrapperImage,
+  Wrapper,
 } from './styled';
 
 import { ImageApp, ImageUser, UserTitle } from '../ui';
@@ -41,6 +42,7 @@ export function Tweet({
   amountOfLikes,
   isLiked,
 }: ITweetComponent) {
+
   const [likesAmount, setLikesAmount] = useState(amountOfLikes);
   const [activeLike, setActiveLike] = useState(isLiked);
   const dispatch = useAppDispatch();
@@ -98,16 +100,18 @@ export function Tweet({
           <LikeText>{likesAmount}</LikeText>
         </LikesWrapper>
       </TweetWrapper>
-      <OptionWrapper ref={wrapperRef}>
-        <OptionWrapperBtn onClick={handleOpen}>
-          <OptionImage alt='option' src={option} />
-        </OptionWrapperBtn>
-        {isOpen && (
-          <OptionList ref={listRef}>
-            <OptionItem onClick={handleDeleteTweet}>Delete tweet</OptionItem>
-          </OptionList>
-        )}
-      </OptionWrapper>
+      <Wrapper>
+        <OptionWrapper ref={wrapperRef}>
+          <OptionWrapperBtn onClick={handleOpen}>
+            <OptionImage alt='option' src={option} />
+          </OptionWrapperBtn>
+          {isOpen && (
+            <OptionList ref={listRef}>
+              <OptionItem onClick={handleDeleteTweet}>Delete tweet</OptionItem>
+            </OptionList>
+          )}
+        </OptionWrapper>
+      </Wrapper>
     </TweetArticle>
   );
 }

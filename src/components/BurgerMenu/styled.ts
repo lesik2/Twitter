@@ -46,7 +46,7 @@ export const Wrapper = styled.div<{ $isOpen?: boolean }>`
       display: block;
       position: fixed;
       top: 25px;
-      left: ${$isOpen ? '230px' : '15px'};
+      left: ${$isOpen ? '220px' : '15px'};
       transition: left 0.4s;
     }
   `};

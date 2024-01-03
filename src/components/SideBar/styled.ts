@@ -171,4 +171,15 @@ export const TweetWrapper = styled.div`
     border-radius: 20px;
     width: 750px;
   `};
+  @media ${device.tablet} {
+    width: 425px;
+    padding: 5px 10px 10px 10px;
+  }
+  @media ${device.mobileL} {
+    width: 315px;
+    padding: 5px;
+  }
+  @media ${device.mobileS} {
+    width: 295px;
+  }
 `;

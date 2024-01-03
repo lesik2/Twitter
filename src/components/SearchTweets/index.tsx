@@ -23,7 +23,10 @@ import {
 
 import { ImageApp, ImageUser } from '../ui';
 
-export function SearchTweets() {
+export interface ISearch{
+  onClose: () => void;
+}
+export function SearchTweets({onClose}: ISearch) {
   const [tweets, setTweets] = useState<ITweetComponent[]>([]);
   const [searchValue, setSearchValue] = useState('');
   const debouncedValue = useDebounce(searchValue);
@@ -59,7 +62,7 @@ export function SearchTweets() {
         <SearchResultsWrapper>
           <SearchResultText>{CONSTANTS.SEARCH_TITLE}</SearchResultText>
           {tweets.map((tweet) => (
-            <UserWrapper to={`${ROUTES.TWEETS}${tweet.id}`} key={tweet.id}>
+            <UserWrapper to={`${ROUTES.TWEETS}${tweet.id}`} key={tweet.id} onClick={onClose}>
               <ImageWrapper>
                 <ImageUser alt='user icon' src={defaultUser} />
               </ImageWrapper>

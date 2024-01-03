@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Content, Wrapper } from './styled';
 
-export type PositionModal = 'left'|'right';
+export type PositionModal = 'left' | 'right';
 export interface IMenu {
   children: React.ReactNode;
   isOpen: boolean;

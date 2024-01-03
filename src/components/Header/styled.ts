@@ -64,4 +64,7 @@ export const Title = styled.h1`
     font-weight: ${theme.fontWeight.bold};
     line-height: normal;
   `};
+  @media ${device.tablet} {
+    font-size: 20px;
+  }
 `;

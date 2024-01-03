@@ -79,8 +79,8 @@ export const IconTwitter = styled.img`
   width: 40px;
   height: 33px;
   filter: invert(48%) sepia(89%) saturate(1415%) hue-rotate(179deg) brightness(94%) contrast(101%);
-  @media ${device.mobileL} {
-    width: 35px;
+  @media ${device.tablet} {
+    width: 33px;
     height: 30px;
   }
 `;
@@ -112,6 +112,12 @@ export const UserTitle = styled.h3`
     line-height: normal;
     margin: 0px;
   `};
+  @media ${device.tablet} {
+    font-size: 17px;
+  }
+  @media ${device.mobileL} {
+    font-size: 15px;
+  }
 `;
 
 export const UserSubtitle = styled.h3`
@@ -123,4 +129,10 @@ export const UserSubtitle = styled.h3`
     line-height: normal;
     margin: 0px;
   `};
+  @media ${device.tablet} {
+    font-size: 15px;
+  }
+  @media ${device.mobileL} {
+    font-size: 14px;
+  }
 `;

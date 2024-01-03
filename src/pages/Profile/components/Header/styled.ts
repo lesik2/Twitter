@@ -37,6 +37,9 @@ export const UserInfoProfile = styled(UserInfo)`
 
 export const UserNameProfile = styled(UserTitle)`
   font-size: 24px;
+  @media ${device.tablet} {
+    font-size: 22px;
+  }
 `;
 
 export const WrapperImage = styled.div`
@@ -76,6 +79,12 @@ export const EditBtn = styled(Button)`
       background-color: ${theme.colors.border};
     }
   `};
+  @media ${device.tablet} {
+    height: 40px;
+    width: 105px;
+    font-size: 16px;
+    padding: 8px 13px;
+  }
 `;
 
 export const UserWrapperImage = styled.div`
@@ -84,6 +93,11 @@ export const UserWrapperImage = styled.div`
   position: absolute;
   top: -60px;
   left: 0px;
+  @media ${device.tablet} {
+    width: 120px;
+    height: 120px;
+    top: -40px;
+  }
 `;
 
 export const FollowWrapper = styled.div`
@@ -108,6 +122,9 @@ export const FollowText = styled.p`
     line-height: normal;
     margin-top: 57px;
   `};
+  @media ${device.tablet} {
+    font-size: 16px;
+  }
 `;
 export const UserProfileWrapper = styled.div`
   display: flex;
@@ -127,6 +144,9 @@ export const UserDescription = styled.h3`
     line-height: normal;
     margin-top: 17px;
   `};
+  @media ${device.tablet} {
+    font-size: 16px;
+  }
 `;
 export const MarkText = styled.a`
   ${({ theme }) => css`

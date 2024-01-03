@@ -28,7 +28,7 @@ export const Content = styled.div<{ $isOpen?: boolean; $position: 'left' | 'righ
       position: fixed;
       top: 0px;
       ${$position}: ${$isOpen ? '0px' : '-100%'};
-      width: ${$position === 'left' ? '280px' : '320px'};
+      width: ${$position === 'left' ? '280px' : '310px'};
       height: 100vh;
       background-color: ${theme.colors.primary};
       display: flex;

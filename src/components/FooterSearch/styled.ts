@@ -10,6 +10,9 @@ export const FooterTextWrapper = styled.div`
   @media ${device.laptopL} {
     justify-content: center;
   }
+  @media ${device.tablet} {
+    gap: 10px;
+  }
 `;
 export const FooterText = styled.p`
   ${({ theme }) => css`
@@ -19,6 +22,9 @@ export const FooterText = styled.p`
     font-weight: ${theme.fontWeight.normal};
     line-height: normal;
   `};
+  @media ${device.tablet} {
+    font-size: 14px;
+  }
 `;
 export const FooterMore = styled(FooterText)`
   cursor: pointer;
@@ -32,4 +38,7 @@ export const FooterTwitter = styled.span`
     font-weight: ${theme.fontWeight.normal};
     line-height: normal;
   `};
+  @media ${device.tablet} {
+    font-size: 14px;
+  }
 `;

@@ -20,8 +20,17 @@ export const Router = ({ user }: IRouter) => {
   const location = useLocation();
   const [isOpenSideBar, setIsOpenSideBar] = useState(false);
   const [isOpenSearch, setIsOpenSearch] = useState(false);
-  const handleOpenSearch = ()=>{
+
+  const handleOpenSearch = () => {
     setIsOpenSearch(!isOpenSearch);
+  };
+
+  const handleCloseSearch = () =>{
+    setIsOpenSearch(false);
+  }
+
+  const handleCloseSideBar = ()=>{
+    setIsOpenSideBar(false);
   }
 
   return (
@@ -30,7 +39,7 @@ export const Router = ({ user }: IRouter) => {
         <>
           <BurgerMenu isOpen={isOpenSideBar} setIsOpen={setIsOpenSideBar} />
           <Menu isOpen={isOpenSideBar} setIsOpen={setIsOpenSideBar} position='left'>
-            <SideBar />
+            <SideBar onClose={handleCloseSideBar}/>
           </Menu>
           <Routes>
             {privateRoutes.map((route) => (
@@ -42,12 +51,11 @@ export const Router = ({ user }: IRouter) => {
           </OpenSearchBtn>
           <Menu isOpen={isOpenSearch} position='right' setIsOpen={setIsOpenSearch}>
             {location.pathname === ROUTES.PROFILE || location.pathname.startsWith(ROUTES.USERS) ? (
-              <SearchUsers />
+              <SearchUsers onClose={handleCloseSearch}/>
             ) : (
-              <SearchTweets />
+              <SearchTweets onClose={handleCloseSearch}/>
             )}
           </Menu>
-          
         </>
       ) : (
         <Routes>

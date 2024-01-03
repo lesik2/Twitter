@@ -28,12 +28,16 @@ import { UserInfo, UserSubtitle, ImageUser, ImageUserWrapper } from '../ui/index
 import { Modal } from '../Modal';
 import { TweetForm } from '../TweetForm';
 
-export function SideBar() {
+export interface ISideBar{
+  onClose: () => void;
+}
+export function SideBar({onClose}: ISideBar) {
   const user = useAppSelector((state) => state.userReducer);
   const location = useLocation().pathname;
 
   const [isOpen, setIsOpen] = useState(false);
   const handleOpen = () => {
+    onClose();
     setIsOpen(true);
   };
 
@@ -66,7 +70,7 @@ export function SideBar() {
             const { name, path, outlineIcon, fillIcon } = link;
 
             return (
-              <WrapperLink key={name} to={path}>
+              <WrapperLink key={name} to={path} onClick={onClose}>
                 <Icon alt={name} src={location === path ? fillIcon : outlineIcon} />
                 <TextLink $isActive={location === path}>{link.name}</TextLink>
               </WrapperLink>

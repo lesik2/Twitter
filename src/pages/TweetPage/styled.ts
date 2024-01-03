@@ -1,3 +1,4 @@
+import { device } from '@constants/theme';
 import styled, { css } from 'styled-components';
 
 export const UserSection = styled.section`
@@ -11,6 +12,12 @@ export const UserSection = styled.section`
     overflow-y: auto;
     padding-top: 87px;
   `};
+  @media ${device.laptopM} {
+    width: 85%;
+  }
+  @media ${device.tablet} {
+    width: 100%;
+  }
 `;
 export const TweetsWrapper = styled.div`
   display: flex;

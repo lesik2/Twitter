@@ -22,7 +22,7 @@ export const OpenSearchBtn = styled(SearchBtn)<{ $isOpen?: boolean }>`
       top: 20px;
       left: auto;
       z-index: ${theme.zIndex.burgerMenu};
-      right: ${$isOpen ? '280px' : '20px'};
+      right: ${$isOpen ? '255px' : '20px'};
       transition: right 0.4s;
       border-radius: 50%;
       padding: 7px;

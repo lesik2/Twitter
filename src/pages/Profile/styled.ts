@@ -35,6 +35,12 @@ export const TweetsTitle = styled.div`
     font-weight: ${theme.fontWeight.bold};
     line-height: normal;
   `};
+  @media ${device.tablet} {
+    font-size: 16px;
+    margin: 15px 0 20px 0px;
+    height: 30px;
+    width: 200px;
+  }
 `;
 export const TweetsWrapper = styled.div`
   display: flex;
