@@ -23,10 +23,10 @@ import {
 
 import { ImageApp, ImageUser } from '../ui';
 
-export interface ISearch{
+export interface ISearch {
   onClose: () => void;
 }
-export function SearchTweets({onClose}: ISearch) {
+export function SearchTweets({ onClose }: ISearch) {
   const [tweets, setTweets] = useState<ITweetComponent[]>([]);
   const [searchValue, setSearchValue] = useState('');
   const debouncedValue = useDebounce(searchValue);

@@ -24,7 +24,7 @@ import {
 import { ImageApp, ImageUser } from '../ui';
 import { ISearch } from '../SearchTweets';
 
-export function SearchUsers({onClose}: ISearch) {
+export function SearchUsers({ onClose }: ISearch) {
   const [users, setUsers] = useState<UserState[]>([]);
   const [searchValue, setSearchValue] = useState('');
   const debouncedValue = useDebounce(searchValue);

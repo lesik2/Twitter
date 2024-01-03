@@ -42,7 +42,6 @@ export function Tweet({
   amountOfLikes,
   isLiked,
 }: ITweetComponent) {
-
   const [likesAmount, setLikesAmount] = useState(amountOfLikes);
   const [activeLike, setActiveLike] = useState(isLiked);
   const dispatch = useAppDispatch();

@@ -28,10 +28,10 @@ import { UserInfo, UserSubtitle, ImageUser, ImageUserWrapper } from '../ui/index
 import { Modal } from '../Modal';
 import { TweetForm } from '../TweetForm';
 
-export interface ISideBar{
+export interface ISideBar {
   onClose: () => void;
 }
-export function SideBar({onClose}: ISideBar) {
+export function SideBar({ onClose }: ISideBar) {
   const user = useAppSelector((state) => state.userReducer);
   const location = useLocation().pathname;
 
