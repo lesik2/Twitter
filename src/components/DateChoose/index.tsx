@@ -5,7 +5,7 @@ import { getArrayOfNumbers, getDays } from './helpers';
 
 import { DropDown } from '../DropDown';
 
-export  function DateChoose({ date, setDate }: IDateChoose) {
+export function DateChoose({ date, setDate }: IDateChoose) {
   const currentDate = new Date();
   const days = getDays(date);
   const years = getArrayOfNumbers(currentDate.getFullYear() - 100, currentDate.getFullYear()).reverse();

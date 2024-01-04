@@ -1,5 +1,5 @@
 import twitter from '@assets/icons/twitter.svg';
-import {DateChoose} from '@components/DateChoose';
+import { DateChoose } from '@components/DateChoose';
 import { CONSTANTS, SIGN_UP_INPUTS, ERRORS_MESSAGE } from '@constants/auth';
 import { ROUTES } from '@constants/index';
 import { useState } from 'react';

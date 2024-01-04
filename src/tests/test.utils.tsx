@@ -14,9 +14,8 @@ function render(ui: ReactElement) {
       <MemoryRouter initialEntries={[ROUTES.AUTHORIZATION]}>
         <Provider store={store}>
           <ThemeProvider theme={lightTheme}>{children}</ThemeProvider>
-        </Provider> 
+        </Provider>
       </MemoryRouter>
-      
     );
   }
 
