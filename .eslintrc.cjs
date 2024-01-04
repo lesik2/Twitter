@@ -24,7 +24,7 @@ module.exports = {
     "tsconfigRootDir": __dirname,
     "sourceType": "module"
   },
-  ignorePatterns: ['dist', '.eslintrc.cjs','vite.config.ts'],
+  ignorePatterns: ['dist', '.eslintrc.cjs','vite.config.ts','jest.config.cjs'],
   parser: '@typescript-eslint/parser',
   plugins: ['react-refresh', "import", "jsx-a11y", "promise", "react", "@typescript-eslint", "prettier"],
   rules: {
