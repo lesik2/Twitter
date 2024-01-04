@@ -14,9 +14,9 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["DOM", "ESNext", "DOM.Iterable"],
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["DOM", "esnext", "DOM.Iterable"],
     "types": [],
     "jsx": "react-jsx",
     "esModuleInterop": true,

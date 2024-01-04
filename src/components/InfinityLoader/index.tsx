@@ -1,7 +1,7 @@
 import { Loader } from './styled';
 
 export function InfinityLoader() {
-  return <Loader />;
+  return <Loader data-testid='loader'/>;
 }
 
 export { Loader };

@@ -42,7 +42,7 @@ export function LogIn() {
   };
 
   return (
-    <SectionLogIn>
+    <SectionLogIn data-testid='login-page'>
       <LogInWrapper>
         <Icon alt='twitter' src={twitter} />
         <Title>{CONSTANTS.LOG_IN_TITLE}</Title>
@@ -53,6 +53,7 @@ export function LogIn() {
             return (
               <InputWrapper key={name}>
                 <LogInInput
+                  data-testid={name}
                   type={type}
                   $error={errors[name]}
                   placeholder={placeholder}
