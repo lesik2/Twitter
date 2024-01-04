@@ -7,6 +7,7 @@ import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import { ITweet } from '@customTypes/models';
 import { setTweets } from '@store/reducers/tweetsSlice';
 import { addTweet } from '@db/tweet';
+import { ITweetForm } from '@customTypes/index';
 
 import {
   BtnTweet,
@@ -26,9 +27,6 @@ import {
 
 import { ImageApp, ImageUser } from '../ui';
 
-export interface ITweetForm {
-  onClose?: () => void;
-}
 export function TweetForm({ onClose }: ITweetForm) {
   const user = useAppSelector((state) => state.userReducer);
   const textareaRef = useRef<HTMLTextAreaElement>(null);

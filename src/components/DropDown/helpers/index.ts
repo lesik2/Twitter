@@ -9,6 +9,7 @@ export const getMonthName = (numberOfMonth: number) => {
 
 export const validateDayForMonth = (date: IDate, setDate: Dispatch<React.SetStateAction<IDate>>) => {
   const { day, month } = date;
+
   if (month && day) {
     const year = date.year ?? new Date().getFullYear();
     const inputDate = new Date(year, month + 1, 0).getDate();

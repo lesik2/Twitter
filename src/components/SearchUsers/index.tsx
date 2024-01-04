@@ -20,14 +20,15 @@ import {
   UserTitle,
   UserWrapper,
 } from '@components/ui/search';
+import { ISearch } from '@customTypes/index';
 
 import { ImageApp, ImageUser } from '../ui';
-import { ISearch } from '../SearchTweets';
 
 export function SearchUsers({ onClose }: ISearch) {
   const [users, setUsers] = useState<UserState[]>([]);
   const [searchValue, setSearchValue] = useState('');
   const debouncedValue = useDebounce(searchValue);
+
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
   };

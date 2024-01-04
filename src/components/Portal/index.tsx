@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 
 export const Portal = ({ children }: IPortal) => {
   const [modalContainer] = useState(document.createElement('div'));
+
   useEffect(() => {
     let modalRoot = document.getElementById('modal-root');
     if (!modalRoot) {

@@ -7,6 +7,7 @@ import { ROUTES } from '../constants';
 export function useRoute(user: User | undefined | null): void {
   const location = useLocation();
   const navigate = useNavigate();
+
   useEffect(() => {
     if (user && location.pathname === ROUTES.AUTHORIZATION) {
       navigate(ROUTES.HOME);

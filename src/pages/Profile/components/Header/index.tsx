@@ -30,6 +30,7 @@ export function Header() {
   const user = useAppSelector((state) => state.userReducer);
   const tweetState = useAppSelector((state) => state.tweetsReducer);
   const [isOpen, setIsOpen] = useState(false);
+
   const handleOpen = () => {
     setIsOpen(true);
   };

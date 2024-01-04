@@ -4,7 +4,7 @@ import { CONSTANTS, ROUTES } from '@constants/index';
 import { useEffect, useState } from 'react';
 import { useDebounce } from '@hooks/useDebounce';
 import { FooterSearch } from '@components/FooterSearch/index';
-import { ITweetComponent } from '@customTypes/index';
+import { ISearch, ITweetComponent } from '@customTypes/index';
 import { useAppSelector } from '@hooks/redux';
 import { getTweetsByText } from '@db/tweetsForAllUsers';
 import {
@@ -23,14 +23,12 @@ import {
 
 import { ImageApp, ImageUser } from '../ui';
 
-export interface ISearch {
-  onClose: () => void;
-}
 export function SearchTweets({ onClose }: ISearch) {
   const [tweets, setTweets] = useState<ITweetComponent[]>([]);
   const [searchValue, setSearchValue] = useState('');
   const debouncedValue = useDebounce(searchValue);
   const user = useAppSelector((state) => state.userReducer);
+
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
   };

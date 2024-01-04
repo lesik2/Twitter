@@ -8,6 +8,7 @@ import { removeUser } from '@store/reducers/userSlice';
 import twitter from '@assets/icons/twitter.svg';
 import { useState } from 'react';
 import { clearTweets } from '@store/reducers/tweetsSlice';
+import { ISideBar } from '@customTypes/index';
 
 import {
   Aside,
@@ -28,14 +29,12 @@ import { UserInfo, UserSubtitle, ImageUser, ImageUserWrapper } from '../ui/index
 import { Modal } from '../Modal';
 import { TweetForm } from '../TweetForm';
 
-export interface ISideBar {
-  onClose: () => void;
-}
 export function SideBar({ onClose }: ISideBar) {
   const user = useAppSelector((state) => state.userReducer);
   const location = useLocation().pathname;
 
   const [isOpen, setIsOpen] = useState(false);
+
   const handleOpen = () => {
     onClose();
     setIsOpen(true);

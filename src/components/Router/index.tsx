@@ -17,6 +17,7 @@ import { ImageApp } from '../ui';
 
 export const Router = ({ user }: IRouter) => {
   useRoute(user);
+
   const location = useLocation();
   const [isOpenSideBar, setIsOpenSideBar] = useState(false);
   const [isOpenSearch, setIsOpenSearch] = useState(false);

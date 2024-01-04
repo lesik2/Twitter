@@ -8,6 +8,7 @@ export function ToggleTheme() {
   const id = useId();
   const currentTheme = useAppSelector((state) => state.themeReducer.currentTheme);
   const dispatch = useAppDispatch();
+
   const handleOnChange = () => {
     dispatch(changeTheme());
   };

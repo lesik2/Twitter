@@ -1,11 +1,6 @@
-import React from 'react';
+import { IBurgerMenu } from '@customTypes/index';
 
 import { Line, Wrapper } from './styled';
-
-export interface IBurgerMenu {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
 export function BurgerMenu({ isOpen, setIsOpen }: IBurgerMenu) {
   const handleClick = () => {

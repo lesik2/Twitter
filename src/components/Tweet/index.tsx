@@ -47,6 +47,7 @@ export function Tweet({
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.userReducer);
   const [isOpen, setIsOpen] = useState(false);
+
   const handleOpen = () => {
     if (user.uid === authorId) {
       setIsOpen(!isOpen);
@@ -58,6 +59,7 @@ export function Tweet({
   }, []);
 
   const [wrapperRef, listRef] = useCloseList(handleClose);
+
   const handleDeleteTweet = async () => {
     handleClose();
     await deleteTweetFromFirebase(id);

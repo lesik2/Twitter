@@ -13,10 +13,8 @@ const rootReducer = combineReducers({
 
 export const store = configureStore({
   reducer: rootReducer,
-  // eslint-disable-next-line arrow-body-style
-  middleware: (getDefaultMiddleware) => {
-    return getDefaultMiddleware().concat();
-  },
+
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(),
 });
 setupListeners(store.dispatch);
 export type RootState = ReturnType<typeof rootReducer>;
