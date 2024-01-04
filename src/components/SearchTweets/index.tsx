@@ -4,10 +4,9 @@ import { CONSTANTS, ROUTES } from '@constants/index';
 import { useEffect, useState } from 'react';
 import { useDebounce } from '@hooks/useDebounce';
 import { FooterSearch } from '@components/FooterSearch/index';
-import { ITweetComponent } from '@customTypes/index';
+import { ISearch, ITweetComponent } from '@customTypes/index';
 import { useAppSelector } from '@hooks/redux';
 import { getTweetsByText } from '@db/tweetsForAllUsers';
-
 import {
   ImageWrapper,
   SearchBtn,
@@ -20,15 +19,16 @@ import {
   UserSubtitle,
   UserTitle,
   UserWrapper,
-} from './styled';
+} from '@components/ui/search';
 
 import { ImageApp, ImageUser } from '../ui';
 
-export function SearchTweets() {
+export function SearchTweets({ onClose }: ISearch) {
   const [tweets, setTweets] = useState<ITweetComponent[]>([]);
   const [searchValue, setSearchValue] = useState('');
   const debouncedValue = useDebounce(searchValue);
   const user = useAppSelector((state) => state.userReducer);
+
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
   };
@@ -60,7 +60,7 @@ export function SearchTweets() {
         <SearchResultsWrapper>
           <SearchResultText>{CONSTANTS.SEARCH_TITLE}</SearchResultText>
           {tweets.map((tweet) => (
-            <UserWrapper to={`${ROUTES.TWEETS}${tweet.id}`} key={tweet.id}>
+            <UserWrapper to={`${ROUTES.TWEETS}${tweet.id}`} key={tweet.id} onClick={onClose}>
               <ImageWrapper>
                 <ImageUser alt='user icon' src={defaultUser} />
               </ImageWrapper>

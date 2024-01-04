@@ -6,7 +6,6 @@ import { useDebounce } from '@hooks/useDebounce';
 import { UserState } from '@customTypes/models';
 import { getUsersByName } from '@db/user';
 import { FooterSearch } from '@components/FooterSearch/index';
-
 import {
   FollowBtn,
   ImageWrapper,
@@ -20,14 +19,16 @@ import {
   UserSubtitle,
   UserTitle,
   UserWrapper,
-} from './styled';
+} from '@components/ui/search';
+import { ISearch } from '@customTypes/index';
 
 import { ImageApp, ImageUser } from '../ui';
 
-export function SearchUsers() {
+export function SearchUsers({ onClose }: ISearch) {
   const [users, setUsers] = useState<UserState[]>([]);
   const [searchValue, setSearchValue] = useState('');
   const debouncedValue = useDebounce(searchValue);
+
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
   };
@@ -58,7 +59,7 @@ export function SearchUsers() {
         <SearchResultsWrapper>
           <SearchResultText>{CONSTANTS.SEARCH_TITLE}</SearchResultText>
           {users.map((user) => (
-            <UserWrapper to={`${ROUTES.USERS}${user.uid}`} key={user.uid}>
+            <UserWrapper to={`${ROUTES.USERS}${user.uid}`} key={user.uid} onClick={onClose}>
               <ImageWrapper>
                 <ImageUser alt='user icon' src={defaultUser} />
               </ImageWrapper>

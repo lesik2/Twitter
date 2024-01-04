@@ -13,8 +13,20 @@ export interface ITheme {
   };
   zIndex: {
     modal: number;
+    burgerBtn: number;
+    burgerMenu: number;
+    burgerMenuBack: number;
+    header: number;
   };
-  breakPoints: object;
+  breakPoints: {
+    mobileS: string;
+    mobileM: string;
+    mobileL: string;
+    tablet: string;
+    laptop: string;
+    laptopM: string;
+    laptopL: string;
+  };
   colors: {
     primary: string;
     secondary: string;

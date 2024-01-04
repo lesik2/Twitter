@@ -8,6 +8,7 @@ import { removeUser } from '@store/reducers/userSlice';
 import twitter from '@assets/icons/twitter.svg';
 import { useState } from 'react';
 import { clearTweets } from '@store/reducers/tweetsSlice';
+import { ISideBar } from '@customTypes/index';
 
 import {
   Aside,
@@ -21,18 +22,21 @@ import {
   Wrapper,
   WrapperLink,
   TweetWrapper,
+  SideBarIconTwitter,
 } from './styled';
 
-import { UserInfo, UserSubtitle, IconTwitter, ImageUser, ImageUserWrapper } from '../ui/index';
+import { UserInfo, UserSubtitle, ImageUser, ImageUserWrapper } from '../ui/index';
 import { Modal } from '../Modal';
 import { TweetForm } from '../TweetForm';
 
-export function SideBar() {
+export function SideBar({ onClose }: ISideBar) {
   const user = useAppSelector((state) => state.userReducer);
   const location = useLocation().pathname;
 
   const [isOpen, setIsOpen] = useState(false);
+
   const handleOpen = () => {
+    onClose();
     setIsOpen(true);
   };
 
@@ -59,13 +63,13 @@ export function SideBar() {
   return (
     <Aside>
       <Wrapper>
-        <IconTwitter alt='twitter' src={twitter} />
+        <SideBarIconTwitter alt='twitter' src={twitter} />
         <Navigation>
           {APP_LINKS.map((link) => {
             const { name, path, outlineIcon, fillIcon } = link;
 
             return (
-              <WrapperLink key={name} to={path}>
+              <WrapperLink key={name} to={path} onClick={onClose}>
                 <Icon alt={name} src={location === path ? fillIcon : outlineIcon} />
                 <TextLink $isActive={location === path}>{link.name}</TextLink>
               </WrapperLink>

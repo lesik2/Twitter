@@ -6,14 +6,17 @@ import { BrowserRouter } from 'react-router-dom';
 
 import GlobalStyle from './globalStyles';
 import { store } from './store';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-        <GlobalStyle />
-      </Provider>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+          <GlobalStyle />
+        </Provider>
+      </BrowserRouter>
+    </ErrorBoundary>
   </React.StrictMode>,
 );

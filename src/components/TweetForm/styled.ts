@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import { device } from '@constants/theme';
 
 import { Button, ImageApp, ImageUserWrapper } from '../ui';
 
@@ -12,9 +13,15 @@ export const TweetFormSection = styled.section`
     gap: 27px;
     position: relative;
   `};
+  @media ${device.tablet} {
+    padding: 12px 10px 10px 16px;
+  }
 `;
 export const UserWrapperImage = styled(ImageUserWrapper)`
   width: 55px;
+  @media ${device.tablet} {
+    width: 48px;
+  }
 `;
 
 export const Form = styled.form`
@@ -47,6 +54,12 @@ export const TwittText = styled.textarea`
       outline: none;
     }
   `};
+  @media ${device.tablet} {
+    font-size: 18px;
+  }
+  @media ${device.mobileL} {
+    font-size: 15px;
+  }
 `;
 export const ButtonsWrapper = styled.div`
   display: flex;
@@ -59,6 +72,16 @@ export const ButtonsWrapper = styled.div`
 export const BtnTweet = styled(Button)`
   width: 116px;
   height: 50px;
+  @media ${device.tablet} {
+    height: 38px;
+    width: 95px;
+    font-size: 16px;
+  }
+  @media ${device.mobileL} {
+    height: 33px;
+    width: 85px;
+    font-size: 15px;
+  }
 `;
 export const ImageWrapper = styled.div`
   width: 90%;
@@ -84,6 +107,10 @@ export const LabelTweet = styled.label`
   &:hover {
     transform: scale(1.1);
   }
+  @media ${device.tablet} {
+    width: 18px;
+    height: 18px;
+  }
 `;
 export const Close = styled.div`
   ${({ theme }) => css`
@@ -103,11 +130,19 @@ export const Close = styled.div`
       background-color: ${theme.colors.option};
     }
   `};
+  @media ${device.tablet} {
+    width: 29px;
+    height: 29px;
+  }
 `;
 export const ImageClose = styled.img`
   transition: filter 0.2s;
   width: 28px;
   height: 28px;
+  @media ${device.tablet} {
+    width: 22px;
+    height: 22px;
+  }
 `;
 
 const loader = keyframes`

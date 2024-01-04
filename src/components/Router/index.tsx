@@ -3,32 +3,60 @@ import { privateRoutes, publicRoutes } from '@constants/routes';
 import { IRouter } from '@customTypes/index';
 import { useRoute } from '@hooks/useRoute';
 import { ROUTES } from '@constants/index';
+import { useState } from 'react';
+import search from '@assets/icons/search.svg';
 
-import { Wrapper } from './styled';
+import { OpenSearchBtn, Wrapper } from './styled';
 
 import { SideBar } from '../SideBar';
 import { SearchUsers } from '../SearchUsers';
 import { SearchTweets } from '../SearchTweets';
+import { BurgerMenu } from '../BurgerMenu';
+import { Menu } from '../Menu';
+import { ImageApp } from '../ui';
 
 export const Router = ({ user }: IRouter) => {
   useRoute(user);
+
   const location = useLocation();
+  const [isOpenSideBar, setIsOpenSideBar] = useState(false);
+  const [isOpenSearch, setIsOpenSearch] = useState(false);
+
+  const handleOpenSearch = () => {
+    setIsOpenSearch(!isOpenSearch);
+  };
+
+  const handleCloseSearch = () => {
+    setIsOpenSearch(false);
+  };
+
+  const handleCloseSideBar = () => {
+    setIsOpenSideBar(false);
+  };
 
   return (
     <Wrapper>
       {user ? (
         <>
-          <SideBar />
+          <BurgerMenu isOpen={isOpenSideBar} setIsOpen={setIsOpenSideBar} />
+          <Menu isOpen={isOpenSideBar} setIsOpen={setIsOpenSideBar} position='left'>
+            <SideBar onClose={handleCloseSideBar} />
+          </Menu>
           <Routes>
             {privateRoutes.map((route) => (
               <Route key={route.path} {...route} />
             ))}
           </Routes>
-          {location.pathname === ROUTES.PROFILE || location.pathname.startsWith(ROUTES.USERS) ? (
-            <SearchUsers />
-          ) : (
-            <SearchTweets />
-          )}
+          <OpenSearchBtn $isOpen={isOpenSearch} onClick={handleOpenSearch}>
+            <ImageApp alt='search' src={search} />
+          </OpenSearchBtn>
+          <Menu isOpen={isOpenSearch} position='right' setIsOpen={setIsOpenSearch}>
+            {location.pathname === ROUTES.PROFILE || location.pathname.startsWith(ROUTES.USERS) ? (
+              <SearchUsers onClose={handleCloseSearch} />
+            ) : (
+              <SearchTweets onClose={handleCloseSearch} />
+            )}
+          </Menu>
         </>
       ) : (
         <Routes>

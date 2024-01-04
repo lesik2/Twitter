@@ -36,7 +36,7 @@ export const CONSTANTS = {
   LOG_IN_TITLE: 'Log in to Twitter',
   LOG_IN_BTN: ' Log in',
   LOGIN_IN_SIGN_UP_LINK: 'Sign up to Twitter',
-};
+} as const;
 
 export const SIGN_UP_INPUTS: IInput[] = [
   {
@@ -71,7 +71,7 @@ export const SIGN_UP_INPUTS: IInput[] = [
     type: 'password',
     minLength: 8,
   },
-];
+] as const;
 export const LOG_IN_INPUTS: IInput[] = [
   {
     name: 'email',
@@ -88,7 +88,7 @@ export const LOG_IN_INPUTS: IInput[] = [
     type: 'password',
     minLength: 1,
   },
-];
+] as const;
 
 export const EDIT_INPUTS: IEditInput[] = [
   {
@@ -130,7 +130,7 @@ export const EDIT_INPUTS: IEditInput[] = [
     type: 'password',
     minLength: 8,
   },
-];
+] as const;
 
 export const ERRORS_MESSAGE: Record<string, string> = {
   'Firebase: Error (auth/email-already-in-use).': 'This email is already taken.Choose another one.',

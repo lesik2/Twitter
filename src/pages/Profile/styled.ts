@@ -1,3 +1,4 @@
+import { device } from '@constants/theme';
 import styled, { css } from 'styled-components';
 
 export const ProfileSection = styled.section`
@@ -10,6 +11,12 @@ export const ProfileSection = styled.section`
     border-left: 1px solid ${theme.colors.border};
     overflow-y: auto;
   `};
+  @media ${device.laptopM} {
+    width: 85%;
+  }
+  @media ${device.tablet} {
+    width: 100%;
+  }
 `;
 
 export const TweetsTitle = styled.div`
@@ -28,6 +35,12 @@ export const TweetsTitle = styled.div`
     font-weight: ${theme.fontWeight.bold};
     line-height: normal;
   `};
+  @media ${device.tablet} {
+    font-size: 16px;
+    margin: 15px 0 20px 0px;
+    height: 30px;
+    width: 200px;
+  }
 `;
 export const TweetsWrapper = styled.div`
   display: flex;

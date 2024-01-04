@@ -33,3 +33,23 @@ export interface ITweetComponent {
   amountOfLikes: number;
   isLiked: boolean;
 }
+export interface IBurgerMenu {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export type PositionModal = 'left' | 'right';
+export interface IMenu {
+  children: React.ReactNode;
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  position: PositionModal;
+}
+export interface ISearch {
+  onClose: () => void;
+}
+export interface ISideBar {
+  onClose: () => void;
+}
+export interface ITweetForm {
+  onClose?: () => void;
+}

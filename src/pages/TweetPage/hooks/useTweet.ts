@@ -6,6 +6,7 @@ import { ITweet, UserState } from '@customTypes/models';
 export function useTweet(id: string): [UserState | null, ITweet | null] {
   const [user, setUser] = useState<UserState | null>(null);
   const [tweet, setTweet] = useState<ITweet | null>(null);
+
   useEffect(() => {
     getTweetById(id)
       .then((tweetByUser) => {

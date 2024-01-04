@@ -26,6 +26,7 @@ import {
   TweetWrapper,
   UserInfoWrapper,
   UserWrapperImage,
+  Wrapper,
 } from './styled';
 
 import { ImageApp, ImageUser, UserTitle } from '../ui';
@@ -46,6 +47,7 @@ export function Tweet({
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.userReducer);
   const [isOpen, setIsOpen] = useState(false);
+
   const handleOpen = () => {
     if (user.uid === authorId) {
       setIsOpen(!isOpen);
@@ -57,6 +59,7 @@ export function Tweet({
   }, []);
 
   const [wrapperRef, listRef] = useCloseList(handleClose);
+
   const handleDeleteTweet = async () => {
     handleClose();
     await deleteTweetFromFirebase(id);
@@ -98,16 +101,18 @@ export function Tweet({
           <LikeText>{likesAmount}</LikeText>
         </LikesWrapper>
       </TweetWrapper>
-      <OptionWrapper ref={wrapperRef}>
-        <OptionWrapperBtn onClick={handleOpen}>
-          <OptionImage alt='option' src={option} />
-        </OptionWrapperBtn>
-        {isOpen && (
-          <OptionList ref={listRef}>
-            <OptionItem onClick={handleDeleteTweet}>Delete tweet</OptionItem>
-          </OptionList>
-        )}
-      </OptionWrapper>
+      <Wrapper>
+        <OptionWrapper ref={wrapperRef}>
+          <OptionWrapperBtn onClick={handleOpen}>
+            <OptionImage alt='option' src={option} />
+          </OptionWrapperBtn>
+          {isOpen && (
+            <OptionList ref={listRef}>
+              <OptionItem onClick={handleDeleteTweet}>Delete tweet</OptionItem>
+            </OptionList>
+          )}
+        </OptionWrapper>
+      </Wrapper>
     </TweetArticle>
   );
 }

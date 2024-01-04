@@ -13,9 +13,21 @@ export const theme = {
     large: '900',
   },
   zIndex: {
-    modal: 1000,
+    modal: 1500,
+    burgerBtn: 1200,
+    burgerMenu: 1200,
+    burgerMenuBack: 1000,
+    header: 500,
   },
-  breakPoints: {},
+  breakPoints: {
+    mobileS: '320px',
+    mobileM: '375px',
+    mobileL: '425px',
+    tablet: '768px',
+    laptop: '1040px',
+    laptopM: '1120px',
+    laptopL: '1460px',
+  },
 };
 export const lightTheme: ITheme = {
   ...theme,
@@ -47,3 +59,13 @@ export const darkTheme: ITheme = {
     lightBorder: '#c9cecf',
   },
 };
+
+export const device = {
+  mobileS: `(max-width: ${theme.breakPoints.mobileS})`,
+  mobileM: `(max-width: ${theme.breakPoints.mobileM})`,
+  mobileL: `(max-width: ${theme.breakPoints.mobileL})`,
+  tablet: `(max-width: ${theme.breakPoints.tablet})`,
+  laptop: `(max-width: ${theme.breakPoints.laptop})`,
+  laptopM: `(max-width: ${theme.breakPoints.laptopM})`,
+  laptopL: `(max-width: ${theme.breakPoints.laptopL})`,
+} as const;

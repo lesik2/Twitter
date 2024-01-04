@@ -66,4 +66,4 @@ export const APP_LINKS = [
     outlineIcon: moreOutline,
     fillIcon: moreFill,
   },
-];
+] as const;
