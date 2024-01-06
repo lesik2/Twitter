@@ -34,7 +34,6 @@ export function TweetForm({ onClose }: ITweetForm) {
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
-
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
@@ -116,7 +115,7 @@ export function TweetForm({ onClose }: ITweetForm) {
             <ImageApp alt='gallery' src={gallery} />
             <TwittInput onChange={handleImageChange} accept='image/*' type='file' id='galleryInput' />
           </LabelTweet>
-          <BtnTweet disabled={text === ''} type='submit'>
+          <BtnTweet disabled={text === ''} type='submit' data-testid='tweet-submit'>
             Tweet
           </BtnTweet>
         </ButtonsWrapper>

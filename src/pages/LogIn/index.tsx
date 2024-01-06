@@ -53,6 +53,7 @@ export function LogIn() {
             return (
               <InputWrapper key={name}>
                 <LogInInput
+                  data-cy={name}
                   data-testid={name}
                   type={type}
                   $error={errors[name]}
@@ -63,7 +64,7 @@ export function LogIn() {
             );
           })}
           {loading && <InfinityLoader />}
-          <LogInBtn type='submit' disabled={!isValid}>
+          <LogInBtn data-cy='submit-login' type='submit' disabled={!isValid}>
             {CONSTANTS.LOG_IN_BTN}
           </LogInBtn>
           {error && <SnackBar message={ERRORS_MESSAGE[error.message] ?? error.message} />}

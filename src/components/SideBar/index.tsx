@@ -61,7 +61,7 @@ export function SideBar({ onClose }: ISideBar) {
   };
 
   return (
-    <Aside>
+    <Aside data-cy='side-bar'>
       <Wrapper>
         <SideBarIconTwitter alt='twitter' src={twitter} />
         <Navigation>

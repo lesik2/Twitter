@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { device } from '@constants/theme';
 
-import { Button, ImageApp, ImageUserWrapper } from '../ui';
+import { Button, ImageUserWrapper } from '../ui';
 
 export const TweetFormSection = styled.section`
   ${({ theme }) => css`
@@ -89,8 +89,11 @@ export const ImageWrapper = styled.div`
   margin-top: 15px;
   position: relative;
 `;
-export const ImageTwitter = styled(ImageApp)`
+
+export const ImageTwitter = styled.img`
   border-radius: 20px;
+  width: 100%;
+  height: 100%;
 `;
 export const TwittInput = styled.input`
   display: none;
