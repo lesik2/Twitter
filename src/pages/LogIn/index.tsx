@@ -45,7 +45,7 @@ export function LogIn() {
         navigate(ROUTES.HOME);
       }
     } catch (errorObj) {
-        console.error(errorObj);
+      console.error(errorObj);
     }
   };
 

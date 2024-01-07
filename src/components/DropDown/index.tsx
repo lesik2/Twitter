@@ -37,7 +37,7 @@ export function DropDown({ type, date, setDate, values }: IDropDown) {
   const [wrapperRef, listRef] = useCloseList(handleCloseList);
 
   return (
-    <Wrapper ref={wrapperRef} $type={type} data-testid='drop-down' >
+    <Wrapper ref={wrapperRef} $type={type} data-testid='drop-down'>
       <SelectedValue type='button' onClick={handleClick} data-cy={type}>
         {value}
         <Icon alt='arrow' src={arrowIcon} />

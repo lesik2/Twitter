@@ -87,7 +87,7 @@ export function SideBar({ onClose }: ISideBar) {
           <UserSubtitle>{user.link ? user.link : user.email}</UserSubtitle>
         </UserInfo>
       </UserWrapper>
-      <LogOutBtn onClick={handleSignOut}>{CONSTANTS.ASIDE_LOG_OUT}</LogOutBtn>
+      <LogOutBtn data-cy='log-out-btn' onClick={handleSignOut}>{CONSTANTS.ASIDE_LOG_OUT}</LogOutBtn>
       {isOpen && (
         <Modal onClose={handleClose}>
           <TweetWrapper>

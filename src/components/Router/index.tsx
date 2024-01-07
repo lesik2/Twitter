@@ -35,7 +35,7 @@ export const Router = ({ user }: IRouter) => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper data-cy='app-wrapper'>
       {user ? (
         <>
           <BurgerMenu isOpen={isOpenSideBar} setIsOpen={setIsOpenSideBar} />

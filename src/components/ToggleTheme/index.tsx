@@ -22,7 +22,7 @@ export function ToggleTheme() {
         id={`${id}-themeInput`}
       />
       <ToggleThemeLabel className='theme-label' htmlFor={`${id}-themeInput`}>
-        <ThemeBowl $checked={currentTheme !== 'light'} className='theme-bowl' />
+        <ThemeBowl data-cy='bowl-theme' $checked={currentTheme !== 'light'} className='theme-bowl' />
       </ToggleThemeLabel>
     </Wrapper>
   );
