@@ -1,14 +1,12 @@
 import { TweetForm } from '@components/TweetForm/index';
 import userEvent from '@testing-library/user-event';
 
-
 import { cleanup, render, screen } from '../test.utils';
 
 jest.mock('@db/tweet', () => ({
   addTweet: jest.fn(),
 }));
 URL.createObjectURL = jest.fn(() => 'image_url');
-
 
 describe('TweetForm component', () => {
   beforeEach(() => {
