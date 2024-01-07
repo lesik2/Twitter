@@ -79,6 +79,7 @@ export function SignUp() {
               return (
                 <InputWrapper key={name}>
                   <SignUpInput
+                    data-cy={`signup-${name}`}
                     type={type}
                     $error={errors[name]}
                     placeholder={placeholder}

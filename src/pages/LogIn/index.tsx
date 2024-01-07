@@ -44,10 +44,8 @@ export function LogIn() {
       if (userCredential) {
         navigate(ROUTES.HOME);
       }
-    } catch (errorObj: unknown) {
-      if (errorObj instanceof Error) {
+    } catch (errorObj) {
         console.error(errorObj);
-      }
     }
   };
 
