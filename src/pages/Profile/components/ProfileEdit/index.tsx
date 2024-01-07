@@ -85,7 +85,7 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
   };
 
   return (
-    <ProfileEditSection>
+    <ProfileEditSection data-cy='edit-profile'>
       <IconTwitter alt='twitter' src={twitter} />
       <Form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
         <Title>{CONSTANTS.EDIT_TITLE}</Title>
@@ -98,6 +98,7 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
                 <LabelInput htmlFor={name}>{label}</LabelInput>
                 <InputWrapper>
                   <EditInput
+                    data-cy={`edit-${name}`}
                     id={name}
                     type={type}
                     $error={errors[name]}
@@ -122,7 +123,7 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
               <InfinityLoader />
             </WrapperLoader>
           )}
-          <EditBtn type='submit' disabled={!isValid}>
+          <EditBtn data-cy='edit-btn' type='submit' disabled={!isValid}>
             {CONSTANTS.EDIT_BTN}
           </EditBtn>
         </WrapperBtn>

@@ -69,7 +69,7 @@ export function SideBar({ onClose }: ISideBar) {
             const { name, path, outlineIcon, fillIcon } = link;
 
             return (
-              <WrapperLink key={name} to={path} onClick={onClose}>
+              <WrapperLink  data-cy={link.name} key={name} to={path} onClick={onClose}>
                 <Icon alt={name} src={location === path ? fillIcon : outlineIcon} />
                 <TextLink $isActive={location === path}>{link.name}</TextLink>
               </WrapperLink>
@@ -87,7 +87,9 @@ export function SideBar({ onClose }: ISideBar) {
           <UserSubtitle>{user.link ? user.link : user.email}</UserSubtitle>
         </UserInfo>
       </UserWrapper>
-      <LogOutBtn data-cy='log-out-btn' onClick={handleSignOut}>{CONSTANTS.ASIDE_LOG_OUT}</LogOutBtn>
+      <LogOutBtn data-cy='log-out-btn' onClick={handleSignOut}>
+        {CONSTANTS.ASIDE_LOG_OUT}
+      </LogOutBtn>
       {isOpen && (
         <Modal onClose={handleClose}>
           <TweetWrapper>
