@@ -35,6 +35,7 @@ export const Button = styled.button`
     font-style: normal;
     font-weight: ${theme.fontWeight.bold};
     line-height: normal;
+    cursor: pointer;
     outline: none;
     border: none;
     transition: background-color 0.2s;
