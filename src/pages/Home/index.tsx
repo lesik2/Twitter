@@ -32,7 +32,7 @@ export function Home() {
       <HomeSection>
         <Header />
         <TweetForm />
-        <TweetsWrapper>
+        <TweetsWrapper data-cy='home-tweets-wrapper'>
           {tweetsData.length > 0 && tweetsData.map((tweet) => <Tweet key={tweet.id} {...tweet} />)}
         </TweetsWrapper>
       </HomeSection>

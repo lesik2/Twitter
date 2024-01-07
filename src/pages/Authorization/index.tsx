@@ -64,11 +64,11 @@ export function Authorization() {
         <AuthWrapper>
           <HeaderComponent />
           <RegisterWrapper>
-            <RegisterBtn onClick={login}>
+            <RegisterBtn data-cy='google-register' onClick={login}>
               <IconGoogle alt='google' src={google} />
               <RegisterText>{CONSTANTS.AUTH_GOOGLE}</RegisterText>
             </RegisterBtn>
-            <NavLink to={ROUTES.SIGN_UP}>
+            <NavLink data-cy='sign-up-link' to={ROUTES.SIGN_UP}>
               <RegisterBtn>
                 <RegisterText>{CONSTANTS.AUTH_EMAIL}</RegisterText>
               </RegisterBtn>
@@ -83,7 +83,9 @@ export function Authorization() {
           </AuthText>
           <LoginText>
             {CONSTANTS.AUTH_LOGIN_TEXT}
-            <LinkToLogin to={ROUTES.LOG_IN}>{CONSTANTS.AUTH_LOG_IN}</LinkToLogin>
+            <LinkToLogin data-cy='login-link' to={ROUTES.LOG_IN}>
+              {CONSTANTS.AUTH_LOG_IN}
+            </LinkToLogin>
           </LoginText>
         </AuthWrapper>
       </Main>

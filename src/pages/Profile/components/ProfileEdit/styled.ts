@@ -67,10 +67,13 @@ export const EditInput = styled(Input)`
     height: 27px;
   }
 `;
+export const WrapperBtn = styled.div`
+  position: relative;
+  margin-top: 15px;
+`;
 export const EditBtn = styled(Button)`
   width: 450px;
   align-self: center;
-  margin-top: 15px;
   @media ${device.laptopL} {
     width: 350px;
     height: 50px;

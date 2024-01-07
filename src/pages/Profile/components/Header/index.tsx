@@ -54,11 +54,13 @@ export function Header() {
         <UserWrapperImage>
           <ImageUser alt='image of user' src={defaultUser} />
         </UserWrapperImage>
-        <EditBtn onClick={handleOpen}>{CONSTANTS.PROFILE_BTN}</EditBtn>
+        <EditBtn data-cy='edit-profile-btn' onClick={handleOpen}>
+          {CONSTANTS.PROFILE_BTN}
+        </EditBtn>
         <UserProfileWrapper>
           <UserInfo>
-            <UserNameProfile>{user.displayName}</UserNameProfile>
-            <UserSubtitle>{user.link ? user.link : user.email}</UserSubtitle>
+            <UserNameProfile data-cy='profile-name'>{user.displayName}</UserNameProfile>
+            <UserSubtitle data-cy='profile-link'>{user.link ? user.link : user.email}</UserSubtitle>
           </UserInfo>
           <UserDescription>
             UX&UI designer at <MarkText>@abutechuz</MarkText>

@@ -22,9 +22,12 @@ export const RegisterWrapper = styled.div`
     padding: 25px 5px 40px 10px;
   }
 `;
+export const WrapperBtn = styled.div`
+  position: relative;
+  margin-top: 18px;
+`;
 export const RegisterBtn = styled(Button)`
   width: 670px;
-  margin-top: 18px;
   @media ${device.tablet} {
     width: 380px;
     height: 50px;

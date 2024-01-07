@@ -75,6 +75,12 @@ export const ErrorMessage = styled.p`
 export const InputWrapper = styled.div`
   position: relative;
 `;
+export const WrapperLoader = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
 export const IconTwitter = styled.img`
   width: 40px;
   height: 33px;

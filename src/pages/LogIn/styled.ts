@@ -75,10 +75,13 @@ export const LogInInput = styled(Input)`
     font-size: 14px;
   }
 `;
+export const WrapperBtn = styled.div`
+  position: relative;
+  margin-top: 13px;
+`;
 
 export const LogInBtn = styled(Button)`
   width: 450px;
-  margin-top: 13px;
   @media ${device.tablet} {
     width: 380px;
     height: 50px;

@@ -14,10 +14,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["DOM", "ESNext", "DOM.Iterable"],
-    "types": [],
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["DOM", "esnext", "DOM.Iterable"],
+    "types": ["cypress", "jest"],
     "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -45,7 +45,7 @@
       "@db/*": ["src/firebase/*"]
     }
   },
-  "exclude": ["node_modules", "dist", "build", ".vscode", "vite.config.ts"],
+  "exclude": ["node_modules", "dist", "build", ".vscode", "vite.config.ts", "cypress.config.ts", "cypress"],
 
   "include": ["typings/*.d.ts", "**/*.ts", "**/*.tsx"],
 

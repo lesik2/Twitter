@@ -1,5 +1,5 @@
 import { EDIT_INPUTS, ERRORS_MESSAGE } from '@constants/auth';
-import { ErrorMessage, IconTwitter, InputWrapper } from '@components/ui';
+import { ErrorMessage, IconTwitter, InputWrapper, WrapperLoader } from '@components/ui';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import twitter from '@assets/icons/twitter.svg';
 import { useState } from 'react';
@@ -20,6 +20,7 @@ import {
   WrapperInputs,
   LabelInput,
   LabelWrapper,
+  WrapperBtn,
 } from './styled';
 
 export interface IProfileEdit {
@@ -84,7 +85,7 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
   };
 
   return (
-    <ProfileEditSection>
+    <ProfileEditSection data-cy='edit-profile'>
       <IconTwitter alt='twitter' src={twitter} />
       <Form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
         <Title>{CONSTANTS.EDIT_TITLE}</Title>
@@ -97,6 +98,7 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
                 <LabelInput htmlFor={name}>{label}</LabelInput>
                 <InputWrapper>
                   <EditInput
+                    data-cy={`edit-${name}`}
                     id={name}
                     type={type}
                     $error={errors[name]}
@@ -115,10 +117,17 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
             );
           })}
         </WrapperInputs>
-        {loading && <InfinityLoader />}
-        <EditBtn type='submit' disabled={!isValid}>
-          {CONSTANTS.EDIT_BTN}
-        </EditBtn>
+        <WrapperBtn>
+          {loading && (
+            <WrapperLoader>
+              <InfinityLoader />
+            </WrapperLoader>
+          )}
+          <EditBtn data-cy='edit-btn' type='submit' disabled={!isValid}>
+            {CONSTANTS.EDIT_BTN}
+          </EditBtn>
+        </WrapperBtn>
+
         {error && <SnackBar error={error} message={ERRORS_MESSAGE[error.message] ?? error.message} />}
       </Form>
     </ProfileEditSection>

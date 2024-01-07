@@ -1,6 +1,12 @@
 import { collection, doc, getDoc, getDocs, query, setDoc, updateDoc, where } from 'firebase/firestore';
 import { COLLECTIONS } from '@constants/firebase';
-import { EmailAuthProvider, reauthenticateWithCredential, updatePassword } from 'firebase/auth';
+import {
+  EmailAuthProvider,
+  User,
+  deleteUser,
+  reauthenticateWithCredential,
+  updatePassword,
+} from 'firebase/auth';
 
 import { UserState } from '../types/models';
 
@@ -67,3 +73,13 @@ export async function updateUserPassword(password: string, newPassword: string):
     await updatePassword(user, newPassword);
   }
 }
+
+export const deleteUserFromTweet = async (user: User | null | undefined) => {
+  if (user) {
+    try {
+      await deleteUser(user);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+};

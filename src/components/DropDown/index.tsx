@@ -37,12 +37,12 @@ export function DropDown({ type, date, setDate, values }: IDropDown) {
   const [wrapperRef, listRef] = useCloseList(handleCloseList);
 
   return (
-    <Wrapper ref={wrapperRef} $type={type}>
-      <SelectedValue type='button' onClick={handleClick}>
+    <Wrapper ref={wrapperRef} $type={type} data-testid='drop-down'>
+      <SelectedValue type='button' onClick={handleClick} data-cy={type}>
         {value}
         <Icon alt='arrow' src={arrowIcon} />
       </SelectedValue>
-      <List ref={listRef} $active={active}>
+      <List data-testid='list-drop-down' ref={listRef} $active={active}>
         {values.map((item) => (
           <ItemList key={item} onClick={() => handleSelect(item)}>
             {type === 'month' ? getMonthName(item) : item}

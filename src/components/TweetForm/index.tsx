@@ -34,7 +34,6 @@ export function TweetForm({ onClose }: ITweetForm) {
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
   const dispatch = useAppDispatch();
-
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
@@ -91,12 +90,13 @@ export function TweetForm({ onClose }: ITweetForm) {
   };
 
   return (
-    <TweetFormSection>
+    <TweetFormSection data-testid='tweet-form'>
       <UserWrapperImage>
         <ImageUser alt='user icon' src={defaultUser} />
       </UserWrapperImage>
       <Form onSubmit={handleSubmit} autoComplete='off' noValidate>
         <TwittText
+          data-cy='text-tweet'
           onChange={handleInputChange}
           value={text}
           rows={1}
@@ -105,23 +105,23 @@ export function TweetForm({ onClose }: ITweetForm) {
         />
         {image && (
           <ImageWrapper>
-            <ImageTwitter alt='gallery' src={URL.createObjectURL(image)} />
-            <Close onClick={handleDeleteImage}>
+            <ImageTwitter data-testid='image-tweet' alt='gallery' src={URL.createObjectURL(image)} />
+            <Close onClick={handleDeleteImage} data-testid='delete-image-tweet'>
               <ImageClose src={closeIcon} alt='cross' />
             </Close>
           </ImageWrapper>
         )}
         <ButtonsWrapper>
-          <LabelTweet htmlFor='galleryInput'>
+          <LabelTweet data-cy='image-input-tweet' data-testid='image-input' htmlFor='galleryInput'>
             <ImageApp alt='gallery' src={gallery} />
             <TwittInput onChange={handleImageChange} accept='image/*' type='file' id='galleryInput' />
           </LabelTweet>
-          <BtnTweet disabled={text === ''} type='submit'>
+          <BtnTweet data-cy='btn-tweet' disabled={text === ''} type='submit' data-testid='tweet-submit'>
             Tweet
           </BtnTweet>
         </ButtonsWrapper>
       </Form>
-      {loading && <LoaderStatus />}
+      {loading && <LoaderStatus data-cy='loader-tweet' />}
     </TweetFormSection>
   );
 }

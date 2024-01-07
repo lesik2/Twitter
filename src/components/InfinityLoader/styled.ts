@@ -1,3 +1,4 @@
+import { device } from '@constants/theme';
 import styled, { keyframes, css } from 'styled-components';
 
 const spin = keyframes`
@@ -18,4 +19,8 @@ export const Loader = styled.div`
     border-radius: 50%;
     border-right-color: ${theme.colors.secondary};
   `};
+  @media ${device.mobileL} {
+    height: 25px;
+    width: 25px;
+  }
 `;
