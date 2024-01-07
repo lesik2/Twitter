@@ -14,7 +14,7 @@ export function ToggleTheme() {
   };
 
   return (
-    <Wrapper data-testid = 'toggle-theme'>
+    <Wrapper data-testid='toggle-theme'>
       <ToggleThemeInput
         onChange={handleOnChange}
         checked={currentTheme !== 'light'}

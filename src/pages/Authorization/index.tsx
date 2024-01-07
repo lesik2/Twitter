@@ -83,7 +83,9 @@ export function Authorization() {
           </AuthText>
           <LoginText>
             {CONSTANTS.AUTH_LOGIN_TEXT}
-            <LinkToLogin data-cy='login-link' to={ROUTES.LOG_IN}>{CONSTANTS.AUTH_LOG_IN}</LinkToLogin>
+            <LinkToLogin data-cy='login-link' to={ROUTES.LOG_IN}>
+              {CONSTANTS.AUTH_LOG_IN}
+            </LinkToLogin>
           </LoginText>
         </AuthWrapper>
       </Main>

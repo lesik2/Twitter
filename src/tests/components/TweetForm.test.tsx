@@ -5,20 +5,17 @@ import * as actions from '@store/reducers/tweetsSlice';
 
 import { cleanup, render, screen } from '../test.utils';
 
-
 jest.mock('@db/tweet', () => ({
   addTweet: jest.fn(),
 }));
 URL.createObjectURL = jest.fn(() => 'image_url');
 
-
 const useDispatchMock = jest.spyOn(Hooks, 'useAppDispatch');
 
 describe('TweetForm component', () => {
-
-  beforeEach(()=>{
-    render(<TweetForm />)
-  })
+  beforeEach(() => {
+    render(<TweetForm />);
+  });
   afterEach(() => {
     cleanup();
     jest.clearAllMocks();
@@ -27,7 +24,7 @@ describe('TweetForm component', () => {
   test('Should render TweetForm component', () => {
     expect(screen.getByTestId('tweet-form')).toBeInTheDocument();
   });
-  test('should update the text state when the input value changes', async() => {
+  test('should update the text state when the input value changes', async () => {
     const input: HTMLInputElement = screen.getByPlaceholderText("What's happening");
     await userEvent.type(input, 'Hello, world!');
     expect(input.value).toBe('Hello, world!');
@@ -43,15 +40,14 @@ describe('TweetForm component', () => {
     const input = screen.getByTestId('image-input');
     const file = new File(['something'], 'image.png', { type: 'image/png' });
     await userEvent.upload(input, file);
-    const image: HTMLImageElement|null = screen.queryByTestId('image-tweet');
+    const image: HTMLImageElement | null = screen.queryByTestId('image-tweet');
     expect(image).toBeInTheDocument();
-    if(image){
-      expect(image.src).toContain('image_url')
+    if (image) {
+      expect(image.src).toContain('image_url');
     }
-
   });
 
-  test('should remove the image when the delete button is clicked', async() => {
+  test('should remove the image when the delete button is clicked', async () => {
     const input = screen.getByTestId('image-input');
     const file = new File(['something'], 'image.png', { type: 'image/png' });
     await userEvent.upload(input, file);
@@ -73,6 +69,5 @@ describe('TweetForm component', () => {
 
     expect(mockedSetTweets).toHaveBeenCalledTimes(1);
     expect(dispatch).toHaveBeenCalledTimes(1);
- 
   });
 });

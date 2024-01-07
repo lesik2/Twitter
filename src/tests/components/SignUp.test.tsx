@@ -59,12 +59,12 @@ describe('SignUp', () => {
     await userEvent.type(emailInput, 'invalidemail');
 
     const passwordInput = screen.getByPlaceholderText('Password');
-    await userEvent.type(passwordInput,'123');
+    await userEvent.type(passwordInput, '123');
 
     const phoneNumberInput = screen.getByPlaceholderText('Phone number');
     await userEvent.type(phoneNumberInput, '123456');
 
-    const registerBtn = screen.getByRole('button', {name: 'Next'});
+    const registerBtn = screen.getByRole('button', { name: 'Next' });
     expect(registerBtn).toBeDisabled();
 
     expect(screen.queryByText('Invalid input. Please enter letters only.')).toBeInTheDocument();

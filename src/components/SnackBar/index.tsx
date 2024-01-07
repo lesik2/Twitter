@@ -15,5 +15,9 @@ export function SnackBar({ message, error }: ISnackbar) {
 
   useShowSnackBar(isOpen, setIsOpen);
 
-  return <Wrapper data-cy='snack-bar' $isOpen={isOpen}>{message}</Wrapper>;
+  return (
+    <Wrapper data-cy='snack-bar' $isOpen={isOpen}>
+      {message}
+    </Wrapper>
+  );
 }

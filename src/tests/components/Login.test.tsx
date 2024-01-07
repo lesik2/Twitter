@@ -4,7 +4,6 @@ import { ROUTES } from '@constants/index';
 
 import { render, screen, waitFor } from '../test.utils';
 
-
 const hookMocked = jest.fn();
 
 const userData = {

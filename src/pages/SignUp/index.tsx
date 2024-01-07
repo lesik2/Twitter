@@ -9,7 +9,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { InfinityLoader } from '@components/InfinityLoader';
 import { SnackBar } from '@components/SnackBar';
-import { ErrorMessage, IconTwitter, InputWrapper } from '@components/ui';
+import { ErrorMessage, IconTwitter, InputWrapper, WrapperLoader } from '@components/ui';
 import { IDate, UserState } from '@customTypes/models';
 import { auth } from '@db/index';
 
@@ -24,6 +24,7 @@ import {
   TextDate,
   Title,
   WrapperInputs,
+  WrapperBtn,
 } from './styled';
 import { isValidDate } from './helpers';
 
@@ -99,11 +100,17 @@ export function SignUp() {
           <SubTitle>{CONSTANTS.SIGN_UP_SUBTITLE}</SubTitle>
           <TextDate>{CONSTANTS.SIGN_UP_TEXT_DATE}</TextDate>
           <DateChoose date={date} setDate={setDate} />
-          {loading && <InfinityLoader />}
-          <RegisterBtn type='submit' disabled={!(isValid && isValidDate(date))}>
-            {CONSTANTS.SIGN_UP_BTN}
-          </RegisterBtn>
           {error && <SnackBar message={ERRORS_MESSAGE[error.message] ?? error.message} />}
+          <WrapperBtn>
+            {loading && (
+              <WrapperLoader>
+                <InfinityLoader />
+              </WrapperLoader>
+            )}
+            <RegisterBtn type='submit' disabled={!(isValid && isValidDate(date))}>
+              {CONSTANTS.SIGN_UP_BTN}
+            </RegisterBtn>
+          </WrapperBtn>
         </Form>
       </RegisterWrapper>
     </SectionSignUp>
