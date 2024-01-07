@@ -69,7 +69,7 @@ export function SideBar({ onClose }: ISideBar) {
             const { name, path, outlineIcon, fillIcon } = link;
 
             return (
-              <WrapperLink  data-cy={link.name} key={name} to={path} onClick={onClose}>
+              <WrapperLink data-cy={link.name} key={name} to={path} onClick={onClose}>
                 <Icon alt={name} src={location === path ? fillIcon : outlineIcon} />
                 <TextLink $isActive={location === path}>{link.name}</TextLink>
               </WrapperLink>

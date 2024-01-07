@@ -96,6 +96,7 @@ export function TweetForm({ onClose }: ITweetForm) {
       </UserWrapperImage>
       <Form onSubmit={handleSubmit} autoComplete='off' noValidate>
         <TwittText
+          data-cy='text-tweet'
           onChange={handleInputChange}
           value={text}
           rows={1}
@@ -111,16 +112,16 @@ export function TweetForm({ onClose }: ITweetForm) {
           </ImageWrapper>
         )}
         <ButtonsWrapper>
-          <LabelTweet data-testid='image-input' htmlFor='galleryInput'>
+          <LabelTweet data-cy='image-input-tweet' data-testid='image-input' htmlFor='galleryInput'>
             <ImageApp alt='gallery' src={gallery} />
             <TwittInput onChange={handleImageChange} accept='image/*' type='file' id='galleryInput' />
           </LabelTweet>
-          <BtnTweet disabled={text === ''} type='submit' data-testid='tweet-submit'>
+          <BtnTweet data-cy='btn-tweet' disabled={text === ''} type='submit' data-testid='tweet-submit'>
             Tweet
           </BtnTweet>
         </ButtonsWrapper>
       </Form>
-      {loading && <LoaderStatus />}
+      {loading && <LoaderStatus data-cy='loader-tweet' />}
     </TweetFormSection>
   );
 }

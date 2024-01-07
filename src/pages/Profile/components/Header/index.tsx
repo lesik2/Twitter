@@ -54,7 +54,9 @@ export function Header() {
         <UserWrapperImage>
           <ImageUser alt='image of user' src={defaultUser} />
         </UserWrapperImage>
-        <EditBtn data-cy='edit-profile-btn' onClick={handleOpen}>{CONSTANTS.PROFILE_BTN}</EditBtn>
+        <EditBtn data-cy='edit-profile-btn' onClick={handleOpen}>
+          {CONSTANTS.PROFILE_BTN}
+        </EditBtn>
         <UserProfileWrapper>
           <UserInfo>
             <UserNameProfile data-cy='profile-name'>{user.displayName}</UserNameProfile>

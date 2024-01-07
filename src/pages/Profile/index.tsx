@@ -16,7 +16,7 @@ export function Profile() {
         <Header />
         <TweetForm />
         <TweetsTitle>Tweets</TweetsTitle>
-        <TweetsWrapper>
+        <TweetsWrapper data-cy='profile-tweets-wrapper'>
           {tweetState.tweets.length > 0 &&
             tweetState.tweets.map((tweet) => {
               const { text, imageUrl, timestamp, amountOfLikes, usersLikes, id } = tweet;
