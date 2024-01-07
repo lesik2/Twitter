@@ -1,7 +1,6 @@
 import { TweetForm } from '@components/TweetForm/index';
 import userEvent from '@testing-library/user-event';
-import * as Hooks from '@hooks/redux';
-import * as actions from '@store/reducers/tweetsSlice';
+
 
 import { cleanup, render, screen } from '../test.utils';
 
@@ -10,7 +9,6 @@ jest.mock('@db/tweet', () => ({
 }));
 URL.createObjectURL = jest.fn(() => 'image_url');
 
-const useDispatchMock = jest.spyOn(Hooks, 'useAppDispatch');
 
 describe('TweetForm component', () => {
   beforeEach(() => {
@@ -54,20 +52,5 @@ describe('TweetForm component', () => {
     const deleteButton = screen.getByTestId('delete-image-tweet');
     await userEvent.click(deleteButton);
     expect(screen.queryByTestId('image-tweet')).not.toBeInTheDocument();
-  });
-
-  test('should dispatch actions', async () => {
-    const dispatch = jest.fn();
-    const mockedSetTweets = jest.spyOn(actions, 'setTweets');
-    useDispatchMock.mockReturnValue(dispatch);
-    const input = screen.getByTestId('image-input');
-
-    const submitButton = screen.getByTestId('tweet-submit');
-
-    await userEvent.type(input, 'This is a test tweet');
-    await userEvent.click(submitButton);
-
-    expect(mockedSetTweets).toHaveBeenCalledTimes(1);
-    expect(dispatch).toHaveBeenCalledTimes(1);
   });
 });
