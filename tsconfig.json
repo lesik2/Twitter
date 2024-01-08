@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "rootDir": "src",
+    "outDir": "dist",
+    "useDefineForClassFields": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    "target": "esnext",
+    "module": "esnext",
+    "lib": ["DOM", "esnext", "DOM.Iterable"],
+    "types": ["cypress", "jest"],
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "checkJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationDir": "types",
+    "sourceMap": true,
+    "paths": {
+      "@/*": ["src*"],
+      "@services/*": ["src/services/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@store/*": ["src/store/*"],
+      "@assets/*": ["src/assets/*"],
+      "@constants/*": ["src/constants/*"],
+      "@model/*": ["src/model/*"],
+      "@components/*": ["src/components/*"],
+      "@customTypes/*": ["src/types/*"],
+      "@utils/*": ["src/utils/*"],
+      "@app/*": ["src/app/*"],
+      "@containers/*": ["src/containers/*"],
+      "@pages/*": ["src/pages/*"],
+      "@db/*": ["src/firebase/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist", "build", ".vscode", "vite.config.ts", "cypress.config.ts", "cypress"],
+
+  "include": ["typings/*.d.ts", "**/*.ts", "**/*.tsx"],
+
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

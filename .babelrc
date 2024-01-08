@@ -1,0 +1,33 @@
+{
+  "presets": [
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
+    ],
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns":"entry",
+        "corejs":"2",
+        "targets":{"node":"current"}
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ],
+    [
+      "babel-plugin-jsx-remove-data-test-id",
+      {
+        "attributes": ["data-testid", "data-cy"]
+      }
+    ]
+  ]
+}

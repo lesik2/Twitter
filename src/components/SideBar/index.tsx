@@ -1,0 +1,104 @@
+import { APP_LINKS } from '@constants/sideBar';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useAppSelector, useAppDispatch } from '@hooks/redux';
+import defaultUser from '@assets/images/defaultUser.png';
+import { ROUTES } from '@constants/index';
+import { auth } from '@db/index';
+import { removeUser } from '@store/reducers/userSlice';
+import twitter from '@assets/icons/twitter.svg';
+import { useState } from 'react';
+import { clearTweets } from '@store/reducers/tweetsSlice';
+import { ISideBar } from '@customTypes/index';
+
+import {
+  Aside,
+  Icon,
+  TextLink,
+  LogOutBtn,
+  Navigation,
+  TweetBtn,
+  UserName,
+  UserWrapper,
+  Wrapper,
+  WrapperLink,
+  TweetWrapper,
+  SideBarIconTwitter,
+  ImageUserWrapper,
+} from './styled';
+import { CONSTANTS } from './constants';
+
+import { UserInfo, UserSubtitle, ImageUser } from '../ui/index';
+import { Modal } from '../Modal';
+import { TweetForm } from '../TweetForm';
+
+export function SideBar({ onClose }: ISideBar) {
+  const user = useAppSelector((state) => state.userReducer);
+  const location = useLocation().pathname;
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    onClose();
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const handleSignOut = async () => {
+    try {
+      await auth.signOut();
+      navigate(ROUTES.AUTHORIZATION);
+      dispatch(removeUser());
+      dispatch(clearTweets());
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        console.error(error);
+      }
+    }
+  };
+
+  return (
+    <Aside data-cy='side-bar'>
+      <Wrapper>
+        <SideBarIconTwitter alt='twitter' src={twitter} />
+        <Navigation>
+          {APP_LINKS.map((link) => {
+            const { name, path, outlineIcon, fillIcon } = link;
+
+            return (
+              <WrapperLink data-cy={link.name} key={name} to={path} onClick={onClose}>
+                <Icon alt={name} src={location === path ? fillIcon : outlineIcon} />
+                <TextLink $isActive={location === path}>{link.name}</TextLink>
+              </WrapperLink>
+            );
+          })}
+        </Navigation>
+        <TweetBtn onClick={handleOpen}>{CONSTANTS.TWEET}</TweetBtn>
+      </Wrapper>
+      <UserWrapper>
+        <ImageUserWrapper>
+          <ImageUser alt='user icon' src={defaultUser} />
+        </ImageUserWrapper>
+        <UserInfo>
+          <UserName>{user.displayName}</UserName>
+          <UserSubtitle>{user.link ? user.link : user.email}</UserSubtitle>
+        </UserInfo>
+      </UserWrapper>
+      <LogOutBtn data-cy='log-out-btn' onClick={handleSignOut}>
+        {CONSTANTS.LOG_OUT}
+      </LogOutBtn>
+      {isOpen && (
+        <Modal onClose={handleClose}>
+          <TweetWrapper>
+            <TweetForm onClose={handleClose} />
+          </TweetWrapper>
+        </Modal>
+      )}
+    </Aside>
+  );
+}
