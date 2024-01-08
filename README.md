@@ -1,3 +1,3 @@
 ### Twitter
 
-### Link to deploy: tweet-app-alex.netlify.app
+### Link to deploy: https://tweet-app-alex.netlify.app/
