@@ -9,7 +9,7 @@ import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { InfinityLoader } from '@components/InfinityLoader';
 import { SnackBar } from '@components/SnackBar';
-import { ErrorMessage, IconTwitter, InputWrapper, WrapperLoader } from '@components/ui';
+import { ErrorMessage, IconTwitter } from '@components/ui';
 import { IDate, UserState } from '@customTypes/models';
 import { auth } from '@db/index';
 
@@ -25,6 +25,8 @@ import {
   Title,
   WrapperInputs,
   WrapperBtn,
+  InputWrapper,
+  WrapperLoader,
 } from './styled';
 import { isValidDate } from './helpers';
 import { SIGN_UP_INPUTS } from './constants';

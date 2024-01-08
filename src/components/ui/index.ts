@@ -1,147 +1,21 @@
-import styled, { css } from 'styled-components';
-import { NavLink } from 'react-router-dom';
-import { FieldError } from 'react-hook-form';
+import { Input as InputApp } from './Input';
+import { Button as ButtonApp } from './Button';
+import { AuthLink as AuthLinkApp } from './AuthLink';
+import { ErrorMessage as ErrorMessageApp } from './ErrorMessage';
+import { IconTwitter as IconTwitterApp } from './IconTwitter';
+import { UserTitle as UserTitleApp } from './UserTitle';
+import { UserSubtitle as UserSubtitleApp } from './UserSubtitle';
+import { UserInfo as UserInfoApp } from './UserInfo';
+import { ImageUser as ImageUserApp } from './ImageUser';
+import { Image } from './Image';
 
-export const Input = styled.input<{ $error?: FieldError }>`
-  ${({ theme, $error }) => css`
-    height: 70px;
-    border-radius: 6px;
-    border: 1px solid ${$error ? theme.colors.error : theme.colors.border};
-    background-color: ${theme.colors.primary};
-    color: ${theme.colors.third};
-    font-size: 18px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.normal};
-    line-height: normal;
-    padding: 23px 20px 26px 20px;
-    outline: none;
-    &::placeholder {
-      color: ${theme.colors.option};
-    }
-    &:focus {
-      border: 2px solid ${$error ? theme.colors.error : theme.colors.third};
-    }
-  `};
-`;
-export const Button = styled.button`
-  ${({ theme }) => css`
-    height: 60px;
-    border-radius: 76px;
-    background-color: ${theme.colors.secondary};
-    color: ${theme.colors.primary};
-    font-family: ${theme.fontFamily.serif};
-    font-size: 18px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.bold};
-    line-height: normal;
-    outline: none;
-    border: none;
-    transition: background-color 0.2s;
-    &:hover {
-      cursor: pointer;
-      background-color: ${theme.colors.hover};
-    }
-    &:disabled {
-      cursor: default;
-      opacity: 0.4;
-      background-color: ${theme.colors.secondary};
-    }
-  `};
-`;
-export const AuthLink = styled(NavLink)`
-  ${({ theme }) => css`
-    color: ${theme.colors.secondary};
-    font-size: 18px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.normal};
-    line-height: normal;
-    transition: color 0.1s;
-    &:hover {
-      color: ${theme.colors.hover};
-    }
-  `};
-`;
-export const ErrorMessage = styled.p`
-  ${({ theme }) => css`
-    color: ${theme.colors.error};
-    font-size: 11px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.medium};
-    line-height: normal;
-    position: absolute;
-    bottom: -15px;
-    left: 5px;
-  `};
-`;
-export const InputWrapper = styled.div`
-  position: relative;
-`;
-export const WrapperLoader = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-`;
-export const IconTwitter = styled.img`
-  ${({ theme }) => css`
-    width: 40px;
-    height: 33px;
-    filter: invert(48%) sepia(89%) saturate(1415%) hue-rotate(179deg) brightness(94%) contrast(101%);
-    ${theme.breakPoints.tablet} {
-      width: 33px;
-      height: 30px;
-    }
-  `};
-`;
-
-export const ImageApp = styled.img`
-  width: 100%;
-  height: 100%;
-`;
-export const ImageUserWrapper = styled.div`
-  width: 50px;
-`;
-export const ImageUser = styled(ImageApp)`
-  border-radius: 100%;
-`;
-
-export const UserInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  justify-content: center;
-`;
-export const UserTitle = styled.h3`
-  ${({ theme }) => css`
-    color: ${theme.colors.third};
-    font-size: 20px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.bold};
-    line-height: normal;
-    margin: 0px;
-    ${theme.breakPoints.tablet} {
-      font-size: 17px;
-    }
-    ${theme.breakPoints.mobileL} {
-      font-size: 15px;
-    }
-  `};
-`;
-
-export const UserSubtitle = styled.h3`
-  ${({ theme }) => css`
-    color: ${theme.colors.option};
-    font-size: 16px;
-    font-style: normal;
-    font-weight: ${theme.fontWeight.normal};
-    line-height: normal;
-    margin: 0px;
-    ${theme.breakPoints.tablet} {
-      font-size: 15px;
-    }
-    ${theme.breakPoints.mobileL} {
-      font-size: 14px;
-    }
-  `};
-`;
+export const ErrorMessage = ErrorMessageApp;
+export const AuthLink = AuthLinkApp;
+export const Input = InputApp;
+export const Button = ButtonApp;
+export const IconTwitter = IconTwitterApp;
+export const UserTitle = UserTitleApp;
+export const UserSubtitle = UserSubtitleApp;
+export const UserInfo = UserInfoApp;
+export const ImageUser = ImageUserApp;
+export const ImageApp = Image;

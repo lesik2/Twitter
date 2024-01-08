@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { ImageApp, ImageUserWrapper, UserSubtitle } from '../ui';
+import { ImageApp, UserSubtitle } from '../ui';
 
 export const TweetArticle = styled.article`
   ${({ theme }) => css`
@@ -19,7 +19,7 @@ export const TweetArticle = styled.article`
     }
   `};
 `;
-export const UserWrapperImage = styled(ImageUserWrapper)`
+export const UserWrapperImage = styled.div`
   ${({ theme }) => css`
     width: 55px;
     margin-right: 7px;

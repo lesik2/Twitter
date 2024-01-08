@@ -155,3 +155,12 @@ export const LabelWrapper = styled.div`
     }
   `}
 `;
+export const InputWrapper = styled.div`
+  position: relative;
+`;
+export const WrapperLoader = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;

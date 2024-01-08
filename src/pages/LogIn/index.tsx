@@ -1,9 +1,8 @@
 import twitter from '@assets/icons/twitter.svg';
 import { CONSTANTS, ROUTES } from '@constants/index';
-import {  ERRORS_MESSAGE} from '@constants/auth';
+import { ERRORS_MESSAGE } from '@constants/auth';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { TSignUpInputs } from '@customTypes/user';
-import { InputWrapper, WrapperLoader } from '@components/ui';
 import { useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { InfinityLoader } from '@components/InfinityLoader';
@@ -20,6 +19,8 @@ import {
   SignUpLink,
   Title,
   WrapperBtn,
+  InputWrapper,
+  WrapperLoader,
 } from './styled';
 import { LOG_IN_INPUTS } from './constants';
 

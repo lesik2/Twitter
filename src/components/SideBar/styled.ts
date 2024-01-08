@@ -196,3 +196,6 @@ export const TweetWrapper = styled.div`
     }
   `};
 `;
+export const ImageUserWrapper = styled.div`
+  width: 50px;
+`;

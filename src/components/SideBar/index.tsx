@@ -23,9 +23,10 @@ import {
   WrapperLink,
   TweetWrapper,
   SideBarIconTwitter,
+  ImageUserWrapper,
 } from './styled';
 
-import { UserInfo, UserSubtitle, ImageUser, ImageUserWrapper } from '../ui/index';
+import { UserInfo, UserSubtitle, ImageUser } from '../ui/index';
 import { Modal } from '../Modal';
 import { TweetForm } from '../TweetForm';
 

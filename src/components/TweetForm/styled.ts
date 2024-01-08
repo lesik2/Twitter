@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
 
-import { Button, ImageUserWrapper } from '../ui';
+import { Button } from '../ui';
 
 export const TweetFormSection = styled.section`
   ${({ theme }) => css`
@@ -16,7 +16,7 @@ export const TweetFormSection = styled.section`
     }
   `};
 `;
-export const UserWrapperImage = styled(ImageUserWrapper)`
+export const UserWrapperImage = styled.div`
   ${({ theme }) => css`
     width: 55px;
     ${theme.breakPoints.tablet} {

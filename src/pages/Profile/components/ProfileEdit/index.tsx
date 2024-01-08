@@ -1,5 +1,5 @@
 import { ERRORS_MESSAGE } from '@constants/auth';
-import { ErrorMessage, IconTwitter, InputWrapper, WrapperLoader } from '@components/ui';
+import { ErrorMessage, IconTwitter } from '@components/ui';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import twitter from '@assets/icons/twitter.svg';
 import { useState } from 'react';
@@ -21,6 +21,8 @@ import {
   LabelInput,
   LabelWrapper,
   WrapperBtn,
+  InputWrapper,
+  WrapperLoader,
 } from './styled';
 import { EDIT_INPUTS } from './constants';
 

@@ -1,8 +1,6 @@
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-import { ImageUserWrapper } from './index';
-
 export const SearchSection = styled.section`
   ${({ theme }) => css`
     display: flex;
@@ -179,7 +177,7 @@ export const FollowBtn = styled.button`
     }
   `};
 `;
-export const ImageWrapper = styled(ImageUserWrapper)`
+export const ImageWrapper = styled.div`
   ${({ theme }) => css`
     width: 60px;
     ${theme.breakPoints.laptopL} {
