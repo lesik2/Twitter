@@ -3,7 +3,6 @@ import backProfile from '@assets/images/backProfile.png';
 import { useAppSelector } from '@hooks/redux';
 import { ImageUser, UserInfo, UserSubtitle, UserTitle } from '@components/ui/index';
 import { ImageApp } from '@components/ui';
-import { CONSTANTS } from '@constants/index';
 import { useState } from 'react';
 import { Modal } from '@components/Modal';
 
@@ -24,6 +23,7 @@ import {
   WrapperImage,
 } from './styled';
 
+import { CONSTANTS } from '../ProfileEdit/constants';
 import { ProfileEdit } from '../ProfileEdit';
 
 export function Header() {
@@ -55,7 +55,7 @@ export function Header() {
           <ImageUser alt='image of user' src={defaultUser} />
         </UserWrapperImage>
         <EditBtn data-cy='edit-profile-btn' onClick={handleOpen}>
-          {CONSTANTS.PROFILE_BTN}
+          {CONSTANTS.BTN}
         </EditBtn>
         <UserProfileWrapper>
           <UserInfo>
