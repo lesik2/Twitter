@@ -1,6 +1,5 @@
 import { Button, UserTitle, UserInfo } from '@components/ui';
 import styled, { css } from 'styled-components';
-import { device } from '@constants/theme';
 
 export const HeaderSection = styled.header`
   display: flex;
@@ -17,7 +16,7 @@ export const TweetsWrapper = styled.div`
     align-items: center;
     justify-content: flex-start;
     padding-left: 15px;
-    @media ${device.laptopM} {
+    ${theme.breakPoints.laptopM} {
       position: fixed;
       top: 0px;
       right: 0px;
@@ -25,7 +24,7 @@ export const TweetsWrapper = styled.div`
       z-index: ${theme.zIndex.header};
       background-color: ${theme.colors.primary};
     }
-    @media ${device.tablet} {
+    ${theme.breakPoints.tablet} {
       padding-left: 60px;
       width: 100%;
     }
@@ -36,17 +35,21 @@ export const UserInfoProfile = styled(UserInfo)`
 `;
 
 export const UserNameProfile = styled(UserTitle)`
-  font-size: 24px;
-  @media ${device.tablet} {
-    font-size: 22px;
-  }
+  ${({ theme }) => css`
+    font-size: 24px;
+    ${theme.breakPoints.tablet} {
+      font-size: 22px;
+    }
+  `}
 `;
 
 export const WrapperImage = styled.div`
-  width: 100%;
-  @media ${device.laptopM} {
-    padding-top: 87px;
-  }
+  ${({ theme }) => css`
+    width: 100%;
+    ${theme.breakPoints.laptopM} {
+      padding-top: 87px;
+    }
+  `}
 `;
 
 export const UserWrapper = styled.div`
@@ -78,26 +81,28 @@ export const EditBtn = styled(Button)`
     &:hover {
       background-color: ${theme.colors.border};
     }
+    ${theme.breakPoints.tablet} {
+      height: 40px;
+      width: 105px;
+      font-size: 16px;
+      padding: 8px 13px;
+    }
   `};
-  @media ${device.tablet} {
-    height: 40px;
-    width: 105px;
-    font-size: 16px;
-    padding: 8px 13px;
-  }
 `;
 
 export const UserWrapperImage = styled.div`
-  width: 150px;
-  height: 150px;
-  position: absolute;
-  top: -60px;
-  left: 0px;
-  @media ${device.tablet} {
-    width: 120px;
-    height: 120px;
-    top: -40px;
-  }
+  ${({ theme }) => css`
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: -60px;
+    left: 0px;
+    ${theme.breakPoints.tablet} {
+      width: 120px;
+      height: 120px;
+      top: -40px;
+    }
+  `}
 `;
 
 export const FollowWrapper = styled.div`
@@ -121,10 +126,10 @@ export const FollowText = styled.p`
     font-weight: ${theme.fontWeight.normal};
     line-height: normal;
     margin-top: 57px;
+    ${theme.breakPoints.tablet} {
+      font-size: 16px;
+    }
   `};
-  @media ${device.tablet} {
-    font-size: 16px;
-  }
 `;
 export const UserProfileWrapper = styled.div`
   display: flex;
@@ -143,10 +148,10 @@ export const UserDescription = styled.h3`
     font-weight: ${theme.fontWeight.normal};
     line-height: normal;
     margin-top: 17px;
+    ${theme.breakPoints.tablet} {
+      font-size: 16px;
+    }
   `};
-  @media ${device.tablet} {
-    font-size: 16px;
-  }
 `;
 export const MarkText = styled.a`
   ${({ theme }) => css`

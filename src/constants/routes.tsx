@@ -4,12 +4,11 @@ import { Authorization } from '@pages/Authorization/index';
 import { Profile } from '@pages/Profile/index';
 import { SignUp } from '@pages/SignUp/index';
 import { IRoute } from '@customTypes/routes';
+import { TweetPage } from '@pages/TweetPage/index';
 
-import { User } from '../pages/User';
+import { UserPage } from '../pages/UserPage';
 
 import { ROUTES } from './index';
-
-import { TweetPage } from '@//pages/TweetPage/index';
 
 export const publicRoutes: Readonly<IRoute[]> = [
   {
@@ -48,7 +47,7 @@ export const privateRoutes: Readonly<IRoute[]> = [
   },
   {
     path: `users/:id`,
-    element: <User />,
+    element: <UserPage />,
   },
   {
     path: `tweets/:id`,

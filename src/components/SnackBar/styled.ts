@@ -1,4 +1,3 @@
-import { device } from '@constants/theme';
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div<{ $isOpen?: boolean }>`
@@ -21,14 +20,14 @@ export const Wrapper = styled.div<{ $isOpen?: boolean }>`
     transition:
       opacity 0.4s,
       visibility 0.4s;
+    ${theme.breakPoints.tablet} {
+      width: 350px;
+      font-size: 15px;
+    }
+    ${theme.breakPoints.mobileL} {
+      width: 300px;
+      padding: 5px 8px 5px 8px;
+      font-size: 14px;
+    }
   `};
-  @media ${device.tablet} {
-    width: 350px;
-    font-size: 15px;
-  }
-  @media ${device.mobileL} {
-    width: 300px;
-    padding: 5px 8px 5px 8px;
-    font-size: 14px;
-  }
 `;

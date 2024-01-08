@@ -20,13 +20,13 @@ export const theme = {
     header: 500,
   },
   breakPoints: {
-    mobileS: '320px',
-    mobileM: '375px',
-    mobileL: '425px',
-    tablet: '768px',
-    laptop: '1040px',
-    laptopM: '1120px',
-    laptopL: '1460px',
+    mobileS: `@media (max-width: 320px)`,
+    mobileM: `@media (max-width: 375px)`,
+    mobileL: `@media (max-width: 425px)`,
+    tablet: `@media (max-width: 768px)`,
+    laptop: `@media (max-width: 1040px)`,
+    laptopM: `@media (max-width: 1120px)`,
+    laptopL: `@media (max-width: 1460px)`,
   },
 };
 export const lightTheme: ITheme = {
@@ -59,13 +59,3 @@ export const darkTheme: ITheme = {
     lightBorder: '#c9cecf',
   },
 };
-
-export const device = {
-  mobileS: `(max-width: ${theme.breakPoints.mobileS})`,
-  mobileM: `(max-width: ${theme.breakPoints.mobileM})`,
-  mobileL: `(max-width: ${theme.breakPoints.mobileL})`,
-  tablet: `(max-width: ${theme.breakPoints.tablet})`,
-  laptop: `(max-width: ${theme.breakPoints.laptop})`,
-  laptopM: `(max-width: ${theme.breakPoints.laptopM})`,
-  laptopL: `(max-width: ${theme.breakPoints.laptopL})`,
-} as const;

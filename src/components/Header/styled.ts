@@ -1,4 +1,3 @@
-import { device } from '@constants/theme';
 import { NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
@@ -18,23 +17,23 @@ export const HeaderSection = styled.header`
     z-index: ${theme.zIndex.header};
     background-color: ${theme.colors.primary};
     transform: translateX(-55%);
+    ${theme.breakPoints.laptop} {
+      top: 0;
+      transform: translateX(-62%);
+    }
+    ${theme.breakPoints.laptopM} {
+      width: 85%;
+      transform: none;
+      right: 0px;
+      left: auto;
+      padding: 0px 65px 0px 25px;
+    }
+    ${theme.breakPoints.tablet} {
+      width: 100%;
+      transform: none;
+      padding: 0px 65px 0px 60px;
+    }
   `};
-  @media ${device.laptop} {
-    top: 0;
-    transform: translateX(-62%);
-  }
-  @media ${device.laptopM} {
-    width: 85%;
-    transform: none;
-    right: 0px;
-    left: auto;
-    padding: 0px 65px 0px 25px;
-  }
-  @media ${device.tablet} {
-    width: 100%;
-    transform: none;
-    padding: 0px 65px 0px 60px;
-  }
 `;
 export const Wrapper = styled.div`
   display: flex;
@@ -63,8 +62,8 @@ export const Title = styled.h1`
     font-style: normal;
     font-weight: ${theme.fontWeight.bold};
     line-height: normal;
+    ${theme.breakPoints.tablet} {
+      font-size: 20px;
+    }
   `};
-  @media ${device.tablet} {
-    font-size: 20px;
-  }
 `;

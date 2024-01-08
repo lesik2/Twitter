@@ -1,5 +1,4 @@
 import styled, { css, keyframes } from 'styled-components';
-import { device } from '@constants/theme';
 
 import { Button, ImageUserWrapper } from '../ui';
 
@@ -12,16 +11,18 @@ export const TweetFormSection = styled.section`
     border-bottom: 1px solid ${theme.colors.border};
     gap: 27px;
     position: relative;
+    ${theme.breakPoints.tablet} {
+      padding: 12px 10px 10px 16px;
+    }
   `};
-  @media ${device.tablet} {
-    padding: 12px 10px 10px 16px;
-  }
 `;
 export const UserWrapperImage = styled(ImageUserWrapper)`
-  width: 55px;
-  @media ${device.tablet} {
-    width: 48px;
-  }
+  ${({ theme }) => css`
+    width: 55px;
+    ${theme.breakPoints.tablet} {
+      width: 48px;
+    }
+  `}
 `;
 
 export const Form = styled.form`
@@ -53,13 +54,13 @@ export const TwittText = styled.textarea`
       border: none;
       outline: none;
     }
+    ${theme.breakPoints.tablet} {
+      font-size: 18px;
+    }
+    ${theme.breakPoints.mobileL} {
+      font-size: 15px;
+    }
   `};
-  @media ${device.tablet} {
-    font-size: 18px;
-  }
-  @media ${device.mobileL} {
-    font-size: 15px;
-  }
 `;
 export const ButtonsWrapper = styled.div`
   display: flex;
@@ -70,18 +71,20 @@ export const ButtonsWrapper = styled.div`
   width: 100%;
 `;
 export const BtnTweet = styled(Button)`
-  width: 116px;
-  height: 50px;
-  @media ${device.tablet} {
-    height: 38px;
-    width: 95px;
-    font-size: 16px;
-  }
-  @media ${device.mobileL} {
-    height: 33px;
-    width: 85px;
-    font-size: 15px;
-  }
+  ${({ theme }) => css`
+    width: 116px;
+    height: 50px;
+    ${theme.breakPoints.tablet} {
+      height: 38px;
+      width: 95px;
+      font-size: 16px;
+    }
+    ${theme.breakPoints.mobileL} {
+      height: 33px;
+      width: 85px;
+      font-size: 15px;
+    }
+  `}
 `;
 export const ImageWrapper = styled.div`
   width: 90%;
@@ -99,21 +102,23 @@ export const TwittInput = styled.input`
   display: none;
 `;
 export const LabelTweet = styled.label`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: transform 0.2s;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.1);
-  }
-  @media ${device.tablet} {
-    width: 18px;
-    height: 18px;
-  }
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: transform 0.2s;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.1);
+    }
+    ${theme.breakPoints.tablet} {
+      width: 18px;
+      height: 18px;
+    }
+  `}
 `;
 export const Close = styled.div`
   ${({ theme }) => css`
@@ -132,20 +137,22 @@ export const Close = styled.div`
     &:hover {
       background-color: ${theme.colors.option};
     }
+    ${theme.breakPoints.tablet} {
+      width: 29px;
+      height: 29px;
+    }
   `};
-  @media ${device.tablet} {
-    width: 29px;
-    height: 29px;
-  }
 `;
 export const ImageClose = styled.img`
-  transition: filter 0.2s;
-  width: 28px;
-  height: 28px;
-  @media ${device.tablet} {
-    width: 22px;
-    height: 22px;
-  }
+  ${({ theme }) => css`
+    transition: filter 0.2s;
+    width: 28px;
+    height: 28px;
+    ${theme.breakPoints.tablet} {
+      width: 22px;
+      height: 22px;
+    }
+  `}
 `;
 
 const loader = keyframes`

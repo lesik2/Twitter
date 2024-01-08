@@ -1,4 +1,3 @@
-import { device } from '@constants/theme';
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div<{ $isOpen?: boolean; $position: 'left' | 'right' }>`
@@ -8,10 +7,10 @@ export const Wrapper = styled.div<{ $isOpen?: boolean; $position: 'left' | 'righ
     top: 0;
     height: 100vh;
     overflow-y: auto;
-    @media ${device.laptopM} {
+    ${theme.breakPoints.laptopM} {
       width: ${$position === 'left' ? '15%' : '0%'};
     }
-    @media ${$position === 'left' ? device.tablet : device.laptopM} {
+    ${$position === 'left' ? theme.breakPoints.tablet : theme.breakPoints.laptopM} {
       position: fixed;
       top: 0px;
       left: 0px;
@@ -24,7 +23,7 @@ export const Wrapper = styled.div<{ $isOpen?: boolean; $position: 'left' | 'righ
 `;
 export const Content = styled.div<{ $isOpen?: boolean; $position: 'left' | 'right' }>`
   ${({ theme, $isOpen, $position }) => css`
-    @media ${$position === 'left' ? device.tablet : device.laptopM} {
+    ${$position === 'left' ? theme.breakPoints.tablet : theme.breakPoints.laptopM} {
       position: fixed;
       top: 0px;
       ${$position}: ${$isOpen ? '0px' : '-100%'};

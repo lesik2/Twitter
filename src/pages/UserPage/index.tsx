@@ -10,7 +10,7 @@ import { getFormatDate } from '@utils/index';
 import { TweetsWrapper, UserSection, UserWrapper, UserWrapperImage, WrapperImage } from './styled';
 import { useUserTweets } from './hooks/useUserTweets';
 
-export function User() {
+export function UserPage() {
   const currentUser = useAppSelector((state) => state.userReducer);
   const params = useParams();
   const [user, tweets] = useUserTweets(params.id ?? '');

@@ -1,21 +1,22 @@
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { device } from '@constants/theme';
 
 import { ImageUserWrapper } from './index';
 
 export const SearchSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 20px 10px 10px 18px;
-  @media ${device.laptopL} {
-    padding: 20px 3px 10px 3px;
-    align-items: center;
-  }
-  @media ${device.laptopM} {
-    padding: 70px 3px 10px 3px;
-  }
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 10px 10px 18px;
+    ${theme.breakPoints.laptopL} {
+      padding: 20px 3px 10px 3px;
+      align-items: center;
+    }
+    ${theme.breakPoints.laptopM} {
+      padding: 70px 3px 10px 3px;
+    }
+  `}
 `;
 export const SearchWrapper = styled.div`
   position: relative;
@@ -40,35 +41,37 @@ export const SearchInput = styled.input`
     &:focus {
       border: 2px solid ${theme.colors.option};
     }
+    ${theme.breakPoints.laptopL} {
+      width: 300px;
+    }
+    ${theme.breakPoints.tablet} {
+      height: 48px;
+      width: 285px;
+      font-size: 16px;
+    }
   `};
-  @media ${device.laptopL} {
-    width: 300px;
-  }
-  @media ${device.tablet} {
-    height: 48px;
-    width: 285px;
-    font-size: 16px;
-  }
 `;
 export const SearchBtn = styled.button`
-  width: 24px;
-  height: 24px;
-  position: absolute;
-  top: 15px;
-  left: 20px;
-  background-color: inherit;
-  border: none;
-  outline: none;
-  padding: 0;
-  transition: transform 0.2s;
-  &:hover {
-    transform: scale(1.1);
-  }
-  @media ${device.tablet} {
-    width: 20px;
-    height: 20px;
-    top: 12px;
-  }
+  ${({ theme }) => css`
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    background-color: inherit;
+    border: none;
+    outline: none;
+    padding: 0;
+    transition: transform 0.2s;
+    &:hover {
+      transform: scale(1.1);
+    }
+    ${theme.breakPoints.tablet} {
+      width: 20px;
+      height: 20px;
+      top: 12px;
+    }
+  `};
 `;
 export const SearchResultsWrapper = styled.div`
   ${({ theme }) => css`
@@ -81,10 +84,10 @@ export const SearchResultsWrapper = styled.div`
     border-radius: 10px;
     padding: 43px 20px 50px 5px;
     gap: 10px;
+    ${theme.breakPoints.laptopL} {
+      padding: 30px 3px 40px 3px;
+    }
   `};
-  @media ${device.laptopL} {
-    padding: 30px 3px 40px 3px;
-  }
 `;
 export const SearchResultText = styled.h2`
   ${({ theme }) => css`
@@ -95,10 +98,10 @@ export const SearchResultText = styled.h2`
     font-style: normal;
     font-weight: ${theme.fontWeight.large};
     line-height: normal;
+    ${theme.breakPoints.laptopL} {
+      font-size: 20px;
+    }
   `};
-  @media ${device.laptopL} {
-    font-size: 20px;
-  }
 `;
 
 export const UserWrapper = styled(NavLink)`
@@ -117,15 +120,17 @@ export const UserWrapper = styled(NavLink)`
   `};
 `;
 export const UserInfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: flex-start;
-  justify-content: center;
-  margin: 0px 31px 0px 13px;
-  @media ${device.laptopL} {
-    margin: 0px 10px 0px 8px;
-  }
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0px 31px 0px 13px;
+    ${theme.breakPoints.laptopL} {
+      margin: 0px 10px 0px 8px;
+    }
+  `};
 `;
 
 export const UserTitle = styled.h3`
@@ -136,10 +141,10 @@ export const UserTitle = styled.h3`
     font-weight: ${theme.fontWeight.bold};
     line-height: normal;
     margin: 0px;
+    ${theme.breakPoints.tablet} {
+      font-size: 16px;
+    }
   `};
-  @media ${device.tablet} {
-    font-size: 16px;
-  }
 `;
 
 export const UserSubtitle = styled.h3`
@@ -168,15 +173,17 @@ export const FollowBtn = styled.button`
     line-height: 100%;
     outline: none;
     border: none;
+    ${theme.breakPoints.laptopL} {
+      font-size: 16px;
+      padding: 8px 15px;
+    }
   `};
-  @media ${device.laptopL} {
-    font-size: 16px;
-    padding: 8px 15px;
-  }
 `;
 export const ImageWrapper = styled(ImageUserWrapper)`
-  width: 60px;
-  @media ${device.laptopL} {
-    width: 50px;
-  }
+  ${({ theme }) => css`
+    width: 60px;
+    ${theme.breakPoints.laptopL} {
+      width: 50px;
+    }
+  `}
 `;

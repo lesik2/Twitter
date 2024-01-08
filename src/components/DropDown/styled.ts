@@ -1,9 +1,8 @@
-import { device } from '@constants/theme';
 import { TDate } from '@customTypes/index';
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div<{ $type: TDate }>`
-  ${({ $type }) => css`
+  ${({ theme, $type }) => css`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,16 +14,16 @@ export const Wrapper = styled.div<{ $type: TDate }>`
       return '312px';
     }};
     position: relative;
+    ${theme.breakPoints.tablet} {
+      width: 120px;
+    }
+    ${theme.breakPoints.mobileL} {
+      width: 100px;
+    }
+    ${theme.breakPoints.mobileM} {
+      width: 90px;
+    }
   `};
-  @media ${device.tablet} {
-    width: 120px;
-  }
-  @media ${device.mobileL} {
-    width: 100px;
-  }
-  @media ${device.mobileM} {
-    width: 90px;
-  }
 `;
 export const SelectedValue = styled.button`
   ${({ theme }) => css`
@@ -46,16 +45,16 @@ export const SelectedValue = styled.button`
     &:focus {
       border: 2px solid ${theme.colors.third};
     }
+    ${theme.breakPoints.tablet} {
+      height: 48px;
+      padding: 15px 5px 15px 5px;
+      font-size: 15px;
+    }
+    ${theme.breakPoints.mobileL} {
+      height: 40px;
+      font-size: 13px;
+    }
   `};
-  @media ${device.tablet} {
-    height: 48px;
-    padding: 15px 5px 15px 5px;
-    font-size: 15px;
-  }
-  @media ${device.mobileL} {
-    height: 40px;
-    font-size: 13px;
-  }
 `;
 
 export const List = styled.ul<{ $active?: boolean }>`
@@ -77,10 +76,10 @@ export const List = styled.ul<{ $active?: boolean }>`
       width: 0px;
       height: 0px;
     }
-    @media ${device.tablet} {
+    ${theme.breakPoints.tablet} {
       bottom: 48px;
     }
-    @media ${device.mobileL} {
+    ${theme.breakPoints.mobileL} {
       bottom: 40px;
     }
   `};
@@ -96,17 +95,19 @@ export const ItemList = styled.li`
     &:hover {
       background-color: ${(props) => props.theme.colors.border};
     }
+    ${theme.breakPoints.tablet} {
+      font-size: 15px;
+    }
+    ${theme.breakPoints.mobileL} {
+      font-size: 13px;
+    }
   `};
-  @media ${device.tablet} {
-    font-size: 15px;
-  }
-  @media ${device.mobileL} {
-    font-size: 13px;
-  }
 `;
 export const Icon = styled.img`
-  @media ${device.mobileL} {
-    width: 12px;
-    height: 6px;
-  }
+  ${({ theme }) => css`
+    ${theme.breakPoints.mobileL} {
+      width: 12px;
+      height: 6px;
+    }
+  `}
 `;

@@ -1,23 +1,24 @@
-import { device } from '@constants/theme';
 import styled, { css } from 'styled-components';
 
 export const Footer = styled.footer`
-  padding: 18px 0px 18px 0px;
-  width: 100%;
-  display: flex;
-  gap: 19px;
-  align-items: flex-start;
-  justify-content: center;
-  @media ${device.laptopL} {
-    padding: 12px 0px 12px 0px;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  @media ${device.tablet} {
-    gap: 10px;
-    width: 90%;
-    margin-top: 35px;
-  }
+  ${({ theme }) => css`
+    padding: 18px 0px 18px 0px;
+    width: 100%;
+    display: flex;
+    gap: 19px;
+    align-items: flex-start;
+    justify-content: center;
+    ${theme.breakPoints.laptopL} {
+      padding: 12px 0px 12px 0px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    ${theme.breakPoints.tablet} {
+      gap: 10px;
+      width: 90%;
+      margin-top: 35px;
+    }
+  `}
 `;
 export const FooterLink = styled.a`
   ${({ theme }) => css`
@@ -26,8 +27,8 @@ export const FooterLink = styled.a`
     font-style: normal;
     font-weight: ${theme.fontWeight.normal};
     line-height: normal;
+    ${theme.breakPoints.tablet} {
+      font-size: 12px;
+    }
   `};
-  @media ${device.tablet} {
-    font-size: 12px;
-  }
 `;

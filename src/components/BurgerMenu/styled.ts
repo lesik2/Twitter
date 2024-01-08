@@ -1,4 +1,3 @@
-import { device } from '@constants/theme';
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div<{ $isOpen?: boolean }>`
@@ -42,7 +41,7 @@ export const Wrapper = styled.div<{ $isOpen?: boolean }>`
         bottom 0.3s;
       transform: translateX(-50%) ${$isOpen ? 'rotate(-45deg)' : ''};
     }
-    @media ${device.tablet} {
+    ${theme.breakPoints.tablet} {
       display: block;
       position: fixed;
       top: 25px;

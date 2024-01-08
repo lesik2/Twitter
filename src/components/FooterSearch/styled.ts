@@ -1,18 +1,19 @@
 import styled, { css } from 'styled-components';
-import { device } from '@constants/theme';
 
 export const FooterTextWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-top: 57px;
-  gap: 15px;
-  @media ${device.laptopL} {
-    justify-content: center;
-  }
-  @media ${device.tablet} {
-    gap: 10px;
-  }
+  ${({ theme }) => css`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 57px;
+    gap: 15px;
+    ${theme.breakPoints.laptopL} {
+      justify-content: center;
+    }
+    ${theme.breakPoints.tablet} {
+      gap: 10px;
+    }
+  `}
 `;
 export const FooterText = styled.p`
   ${({ theme }) => css`
@@ -21,10 +22,10 @@ export const FooterText = styled.p`
     font-style: normal;
     font-weight: ${theme.fontWeight.normal};
     line-height: normal;
+    ${theme.breakPoints.tablet} {
+      font-size: 14px;
+    }
   `};
-  @media ${device.tablet} {
-    font-size: 14px;
-  }
 `;
 export const FooterMore = styled(FooterText)`
   cursor: pointer;
@@ -37,8 +38,8 @@ export const FooterTwitter = styled.span`
     font-style: normal;
     font-weight: ${theme.fontWeight.normal};
     line-height: normal;
+    ${theme.breakPoints.tablet} {
+      font-size: 14px;
+    }
   `};
-  @media ${device.tablet} {
-    font-size: 14px;
-  }
 `;

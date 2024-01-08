@@ -1,4 +1,3 @@
-import { device } from '@constants/theme';
 import styled, { css } from 'styled-components';
 
 export const UserSection = styled.section`
@@ -11,13 +10,13 @@ export const UserSection = styled.section`
     border-left: 1px solid ${theme.colors.border};
     overflow-y: auto;
     padding-top: 87px;
+    ${theme.breakPoints.laptopM} {
+      width: 85%;
+    }
+    ${theme.breakPoints.tablet} {
+      width: 100%;
+    }
   `};
-  @media ${device.laptopM} {
-    width: 85%;
-  }
-  @media ${device.tablet} {
-    width: 100%;
-  }
 `;
 export const TweetsWrapper = styled.div`
   display: flex;

@@ -1,59 +1,66 @@
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { device } from '@constants/theme';
 
 import { Button, IconTwitter, UserTitle } from '../ui';
 
 export const Aside = styled.aside`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  padding-bottom: 10px;
-  @media ${device.tablet} {
-    padding: 0px 10px 10px 25px;
-  }
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-bottom: 10px;
+    ${theme.breakPoints.tablet} {
+      padding: 0px 10px 10px 25px;
+    }
+  `}
 `;
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 22px 51px 30px 10px;
-  @media ${device.laptopL} {
-    margin: 25px 10px 30px 10px;
-    align-items: flex-end;
-  }
-  @media ${device.laptopM} {
-    align-items: center;
-    margin: 15px 5px 10px 0px;
-  }
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 22px 51px 30px 10px;
+    ${theme.breakPoints.laptopL} {
+      margin: 25px 10px 30px 10px;
+      align-items: flex-end;
+    }
+    ${theme.breakPoints.laptopM} {
+      align-items: center;
+      margin: 15px 5px 10px 0px;
+    }
+  `}
 `;
 export const Navigation = styled.nav`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  margin: 25px 0px 20px 0px;
-  gap: 3px;
-  @media ${device.laptopM} {
-    align-items: center;
-    margin: 15px 0px 10px 0px;
-  }
-  @media ${device.tablet} {
+  ${({ theme }) => css`
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
-  }
+    justify-content: center;
+    margin: 25px 0px 20px 0px;
+    gap: 3px;
+    ${theme.breakPoints.laptopM} {
+      align-items: center;
+      margin: 15px 0px 10px 0px;
+    }
+    ${theme.breakPoints.tablet} {
+      align-items: flex-start;
+    }
+  `}
 `;
 export const TweetBtn = styled(Button)`
-  width: 230px;
-  height: 55px;
-  border-radius: 27px;
-  @media ${device.laptopM} {
-    width: 100px;
-    font-size: 17px;
-    height: 45px;
-  }
-  @media ${device.tablet} {
-    width: 180px;
-  }
+  ${({ theme }) => css`
+    width: 230px;
+    height: 55px;
+    border-radius: 27px;
+    ${theme.breakPoints.laptopM} {
+      width: 100px;
+      font-size: 17px;
+      height: 45px;
+    }
+    ${theme.breakPoints.tablet} {
+      width: 180px;
+    }
+  `}
 `;
 export const WrapperLink = styled(NavLink)`
   ${({ theme }) => css`
@@ -67,30 +74,34 @@ export const WrapperLink = styled(NavLink)`
     &:hover {
       background-color: ${theme.colors.border};
     }
+    ${theme.breakPoints.laptopM} {
+      padding: 7px 15px 7px 10px;
+    }
   `};
-  @media ${device.laptopM} {
-    padding: 7px 15px 7px 10px;
-  }
 `;
 export const Icon = styled.img`
-  width: 28px;
-  height: 28px;
-  @media ${device.laptopM} {
-    width: 25px;
-  }
+  ${({ theme }) => css`
+    width: 28px;
+    height: 28px;
+    ${theme.breakPoints.laptopM} {
+      width: 25px;
+    }
+  `}
 `;
 export const SideBarIconTwitter = styled(IconTwitter)`
-  @media ${device.laptopL} {
-    align-self: center;
-  }
-  @media ${device.laptopM} {
-    width: 38px;
-    height: 30px;
-  }
-  @media ${device.tablet} {
-    align-self: flex-start;
-    margin-left: 15px;
-  }
+  ${({ theme }) => css`
+    ${theme.breakPoints.laptopL} {
+      align-self: center;
+    }
+    ${theme.breakPoints.laptopM} {
+      width: 38px;
+      height: 30px;
+    }
+    ${theme.breakPoints.tablet} {
+      align-self: flex-start;
+      margin-left: 15px;
+    }
+  `}
 `;
 export const TextLink = styled.h4<{ $isActive?: boolean }>`
   ${({ theme, $isActive }) => css`
@@ -102,14 +113,14 @@ export const TextLink = styled.h4<{ $isActive?: boolean }>`
     font-weight: ${$isActive ? theme.fontWeight.large : theme.fontWeight.medium};
     line-height: normal;
     transition: color 0.2s;
+    ${theme.breakPoints.laptopM} {
+      display: none;
+    }
+    ${theme.breakPoints.tablet} {
+      display: block;
+      font-size: 16px;
+    }
   `};
-  @media ${device.laptopM} {
-    display: none;
-  }
-  @media ${device.tablet} {
-    display: block;
-    font-size: 16px;
-  }
 `;
 export const LogOutBtn = styled(Button)`
   ${({ theme }) => css`
@@ -121,39 +132,41 @@ export const LogOutBtn = styled(Button)`
     &:hover {
       background-color: ${theme.colors.option};
     }
+    ${theme.breakPoints.laptopL} {
+      margin-right: 10px;
+    }
+    ${theme.breakPoints.laptopM} {
+      width: 100px;
+      margin-right: 5px;
+      font-size: 17px;
+      height: 45px;
+    }
+    ${theme.breakPoints.tablet} {
+      width: 180px;
+    }
   `};
-  @media ${device.laptopL} {
-    margin-right: 10px;
-  }
-  @media ${device.laptopM} {
-    width: 100px;
-    margin-right: 5px;
-    font-size: 17px;
-    height: 45px;
-  }
-  @media ${device.tablet} {
-    width: 180px;
-  }
 `;
 export const UserWrapper = styled.div`
-  padding: 15px 46px 18px 17px;
-  display: flex;
-  gap: 37px;
-  align-items: center;
-  justify-content: center;
-  margin: 0px 0px 15px 0px;
-  height: 97px;
-  @media ${device.laptopM} {
-    gap: 10px;
-    padding: 18px 10px 12px 5px;
-  }
-  @media ${device.laptop} {
-    flex-direction: column;
-  }
-  @media ${device.tablet} {
-    flex-direction: row;
-    gap: 30px;
-  }
+  ${({ theme }) => css`
+    padding: 15px 46px 18px 17px;
+    display: flex;
+    gap: 37px;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 15px 0px;
+    height: 97px;
+    ${theme.breakPoints.laptopM} {
+      gap: 10px;
+      padding: 18px 10px 12px 5px;
+    }
+    ${theme.breakPoints.laptop} {
+      flex-direction: column;
+    }
+    ${theme.breakPoints.tablet} {
+      flex-direction: row;
+      gap: 30px;
+    }
+  `}
 `;
 
 export const UserName = styled(UserTitle)`
@@ -170,16 +183,16 @@ export const TweetWrapper = styled.div`
     background-color: ${theme.colors.primary};
     border-radius: 20px;
     width: 750px;
+    ${theme.breakPoints.tablet} {
+      width: 425px;
+      padding: 5px 10px 10px 10px;
+    }
+    ${theme.breakPoints.mobileL} {
+      width: 315px;
+      padding: 5px;
+    }
+    ${theme.breakPoints.mobileS} {
+      width: 295px;
+    }
   `};
-  @media ${device.tablet} {
-    width: 425px;
-    padding: 5px 10px 10px 10px;
-  }
-  @media ${device.mobileL} {
-    width: 315px;
-    padding: 5px;
-  }
-  @media ${device.mobileS} {
-    width: 295px;
-  }
 `;

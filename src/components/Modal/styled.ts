@@ -1,4 +1,3 @@
-import { device } from '@constants/theme';
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -37,18 +36,20 @@ export const Close = styled.div`
     &:hover {
       background-color: ${theme.colors.border};
     }
+    ${theme.breakPoints.tablet} {
+      width: 30px;
+      height: 30px;
+    }
   `};
-  @media ${device.tablet} {
-    width: 30px;
-    height: 30px;
-  }
 `;
 export const Image = styled.img`
-  transition: filter 0.2s;
-  width: 28px;
-  height: 28px;
-  @media ${device.tablet} {
-    width: 23px;
-    height: 23px;
-  }
+  ${({ theme }) => css`
+    transition: filter 0.2s;
+    width: 28px;
+    height: 28px;
+    ${theme.breakPoints.tablet} {
+      width: 23px;
+      height: 23px;
+    }
+  `};
 `;

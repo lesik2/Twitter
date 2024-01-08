@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { device } from '@constants/theme';
 
 import { SearchBtn } from '../ui/search';
 
@@ -16,7 +15,7 @@ export const Wrapper = styled.main`
 export const OpenSearchBtn = styled(SearchBtn)<{ $isOpen?: boolean }>`
   ${({ theme, $isOpen }) => css`
     display: none;
-    @media ${device.laptopM} {
+    ${theme.breakPoints.laptopM} {
       display: block;
       position: fixed;
       top: 20px;

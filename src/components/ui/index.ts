@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { FieldError } from 'react-hook-form';
-import { device } from '@constants/theme';
 
 export const Input = styled.input<{ $error?: FieldError }>`
   ${({ theme, $error }) => css`
@@ -84,13 +83,15 @@ export const WrapperLoader = styled.div`
   transform: translate(-50%, -50%);
 `;
 export const IconTwitter = styled.img`
-  width: 40px;
-  height: 33px;
-  filter: invert(48%) sepia(89%) saturate(1415%) hue-rotate(179deg) brightness(94%) contrast(101%);
-  @media ${device.tablet} {
-    width: 33px;
-    height: 30px;
-  }
+  ${({ theme }) => css`
+    width: 40px;
+    height: 33px;
+    filter: invert(48%) sepia(89%) saturate(1415%) hue-rotate(179deg) brightness(94%) contrast(101%);
+    ${theme.breakPoints.tablet} {
+      width: 33px;
+      height: 30px;
+    }
+  `};
 `;
 
 export const ImageApp = styled.img`
@@ -119,13 +120,13 @@ export const UserTitle = styled.h3`
     font-weight: ${theme.fontWeight.bold};
     line-height: normal;
     margin: 0px;
+    ${theme.breakPoints.tablet} {
+      font-size: 17px;
+    }
+    ${theme.breakPoints.mobileL} {
+      font-size: 15px;
+    }
   `};
-  @media ${device.tablet} {
-    font-size: 17px;
-  }
-  @media ${device.mobileL} {
-    font-size: 15px;
-  }
 `;
 
 export const UserSubtitle = styled.h3`
@@ -136,11 +137,11 @@ export const UserSubtitle = styled.h3`
     font-weight: ${theme.fontWeight.normal};
     line-height: normal;
     margin: 0px;
+    ${theme.breakPoints.tablet} {
+      font-size: 15px;
+    }
+    ${theme.breakPoints.mobileL} {
+      font-size: 14px;
+    }
   `};
-  @media ${device.tablet} {
-    font-size: 15px;
-  }
-  @media ${device.mobileL} {
-    font-size: 14px;
-  }
 `;

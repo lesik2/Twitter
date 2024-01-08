@@ -1,5 +1,5 @@
 import twitter from '@assets/icons/twitter.svg';
-import { DateChoose } from '@components/DateChoose';
+import { DateDropDown } from '@components/DateDropDown';
 import { CONSTANTS, SIGN_UP_INPUTS, ERRORS_MESSAGE } from '@constants/auth';
 import { ROUTES } from '@constants/index';
 import { useState } from 'react';
@@ -100,7 +100,7 @@ export function SignUp() {
           <Link to={ROUTES.AUTHORIZATION}>{CONSTANTS.SIGN_UP_EMAIL_LINK}</Link>
           <SubTitle>{CONSTANTS.SIGN_UP_SUBTITLE}</SubTitle>
           <TextDate>{CONSTANTS.SIGN_UP_TEXT_DATE}</TextDate>
-          <DateChoose date={date} setDate={setDate} />
+          <DateDropDown date={date} setDate={setDate} />
           {error && <SnackBar message={ERRORS_MESSAGE[error.message] ?? error.message} />}
           <WrapperBtn>
             {loading && (
