@@ -1,6 +1,6 @@
 import defaultUser from '@assets/images/defaultUser.png';
 import gallery from '@assets/icons/gallery.svg';
-import { ChangeEvent, FormEvent,  useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import closeIcon from '@assets/icons/close.svg';
 import { Timestamp } from 'firebase/firestore';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
@@ -35,9 +35,8 @@ export function TweetForm({ onClose }: ITweetForm) {
   const [image, setImage] = useState<File | null>(null);
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
- 
-  const textareaRef = useAdjustTextArea(text);
 
+  const textareaRef = useAdjustTextArea(text);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -64,7 +63,6 @@ export function TweetForm({ onClose }: ITweetForm) {
     setImage(null);
     setText('');
     onClose?.();
-
   };
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -73,8 +71,6 @@ export function TweetForm({ onClose }: ITweetForm) {
       setImage(selectedFile);
     }
   };
-
-
 
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setText(event.target.value);

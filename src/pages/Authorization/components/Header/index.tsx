@@ -1,5 +1,5 @@
 import twitter from '@assets/icons/twitter.svg';
-import { CONSTANTS } from '@constants/auth';
+import { CONSTANTS } from '@constants/index';
 
 import { Header, IconTwitter, AuthTitle, AuthSubTitle } from './styled';
 

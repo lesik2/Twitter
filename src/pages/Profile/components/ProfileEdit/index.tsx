@@ -1,4 +1,4 @@
-import { EDIT_INPUTS, ERRORS_MESSAGE } from '@constants/auth';
+import { ERRORS_MESSAGE } from '@constants/auth';
 import { ErrorMessage, IconTwitter, InputWrapper, WrapperLoader } from '@components/ui';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import twitter from '@assets/icons/twitter.svg';
@@ -22,6 +22,7 @@ import {
   LabelWrapper,
   WrapperBtn,
 } from './styled';
+import { EDIT_INPUTS } from './constants';
 
 export interface IProfileEdit {
   handleClose: () => void;

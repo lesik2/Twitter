@@ -1,7 +1,7 @@
 import twitter from '@assets/icons/twitter.svg';
 import { DateDropDown } from '@components/DateDropDown';
-import { CONSTANTS, SIGN_UP_INPUTS, ERRORS_MESSAGE } from '@constants/auth';
-import { ROUTES } from '@constants/index';
+import { ERRORS_MESSAGE } from '@constants/auth';
+import { CONSTANTS, ROUTES } from '@constants/index';
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { TSignUpInputs } from '@customTypes/user';
@@ -27,6 +27,7 @@ import {
   WrapperBtn,
 } from './styled';
 import { isValidDate } from './helpers';
+import { SIGN_UP_INPUTS } from './constants';
 
 import { setUser } from '@//firebase/user';
 

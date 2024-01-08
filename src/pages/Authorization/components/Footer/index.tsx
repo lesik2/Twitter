@@ -1,4 +1,4 @@
-import { FOOTER_AUTH } from '@constants/auth';
+import { FOOTER_AUTH } from '@constants/index';
 
 import { Footer, FooterLink } from './styled';
 

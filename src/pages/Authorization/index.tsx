@@ -1,5 +1,5 @@
-import { CONSTANTS, ERRORS_MESSAGE } from '@constants/auth';
-import { ROUTES } from '@constants/index';
+import { ERRORS_MESSAGE } from '@constants/auth';
+import { CONSTANTS, ROUTES } from '@constants/index';
 import backTwitter from '@assets/images/backTwitter.jpg';
 import google from '@assets/icons/google.svg';
 import { NavLink, useNavigate } from 'react-router-dom';

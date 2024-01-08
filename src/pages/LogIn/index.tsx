@@ -1,6 +1,6 @@
 import twitter from '@assets/icons/twitter.svg';
-import { ROUTES } from '@constants/index';
-import { CONSTANTS, ERRORS_MESSAGE, LOG_IN_INPUTS } from '@constants/auth';
+import { CONSTANTS, ROUTES } from '@constants/index';
+import {  ERRORS_MESSAGE} from '@constants/auth';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { TSignUpInputs } from '@customTypes/user';
 import { InputWrapper, WrapperLoader } from '@components/ui';
@@ -21,6 +21,7 @@ import {
   Title,
   WrapperBtn,
 } from './styled';
+import { LOG_IN_INPUTS } from './constants';
 
 export function LogIn() {
   const navigate = useNavigate();

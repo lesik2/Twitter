@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FOOTER_AUTH } from '@constants/auth';
+import { FOOTER_AUTH } from '@constants/index';
 
 import { FooterMore, FooterText, FooterTextWrapper, FooterTwitter } from './styled';
 
