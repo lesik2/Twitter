@@ -172,6 +172,9 @@ export const LikeImageBtn = styled.button`
   border: none;
   outline: none;
   background-color: inherit;
+  &:hover {
+    cursor: pointer;
+  }
   @media ${device.tablet} {
     width: 20px;
     height: 20px;

@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin: 25px 51px 30px 10px;
+  margin: 22px 51px 30px 10px;
   @media ${device.laptopL} {
     margin: 25px 10px 30px 10px;
     align-items: flex-end;
@@ -32,8 +32,8 @@ export const Navigation = styled.nav`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin: 25px 0px 25px 0px;
-  gap: 5px;
+  margin: 25px 0px 20px 0px;
+  gap: 3px;
   @media ${device.laptopM} {
     align-items: center;
     margin: 15px 0px 10px 0px;
@@ -136,7 +136,7 @@ export const LogOutBtn = styled(Button)`
   }
 `;
 export const UserWrapper = styled.div`
-  padding: 18px 46px 18px 17px;
+  padding: 15px 46px 18px 17px;
   display: flex;
   gap: 37px;
   align-items: center;

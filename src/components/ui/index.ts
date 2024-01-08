@@ -39,9 +39,11 @@ export const Button = styled.button`
     border: none;
     transition: background-color 0.2s;
     &:hover {
+      cursor: pointer;
       background-color: ${theme.colors.hover};
     }
     &:disabled {
+      cursor: default;
       opacity: 0.4;
       background-color: ${theme.colors.secondary};
     }

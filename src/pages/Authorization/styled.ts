@@ -77,6 +77,7 @@ export const RegisterBtn = styled.button`
     transition: background-color 0.3s;
     &:hover {
       background-color: ${theme.colors.border};
+      cursor: pointer;
     }
   `};
   @media ${device.laptop} {
