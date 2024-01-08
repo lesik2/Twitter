@@ -7,12 +7,9 @@ import { useGetTweets } from './hooks/useGetTweets';
 
 import { TweetsWrapper } from '../Profile/styled';
 
-
-
 export function Home() {
- 
   const tweetsData = useGetTweets();
-  
+
   return (
     <>
       <HomeSection>

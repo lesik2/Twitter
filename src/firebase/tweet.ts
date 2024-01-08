@@ -89,15 +89,11 @@ export const deleteTweetFromFirebase = async (id: string) => {
 };
 
 export const likeTweetFromFirebase = async (id: string, uid: string, gap: number) => {
-  try {
-    const tweetsCollectionRef = collection(db, COLLECTIONS.TWEETS);
-    await updateDoc(doc(tweetsCollectionRef, id), {
-      amountOfLikes: increment(gap),
-      usersLikes: gap < 0 ? arrayRemove(uid) : arrayUnion(uid),
-    });
-  } catch (error) {
-    console.error(error);
-  }
+  const tweetsCollectionRef = collection(db, COLLECTIONS.TWEETS);
+  await updateDoc(doc(tweetsCollectionRef, id), {
+    amountOfLikes: increment(gap),
+    usersLikes: gap < 0 ? arrayRemove(uid) : arrayUnion(uid),
+  });
 };
 
 export const getTweetById = async (id: string) => {

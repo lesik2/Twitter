@@ -30,6 +30,7 @@ import {
 } from './styled';
 
 import { ImageApp, ImageUser, UserTitle } from '../ui';
+import { SnackBar } from '../SnackBar';
 
 export function Tweet({
   nameUser,
@@ -47,6 +48,7 @@ export function Tweet({
   const dispatch = useAppDispatch();
   const user = useAppSelector((state) => state.userReducer);
   const [isOpen, setIsOpen] = useState(false);
+  const [error, setError] = useState<Error|null>(null);
 
   const handleOpen = () => {
     if (user.uid === authorId) {
@@ -69,12 +71,22 @@ export function Tweet({
   const handleLike = async () => {
     const { uid } = user;
     if (uid) {
-      const gap = activeLike ? -1 : 1;
+      let gap = activeLike ? -1 : 1;
       setActiveLike(!activeLike);
-      setLikesAmount(likesAmount + gap);
-      await likeTweetFromFirebase(id, uid, gap);
+      const newLikesAmount = likesAmount + gap;
+      setLikesAmount(newLikesAmount);
 
-      dispatch(updateTweet({ id, userId: uid, gap }));
+      try{
+        await likeTweetFromFirebase(id, uid, gap);
+        dispatch(updateTweet({ id, userId: uid, gap }));
+      }catch(errorObj){
+        console.error(errorObj);
+        gap = activeLike ? 1 : -1;
+        setActiveLike(activeLike);
+        setLikesAmount(newLikesAmount + gap);
+        setError(errorObj as Error);
+      } 
+
     }
   };
 
@@ -99,6 +111,7 @@ export function Tweet({
             <ImageApp alt='like' src={activeLike ? likeFilled : likeOutline} />
           </LikeImageBtn>
           <LikeText>{likesAmount}</LikeText>
+          {error && <SnackBar message={error.message} error={error}/>}
         </LikesWrapper>
       </TweetWrapper>
       <Wrapper>

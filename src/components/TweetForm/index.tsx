@@ -1,6 +1,6 @@
 import defaultUser from '@assets/images/defaultUser.png';
 import gallery from '@assets/icons/gallery.svg';
-import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
+import { ChangeEvent, FormEvent,  useState } from 'react';
 import closeIcon from '@assets/icons/close.svg';
 import { Timestamp } from 'firebase/firestore';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
@@ -24,16 +24,21 @@ import {
   TwittText,
   UserWrapperImage,
 } from './styled';
+import { useAdjustTextArea } from './hooks/useAdjustTextArea';
 
 import { ImageApp, ImageUser } from '../ui';
 
 export function TweetForm({ onClose }: ITweetForm) {
   const user = useAppSelector((state) => state.userReducer);
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const dispatch = useAppDispatch();
+
   const [image, setImage] = useState<File | null>(null);
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
-  const dispatch = useAppDispatch();
+ 
+  const textareaRef = useAdjustTextArea(text);
+
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setLoading(true);
@@ -58,9 +63,8 @@ export function TweetForm({ onClose }: ITweetForm) {
     setLoading(false);
     setImage(null);
     setText('');
-    if (onClose) {
-      onClose();
-    }
+    onClose?.();
+
   };
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -70,16 +74,7 @@ export function TweetForm({ onClose }: ITweetForm) {
     }
   };
 
-  useEffect(() => {
-    const adjustTextareaHeight = () => {
-      if (textareaRef.current) {
-        textareaRef.current.style.height = 'auto';
-        textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-      }
-    };
 
-    adjustTextareaHeight();
-  }, [text]);
 
   const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     setText(event.target.value);

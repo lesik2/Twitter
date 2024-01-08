@@ -7,7 +7,6 @@ import { getFormatDate } from '@utils/date';
 import { TweetsWrapper, UserSection } from './styled';
 import { useTweet } from './hooks/useTweet';
 
-
 export function TweetPage() {
   const currentUser = useAppSelector((state) => state.userReducer);
   const params = useParams();

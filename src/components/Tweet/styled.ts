@@ -173,6 +173,7 @@ export const LikesWrapper = styled.div`
   justify-content: flex-start;
   gap: 10px;
   margin-top: 22px;
+  position: relative;
 `;
 export const LikeImageBtn = styled.button`
   ${({ theme }) => css`
