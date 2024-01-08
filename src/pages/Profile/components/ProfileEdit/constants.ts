@@ -41,3 +41,8 @@ export const EDIT_INPUTS: IEditInput[] = [
     minLength: 8,
   },
 ] as const;
+
+export const CONSTANTS = {
+  BTN: 'Save',
+  TITLE: 'Edit profile',
+};

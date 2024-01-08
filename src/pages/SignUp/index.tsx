@@ -1,7 +1,7 @@
 import twitter from '@assets/icons/twitter.svg';
 import { DateDropDown } from '@components/DateDropDown';
 import { ERRORS_MESSAGE } from '@constants/auth';
-import { CONSTANTS, ROUTES } from '@constants/index';
+import { ROUTES } from '@constants/index';
 import { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { TSignUpInputs } from '@customTypes/user';
@@ -29,7 +29,7 @@ import {
   WrapperLoader,
 } from './styled';
 import { isValidDate } from './helpers';
-import { SIGN_UP_INPUTS } from './constants';
+import { CONSTANTS, SIGN_UP_INPUTS } from './constants';
 
 import { setUser } from '@//firebase/user';
 
@@ -74,7 +74,7 @@ export function SignUp() {
       <RegisterWrapper>
         <IconTwitter alt='twitter' src={twitter} />
         <Form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
-          <Title>{CONSTANTS.SIGN_UP_TITLE}</Title>
+          <Title>{CONSTANTS.TITLE}</Title>
           <WrapperInputs>
             {SIGN_UP_INPUTS.map((input) => {
               const { name, type, pattern, errorMessage, lengthError, placeholder, minLength } = input;
@@ -100,9 +100,9 @@ export function SignUp() {
               );
             })}
           </WrapperInputs>
-          <Link to={ROUTES.AUTHORIZATION}>{CONSTANTS.SIGN_UP_EMAIL_LINK}</Link>
-          <SubTitle>{CONSTANTS.SIGN_UP_SUBTITLE}</SubTitle>
-          <TextDate>{CONSTANTS.SIGN_UP_TEXT_DATE}</TextDate>
+          <Link to={ROUTES.AUTHORIZATION}>{CONSTANTS.EMAIL_LINK}</Link>
+          <SubTitle>{CONSTANTS.SUBTITLE}</SubTitle>
+          <TextDate>{CONSTANTS.TEXT_DATE}</TextDate>
           <DateDropDown date={date} setDate={setDate} />
           {error && <SnackBar message={ERRORS_MESSAGE[error.message] ?? error.message} />}
           <WrapperBtn>
@@ -112,7 +112,7 @@ export function SignUp() {
               </WrapperLoader>
             )}
             <RegisterBtn type='submit' disabled={!(isValid && isValidDate(date))}>
-              {CONSTANTS.SIGN_UP_BTN}
+              {CONSTANTS.BTN}
             </RegisterBtn>
           </WrapperBtn>
         </Form>

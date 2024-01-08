@@ -1,9 +1,10 @@
-import { CONSTANTS, ROUTES } from '@constants/index';
+import { ROUTES } from '@constants/index';
 import { ToggleTheme } from '@components/ToggleTheme';
 import back from '@assets/icons/back.svg';
 import { useLocation } from 'react-router-dom';
 
 import { BackLink, HeaderSection, Title, Wrapper } from './styled';
+import { CONSTANTS } from './constants';
 
 import { ImageApp } from '../ui';
 
@@ -21,7 +22,7 @@ export function Header() {
             <ImageApp alt='back arrow' src={back} />
           </BackLink>
         )}
-        <Title>{CONSTANTS.HOME_TITLE}</Title>
+        <Title>{CONSTANTS.TITLE}</Title>
       </Wrapper>
 
       <ToggleTheme />

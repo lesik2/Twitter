@@ -3,7 +3,6 @@ import { ErrorMessage, IconTwitter } from '@components/ui';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import twitter from '@assets/icons/twitter.svg';
 import { useState } from 'react';
-import { CONSTANTS } from '@constants/index';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import { SnackBar } from '@components/SnackBar';
 import { InfinityLoader } from '@components/InfinityLoader';
@@ -11,6 +10,7 @@ import { updateUserProfile } from '@store/reducers/userSlice';
 import { updateUserInfo, updateUserPassword } from '@db/user';
 import { TEditInputs } from '@customTypes/user';
 
+import { CONSTANTS, EDIT_INPUTS } from './constants';
 import {
   EditInput,
   Form,
@@ -24,7 +24,6 @@ import {
   InputWrapper,
   WrapperLoader,
 } from './styled';
-import { EDIT_INPUTS } from './constants';
 
 export interface IProfileEdit {
   handleClose: () => void;
@@ -91,7 +90,7 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
     <ProfileEditSection data-cy='edit-profile'>
       <IconTwitter alt='twitter' src={twitter} />
       <Form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
-        <Title>{CONSTANTS.EDIT_TITLE}</Title>
+        <Title>{CONSTANTS.TITLE}</Title>
         <WrapperInputs>
           {EDIT_INPUTS.map((input) => {
             const { name, type, pattern, errorMessage, lengthError, label, minLength } = input;
@@ -127,7 +126,7 @@ export function ProfileEdit({ handleClose }: IProfileEdit) {
             </WrapperLoader>
           )}
           <EditBtn data-cy='edit-btn' type='submit' disabled={!isValid}>
-            {CONSTANTS.EDIT_BTN}
+            {CONSTANTS.BTN}
           </EditBtn>
         </WrapperBtn>
 

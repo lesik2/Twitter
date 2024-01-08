@@ -1,5 +1,5 @@
 import twitter from '@assets/icons/twitter.svg';
-import { CONSTANTS, ROUTES } from '@constants/index';
+import { ROUTES } from '@constants/index';
 import { ERRORS_MESSAGE } from '@constants/auth';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { TSignUpInputs } from '@customTypes/user';
@@ -22,7 +22,7 @@ import {
   InputWrapper,
   WrapperLoader,
 } from './styled';
-import { LOG_IN_INPUTS } from './constants';
+import { CONSTANTS, LOG_IN_INPUTS } from './constants';
 
 export function LogIn() {
   const navigate = useNavigate();
@@ -55,7 +55,7 @@ export function LogIn() {
     <SectionLogIn data-testid='login-page'>
       <LogInWrapper>
         <Icon alt='twitter' src={twitter} />
-        <Title>{CONSTANTS.LOG_IN_TITLE}</Title>
+        <Title>{CONSTANTS.TITLE}</Title>
         <Form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
           {LOG_IN_INPUTS.map((input) => {
             const { name, type, placeholder } = input;
@@ -80,12 +80,12 @@ export function LogIn() {
               </WrapperLoader>
             )}
             <LogInBtn data-cy='submit-login' type='submit' disabled={!isValid}>
-              {CONSTANTS.LOG_IN_BTN}
+              {CONSTANTS.BTN}
             </LogInBtn>
           </WrapperBtn>
           {error && <SnackBar message={ERRORS_MESSAGE[error.message] ?? error.message} />}
         </Form>
-        <SignUpLink to={ROUTES.SIGN_UP}>{CONSTANTS.LOGIN_IN_SIGN_UP_LINK}</SignUpLink>
+        <SignUpLink to={ROUTES.SIGN_UP}>{CONSTANTS.LINK}</SignUpLink>
       </LogInWrapper>
     </SectionLogIn>
   );

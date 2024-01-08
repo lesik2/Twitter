@@ -17,3 +17,8 @@ export const LOG_IN_INPUTS: IInput[] = [
     minLength: 1,
   },
 ] as const;
+export const CONSTANTS = {
+  TITLE: 'Log in to Twitter',
+  BTN: ' Log in',
+  LINK: 'Sign up to Twitter',
+};

@@ -1,14 +1,14 @@
 import twitter from '@assets/icons/twitter.svg';
-import { CONSTANTS } from '@constants/index';
 
+import { CONSTANTS } from './constants';
 import { Header, IconTwitter, AuthTitle, AuthSubTitle } from './styled';
 
 export function HeaderComponent() {
   return (
     <Header>
       <IconTwitter alt='Twitter' src={twitter} />
-      <AuthTitle>{CONSTANTS.AUTH_TITLE}</AuthTitle>
-      <AuthSubTitle>{CONSTANTS.AUTH_SUBTITLE}</AuthSubTitle>
+      <AuthTitle>{CONSTANTS.TITLE}</AuthTitle>
+      <AuthSubTitle>{CONSTANTS.SUBTITLE}</AuthSubTitle>
     </Header>
   );
 }

@@ -1,5 +1,5 @@
 import { ERRORS_MESSAGE } from '@constants/auth';
-import { CONSTANTS, ROUTES } from '@constants/index';
+import { ROUTES } from '@constants/index';
 import backTwitter from '@assets/images/backTwitter.jpg';
 import google from '@assets/icons/google.svg';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -26,6 +26,7 @@ import {
 } from './styled';
 import { FooterComponent } from './components/Footer';
 import { HeaderComponent } from './components/Header';
+import { CONSTANTS } from './constants';
 
 export function Authorization() {
   const [signInWithGoogle, , , error] = useSignInWithGoogle(auth);
@@ -66,11 +67,11 @@ export function Authorization() {
           <RegisterWrapper>
             <RegisterBtn data-cy='google-register' onClick={login}>
               <IconGoogle alt='google' src={google} />
-              <RegisterText>{CONSTANTS.AUTH_GOOGLE}</RegisterText>
+              <RegisterText>{CONSTANTS.GOOGLE}</RegisterText>
             </RegisterBtn>
             <NavLink data-cy='sign-up-link' to={ROUTES.SIGN_UP}>
               <RegisterBtn>
-                <RegisterText>{CONSTANTS.AUTH_EMAIL}</RegisterText>
+                <RegisterText>{CONSTANTS.EMAIL}</RegisterText>
               </RegisterBtn>
             </NavLink>
             {error && <SnackBar message={ERRORS_MESSAGE[error.message] ?? error.message} />}
@@ -82,9 +83,9 @@ export function Authorization() {
             <AuthMarkText> Cookie Use</AuthMarkText>.
           </AuthText>
           <LoginText>
-            {CONSTANTS.AUTH_LOGIN_TEXT}
+            {CONSTANTS.LOGIN_TEXT}
             <LinkToLogin data-cy='login-link' to={ROUTES.LOG_IN}>
-              {CONSTANTS.AUTH_LOG_IN}
+              {CONSTANTS.LOG_IN}
             </LinkToLogin>
           </LoginText>
         </AuthWrapper>

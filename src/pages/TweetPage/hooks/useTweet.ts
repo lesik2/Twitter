@@ -10,16 +10,13 @@ export function useTweet(id: string): [UserState | null, ITweet | null] {
   useEffect(() => {
     getTweetById(id)
       .then((tweetByUser) => {
-        if (tweetByUser) {
-          setTweet(tweetByUser);
-          getUserById(tweetByUser.userId)
-            .then((userById) => {
-              if (userById) {
-                setUser(userById);
-              }
-            })
-            .catch((error: Error) => console.error(error));
-        }
+        if (!tweetByUser) return;
+        setTweet(tweetByUser);
+        getUserById(tweetByUser.userId)
+          .then((userById) => {
+            setUser(userById);
+          })
+          .catch((error: Error) => console.error(error));
       })
       .catch((error: Error) => console.error(error));
   }, [id]);

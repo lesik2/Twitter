@@ -2,7 +2,7 @@ import { APP_LINKS } from '@constants/sideBar';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import defaultUser from '@assets/images/defaultUser.png';
-import { ROUTES, CONSTANTS } from '@constants/index';
+import { ROUTES } from '@constants/index';
 import { auth } from '@db/index';
 import { removeUser } from '@store/reducers/userSlice';
 import twitter from '@assets/icons/twitter.svg';
@@ -25,6 +25,7 @@ import {
   SideBarIconTwitter,
   ImageUserWrapper,
 } from './styled';
+import { CONSTANTS } from './constants';
 
 import { UserInfo, UserSubtitle, ImageUser } from '../ui/index';
 import { Modal } from '../Modal';
@@ -77,7 +78,7 @@ export function SideBar({ onClose }: ISideBar) {
             );
           })}
         </Navigation>
-        <TweetBtn onClick={handleOpen}>{CONSTANTS.ASIDE_TWEET}</TweetBtn>
+        <TweetBtn onClick={handleOpen}>{CONSTANTS.TWEET}</TweetBtn>
       </Wrapper>
       <UserWrapper>
         <ImageUserWrapper>
@@ -89,7 +90,7 @@ export function SideBar({ onClose }: ISideBar) {
         </UserInfo>
       </UserWrapper>
       <LogOutBtn data-cy='log-out-btn' onClick={handleSignOut}>
-        {CONSTANTS.ASIDE_LOG_OUT}
+        {CONSTANTS.LOG_OUT}
       </LogOutBtn>
       {isOpen && (
         <Modal onClose={handleClose}>
