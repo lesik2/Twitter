@@ -2,10 +2,11 @@ import { useParams } from 'react-router-dom';
 import { Header } from '@components/Header';
 import { Tweet } from '@components/Tweet';
 import { useAppSelector } from '@hooks/redux';
-import { getFormatDate } from '@utils/index';
+import { getFormatDate } from '@utils/date';
 
 import { TweetsWrapper, UserSection } from './styled';
 import { useTweet } from './hooks/useTweet';
+
 
 export function TweetPage() {
   const currentUser = useAppSelector((state) => state.userReducer);

@@ -1,7 +1,7 @@
 import { TweetForm } from '@components/TweetForm';
 import { useAppSelector } from '@hooks/redux';
 import { Tweet } from '@components/Tweet';
-import { getFormatDate } from '@utils/index';
+import { getFormatDate } from '@utils/date';
 
 import { Header } from './components/Header';
 import { ProfileSection, TweetsTitle, TweetsWrapper } from './styled';

@@ -7,7 +7,7 @@ import { getTweetsByUSerId } from '@db/tweet';
 
 import { useAppDispatch } from './redux';
 
-export function useUser(user: User | undefined | null): void {
+export function useGetUserData(user: User | undefined | null): void {
   const dispatch = useAppDispatch();
 
   useEffect(() => {

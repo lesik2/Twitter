@@ -5,7 +5,7 @@ import { getUserById } from './user';
 
 import { COLLECTIONS } from '../constants/firebase';
 import { ITweet } from '../types/models';
-import { getFormatDate } from '../utils';
+import { getFormatDate } from '../utils/date';
 
 import { db } from '.';
 

@@ -5,7 +5,7 @@ import defaultUser from '@assets/images/defaultUser.png';
 import { Header } from '@components/Header';
 import { Tweet } from '@components/Tweet';
 import { useAppSelector } from '@hooks/redux';
-import { getFormatDate } from '@utils/index';
+import { getFormatDate } from '@utils/date';
 
 import { TweetsWrapper, UserSection, UserWrapper, UserWrapperImage, WrapperImage } from './styled';
 import { useUserTweets } from './hooks/useUserTweets';

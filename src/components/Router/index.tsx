@@ -3,12 +3,9 @@ import { privateRoutes, publicRoutes } from '@constants/routes';
 import { IRouter } from '@customTypes/index';
 import { useRoute } from '@hooks/useRoute';
 
-
-import {  Wrapper } from './styled';
+import { Wrapper } from './styled';
 
 import { Layout } from '../Layout';
-
-
 
 export const Router = ({ user }: IRouter) => {
   useRoute(user);
